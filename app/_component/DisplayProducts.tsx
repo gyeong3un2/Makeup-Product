@@ -4,7 +4,7 @@ import ProductColors from "./ProductColors";
 import ProductInfo from "./ProductInfo";
 
 const dummy = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 ]
 
 const cardDummy = {
