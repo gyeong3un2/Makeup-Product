@@ -1,30 +1,23 @@
 import { Typography } from "@mui/material";
-
-const cardDummy = {
-  product_image: 'https://sdcdn.io/mac/kr/mac_sku_SK6P04_1x1_0.png?width=1080&height=1080',
-  brand: 'colourpop',
-  name: 'Lippie Pencil',
-  category: 'pencil',
-  price: '5.0'
-}
+import { cardInfo } from "@/src/data/dummy";
 
 function ProductInfo() {
   return (
     <>
       <Typography className="my-4" gutterBottom>
-        {cardDummy.brand}
+        {cardInfo.brand}
       </Typography>
 
       <Typography className="my-3">
-        {cardDummy.name}
+        {cardInfo.name}
       </Typography>
 
       <Typography className="mt-3">
-        Category: {cardDummy.category}
+        Category: {cardInfo.category}
       </Typography>
 
       <Typography className="mt-1">
-        $ {cardDummy.price}0
+        $ {cardInfo.price}0
       </Typography>
     </>
   )

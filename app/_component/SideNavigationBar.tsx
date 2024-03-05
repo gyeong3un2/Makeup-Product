@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemText, Toolbar, Typography } from '@mui/material';
+import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { categorys, tags } from '@/src/data/dummy';
+
 import MenuIcon from '@mui/icons-material/Menu';
 
 const DRAWER_WIDTH = 240;
-
-const categorys = ['Powder', 'Cream'];
-const tags = ['Vegan', 'Gluten free', 'Canadian', 'Natual', 'Non-gmo', 'Purpicks', 'Usda organic', 'Certclean', 'Ewg verified', 'Hypoallergenic', 'No talc'];
 
 function SideNavigationBar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -32,7 +31,7 @@ function SideNavigationBar() {
 
   const drawer = (
     <div>
-      <Toolbar className='h-36'/>
+      <Box className='h-36'/>
       <Typography className='p-2 text-sm text-gray-500'>
         By Categorys
       </Typography>
@@ -60,7 +59,6 @@ function SideNavigationBar() {
 
   return (
     <Box>
-      {/* <CssBaseline /> */}
       <IconButton
         color="inherit"
         aria-label="open drawer"
@@ -72,7 +70,6 @@ function SideNavigationBar() {
       <Box
         component="nav"
         className={`w-sm-${DRAWER_WIDTH}`}
-        aria-label="mailbox folders"
       >
         <Drawer
           variant="temporary"

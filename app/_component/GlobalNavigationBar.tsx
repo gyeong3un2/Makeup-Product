@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
-
-const productType = ['Blush', 'Bronzer', 'Eyebrow', 'Eyeliner', 'EyeShadow', 'Foundation', 'Lip liner', 'Lipstick', 'Mascara', 'Nail polish']
+import { productType } from "@/src/data/dummy";
 
 function GlobalNavigationBar() {
   const [selectType, setSelectType] = useState<string>('');
