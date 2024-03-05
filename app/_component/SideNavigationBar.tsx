@@ -1,5 +1,14 @@
 import { Dispatch, SetStateAction, useState } from 'react';
-import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemText, Typography } from '@mui/material';
+import {
+  Box,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+  Typography,
+} from '@mui/material';
 import { categorys, tags } from '@/src/data/dummy';
 
 import MenuIcon from '@mui/icons-material/Menu';
@@ -11,7 +20,7 @@ interface ISnbProps {
   setSelectFilter: Dispatch<SetStateAction<string>>;
 }
 
-function SideNavigationBar({selectFilter, setSelectFilter}: ISnbProps) {
+function SideNavigationBar({ selectFilter, setSelectFilter }: ISnbProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
@@ -33,29 +42,43 @@ function SideNavigationBar({selectFilter, setSelectFilter}: ISnbProps) {
   const handleSelectFilter = (name: string) => {
     handleDrawerClose();
     setSelectFilter(name);
-  }
+  };
 
   const drawer = (
-    <div className='border rounded-xl mt-12 p-2'>
-      <Typography className='p-2 text-sm text-gray-500'>
+    <div className="border rounded-xl mt-12 p-2">
+      <Typography className="p-2 text-sm text-gray-500">
         By Categorys
       </Typography>
       <Divider />
       <List>
         {categorys.map((category) => (
           <ListItem key={category}>
-            <ListItemText primary={category} onClick={() => handleSelectFilter(category)} className={`${selectFilter === category ? 'text-main underline underline-offset-8' : ''} hover:underline hover:underline-offset-8 hover:cursor-pointer hover:text-main transition-all ease-in-out`}/>
+            <ListItemText
+              primary={category}
+              onClick={() => handleSelectFilter(category)}
+              className={`${
+                selectFilter === category
+                  ? 'text-main underline underline-offset-8'
+                  : ''
+              } hover:underline hover:underline-offset-8 hover:cursor-pointer hover:text-main transition-all ease-in-out`}
+            />
           </ListItem>
         ))}
       </List>
-      <Typography className='p-2 text-sm text-gray-500'>
-        By Tags
-      </Typography>
+      <Typography className="p-2 text-sm text-gray-500">By Tags</Typography>
       <Divider />
       <List>
         {tags.map((tag) => (
           <ListItem key={tag}>
-            <ListItemText primary={tag} onClick={() => handleSelectFilter(tag)} className={`${selectFilter === tag ? 'text-main underline underline-offset-8' : ''} hover:underline hover:underline-offset-8 hover:cursor-pointer hover:text-main transition-all ease-in-out`}/>
+            <ListItemText
+              primary={tag}
+              onClick={() => handleSelectFilter(tag)}
+              className={`${
+                selectFilter === tag
+                  ? 'text-main underline underline-offset-8'
+                  : ''
+              } hover:underline hover:underline-offset-8 hover:cursor-pointer hover:text-main transition-all ease-in-out`}
+            />
           </ListItem>
         ))}
       </List>
@@ -68,15 +91,12 @@ function SideNavigationBar({selectFilter, setSelectFilter}: ISnbProps) {
         color="inherit"
         aria-label="open drawer"
         onClick={handleDrawerToggle}
-        className='absolute left-0'
-        sx={{display: {xl: 'none'}}}
+        className="absolute left-0"
+        sx={{ display: { xl: 'none' } }}
       >
         <MenuIcon />
       </IconButton>
-      <Box
-        component="nav"
-        className={`w-sm-${DRAWER_WIDTH}`}
-      >
+      <Box component="nav" className={`w-sm-${DRAWER_WIDTH}`}>
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -87,28 +107,43 @@ function SideNavigationBar({selectFilter, setSelectFilter}: ISnbProps) {
           }}
           sx={{
             display: { xl: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: DRAWER_WIDTH },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: DRAWER_WIDTH,
+            },
           }}
         >
           {drawer}
         </Drawer>
 
-        <Box 
+        <Box
           className="absolute -ml-[46rem]"
           sx={{
             display: { lg: 'none', xl: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: DRAWER_WIDTH },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: DRAWER_WIDTH,
+            },
           }}
         >
-          <Box className='h-36'/>
+          <Box className="h-36" />
           {drawer}
         </Box>
 
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs:'none', sm: 'none', md: 'none', lg: 'none', xl: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: DRAWER_WIDTH },
+            display: {
+              xs: 'none',
+              sm: 'none',
+              md: 'none',
+              lg: 'none',
+              xl: 'none',
+            },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: DRAWER_WIDTH,
+            },
           }}
           open
         >

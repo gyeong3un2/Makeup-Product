@@ -1,3 +1,117 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "parserOptions": {
+    "createDefaultProgram": true,
+    "tsconfigRootDir": ".",
+    "project": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "ignorePatterns": ["node_modules/"],
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling", "index"],
+          "type",
+          "unknown"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "{react*,react*/**}",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "{next*,next*/**}",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@cats-service/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@hbm/**",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "consistent-return": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-unused-vars": "off",
+    "no-console": "off",
+    "no-alert": "off",
+    "no-use-before-define": "off",
+    "no-underscore-dangle": "off",
+    "no-param-reassign": "off", // mutating redux state in redux-toolkit.
+    "import/no-unresolved": "off", // raw-loader
+    "import/prefer-default-export": "off",
+    "global-require": "off", // raw-loader
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/no-array-index-key": "off",
+    "react/no-unescaped-entities": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/state-in-constructor": "off",
+    "react/no-danger": "off",
+    "react/prop-types": "off",
+    "react/forbid-prop-types": "off",
+    "react/require-default-props": "off",
+    "react/default-props-match-prop-types": "off",
+    "react/no-unused-prop-types": "off",
+    "react/react-in-jsx-scope": "off", // after react v17
+    "react/jsx-uses-react": "off", // after react v17
+    "react/jsx-no-bind": "off",
+    "react/button-has-type": "off"
+  }
 }
