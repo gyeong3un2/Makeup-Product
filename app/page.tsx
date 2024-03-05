@@ -8,7 +8,7 @@ import DisplayProducts from './_component/DisplayProducts';
 import GlobalNavigationBar from './_component/GlobalNavigationBar';
 import SideNavigationBar from './_component/SideNavigationBar';
 
-function Home() {
+function MainPage() {
   const [selectType, setSelectType] = useState<string>('');
   const [selectFilter, setSelectFilter] = useState<string>('');
 
@@ -18,6 +18,10 @@ function Home() {
   };
   const handleFilterDelete = () => {
     setSelectFilter('');
+  };
+  const handleSelectType = (name: string) => {
+    setSelectType(name);
+    handleFilterDelete();
   };
 
   return (
@@ -34,8 +38,7 @@ function Home() {
 
         <GlobalNavigationBar
           selectType={selectType}
-          setSelectType={setSelectType}
-          onClick={handleFilterDelete}
+          onSelectType={handleSelectType}
         />
 
         <Divider className="border-gray-400 mb-3" />
@@ -64,4 +67,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default MainPage;
