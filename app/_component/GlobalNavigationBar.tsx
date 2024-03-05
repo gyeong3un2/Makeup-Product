@@ -1,10 +1,13 @@
 import { Box, Typography } from "@mui/material";
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { productType } from "@/src/data/dummy";
 
-function GlobalNavigationBar() {
-  const [selectType, setSelectType] = useState<string>('');
+interface IGnbProps {
+  selectType: string;
+  setSelectType: Dispatch<SetStateAction<string>>;
+}
 
+function GlobalNavigationBar({selectType, setSelectType} : IGnbProps) {
   const handleSelectType = (name: string) => {
     setSelectType(name);
   }

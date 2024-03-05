@@ -7,6 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 const DRAWER_WIDTH = 240;
 
 function SideNavigationBar() {
+  const [selectFilter, setSelectFilter] = useState<string>('');
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
@@ -25,13 +26,13 @@ function SideNavigationBar() {
     }
   };
 
-  const handleSelectFilter = () => {
+  const handleSelectFilter = (name: string) => {
     handleDrawerClose();
+    setSelectFilter(name);
   }
 
   const drawer = (
-    <div>
-      <Box className='h-36'/>
+    <div className='border rounded-xl mt-16 p-2'>
       <Typography className='p-2 text-sm text-gray-500'>
         By Categorys
       </Typography>
@@ -39,7 +40,7 @@ function SideNavigationBar() {
       <List>
         {categorys.map((category) => (
           <ListItem key={category}>
-            <ListItemText primary={category} onClick={handleSelectFilter} className='hover:underline hover:underline-offset-8 hover:cursor-pointer hover:text-main transition-all ease-in-out'/>
+            <ListItemText primary={category} onClick={() => handleSelectFilter(category)} className={`${selectFilter === category ? 'text-main underline underline-offset-8' : ''} hover:underline hover:underline-offset-8 hover:cursor-pointer hover:text-main transition-all ease-in-out`}/>
           </ListItem>
         ))}
       </List>
@@ -50,7 +51,7 @@ function SideNavigationBar() {
       <List>
         {tags.map((tag) => (
           <ListItem key={tag}>
-            <ListItemText primary={tag} onClick={handleSelectFilter} className='hover:underline hover:underline-offset-8 hover:cursor-pointer hover:text-main transition-all ease-in-out'/>
+            <ListItemText primary={tag} onClick={() => handleSelectFilter(tag)} className={`${selectFilter === tag ? 'text-main underline underline-offset-8' : ''} hover:underline hover:underline-offset-8 hover:cursor-pointer hover:text-main transition-all ease-in-out`}/>
           </ListItem>
         ))}
       </List>
@@ -64,6 +65,7 @@ function SideNavigationBar() {
         aria-label="open drawer"
         onClick={handleDrawerToggle}
         className='absolute left-0'
+        sx={{display: {xl: 'none'}}}
       >
         <MenuIcon />
       </IconButton>
@@ -77,19 +79,31 @@ function SideNavigationBar() {
           onTransitionEnd={handleDrawerTransitionEnd}
           onClose={handleDrawerClose}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
-            display: { xs:'block', sm: 'block', md: 'block', lg: 'block', xl: 'none' },
+            display: { xl: 'block' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: DRAWER_WIDTH },
           }}
         >
           {drawer}
         </Drawer>
+
+        <Box 
+          className="absolute -ml-[46rem]"
+          sx={{
+            display: { lg: 'none', xl: 'block' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: DRAWER_WIDTH },
+          }}
+        >
+          <Box className='h-36'/>
+          {drawer}
+        </Box>
+
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs:'none', sm: 'none', md: 'none', lg: 'none', xl: 'block' },
+            display: { xs:'none', sm: 'none', md: 'none', lg: 'none', xl: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: DRAWER_WIDTH },
           }}
           open
