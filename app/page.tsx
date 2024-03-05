@@ -22,12 +22,12 @@ function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      { selectType && <SideNavigationBar selectFilter={selectFilter} setSelectFilter={setSelectFilter} />}
+      { selectType && <SideNavigationBar selectFilter={selectFilter} setSelectFilter={setSelectFilter}/>}
 
       <Container className="max-w-6xl">
         <Header />
 
-        <GlobalNavigationBar selectType={selectType} setSelectType={setSelectType}/>
+        <GlobalNavigationBar selectType={selectType} setSelectType={setSelectType} onClick={handleFilterDelete}/>
 
         <Divider className="border-gray-400 mb-3" />
         

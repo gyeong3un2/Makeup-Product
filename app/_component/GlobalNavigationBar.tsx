@@ -5,11 +5,13 @@ import { productType } from "@/src/data/dummy";
 interface IGnbProps {
   selectType: string;
   setSelectType: Dispatch<SetStateAction<string>>;
+  onClick: () => void;
 }
 
-function GlobalNavigationBar({selectType, setSelectType} : IGnbProps) {
+function GlobalNavigationBar({selectType, setSelectType, onClick} : IGnbProps) {
   const handleSelectType = (name: string) => {
     setSelectType(name);
+    onClick();
   }
 
   return(
