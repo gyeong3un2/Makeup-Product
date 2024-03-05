@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemText, Typography } from '@mui/material';
 import { categorys, tags } from '@/src/data/dummy';
 
@@ -6,8 +6,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 const DRAWER_WIDTH = 240;
 
-function SideNavigationBar() {
-  const [selectFilter, setSelectFilter] = useState<string>('');
+interface ISnbProps {
+  selectFilter: string;
+  setSelectFilter: Dispatch<SetStateAction<string>>;
+}
+
+function SideNavigationBar({selectFilter, setSelectFilter}: ISnbProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
@@ -32,7 +36,7 @@ function SideNavigationBar() {
   }
 
   const drawer = (
-    <div className='border rounded-xl mt-16 p-2'>
+    <div className='border rounded-xl mt-12 p-2'>
       <Typography className='p-2 text-sm text-gray-500'>
         By Categorys
       </Typography>
