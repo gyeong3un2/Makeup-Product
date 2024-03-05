@@ -1,4 +1,4 @@
-import { Avatar, Box, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Card, CardContent, Grid } from "@mui/material";
 import Image from "next/image";
 import ProductColors from "./ProductColors";
 import ProductInfo from "./ProductInfo";
