@@ -3,26 +3,29 @@ import {
   Box,
   Divider,
   Drawer,
+  Grid,
   IconButton,
-  List,
-  ListItem,
-  ListItemText,
   Typography,
 } from '@mui/material';
-import { categorys, tags } from '@/src/data/dummy';
+import { PRODUCT_MENU } from '@/src/data/dummy';
+import FilterListName from '../components/FilterList';
 
 import MenuIcon from '@mui/icons-material/Menu';
 
 const DRAWER_WIDTH = 240;
 
 interface ISideNavigationBarProps {
-  selectFilter: string;
-  setSelectFilter: Dispatch<SetStateAction<string>>;
+  selectTag: string;
+  selectCategory: string;
+  setSelectTag: Dispatch<SetStateAction<string>>;
+  setSelectCategory: Dispatch<SetStateAction<string>>;
 }
 
 function SideNavigationBar({
-  selectFilter,
-  setSelectFilter,
+  selectTag,
+  selectCategory,
+  setSelectTag,
+  setSelectCategory,
 }: ISideNavigationBarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -42,49 +45,54 @@ function SideNavigationBar({
     }
   };
 
-  const handleSelectFilter = (name: string) => {
+  const handleSelectCategory = (name: string) => {
     handleDrawerClose();
-    setSelectFilter(name);
+    setSelectCategory(name);
+  };
+  const handleSelectTag = (name: string) => {
+    handleDrawerClose();
+    setSelectTag(name);
   };
 
   const drawer = (
     <div className="border rounded-xl mt-12 p-2">
-      <Typography className="p-2 text-sm text-gray-500">
-        By Categorys
-      </Typography>
-      <Divider />
-      <List>
-        {categorys.map((category) => (
-          <ListItem key={category}>
-            <ListItemText
-              primary={category}
-              onClick={() => handleSelectFilter(category)}
-              className={`${
-                selectFilter === category
-                  ? 'text-main underline underline-offset-8'
-                  : ''
-              } hover:underline hover:underline-offset-8 hover:cursor-pointer hover:text-main transition-all ease-in-out`}
-            />
-          </ListItem>
-        ))}
-      </List>
-      <Typography className="p-2 text-sm text-gray-500">By Tags</Typography>
-      <Divider />
-      <List>
-        {tags.map((tag) => (
-          <ListItem key={tag}>
-            <ListItemText
-              primary={tag}
-              onClick={() => handleSelectFilter(tag)}
-              className={`${
-                selectFilter === tag
-                  ? 'text-main underline underline-offset-8'
-                  : ''
-              } hover:underline hover:underline-offset-8 hover:cursor-pointer hover:text-main transition-all ease-in-out`}
-            />
-          </ListItem>
-        ))}
-      </List>
+      <Box className="mb-5">
+        <Typography className="p-2 text-xs text-gray-500">
+          By Categorys
+        </Typography>
+        <Divider />
+
+        <Grid container>
+          <FilterListName
+            data={PRODUCT_MENU.categoryLeft}
+            selectCategory={selectCategory}
+            onSelectFilter={handleSelectCategory}
+          />
+          <FilterListName
+            data={PRODUCT_MENU.categoryRight}
+            selectCategory={selectCategory}
+            onSelectFilter={handleSelectCategory}
+          />
+        </Grid>
+      </Box>
+
+      <Box>
+        <Typography className="p-2 text-xs text-gray-500">By Tags</Typography>
+        <Divider />
+
+        <Grid container>
+          <FilterListName
+            data={PRODUCT_MENU.tagLeft}
+            selectCategory={selectTag}
+            onSelectFilter={handleSelectTag}
+          />
+          <FilterListName
+            data={PRODUCT_MENU.tagRight}
+            selectCategory={selectTag}
+            onSelectFilter={handleSelectTag}
+          />
+        </Grid>
+      </Box>
     </div>
   );
 
@@ -120,7 +128,7 @@ function SideNavigationBar({
         </Drawer>
 
         <Box
-          className="absolute -ml-[46rem]"
+          className="absolute -ml-[52.5rem]"
           sx={{
             display: { lg: 'none', xl: 'block' },
             '& .MuiDrawer-paper': {
@@ -132,26 +140,6 @@ function SideNavigationBar({
           <Box className="h-36" />
           {drawer}
         </Box>
-
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: {
-              xs: 'none',
-              sm: 'none',
-              md: 'none',
-              lg: 'none',
-              xl: 'none',
-            },
-            '& .MuiDrawer-paper': {
-              boxSizing: 'border-box',
-              width: DRAWER_WIDTH,
-            },
-          }}
-          open
-        >
-          {drawer}
-        </Drawer>
       </Box>
     </Box>
   );

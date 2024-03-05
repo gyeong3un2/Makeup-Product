@@ -7,44 +7,53 @@ import Header from './_component/Header';
 import DisplayProducts from './_component/DisplayProducts';
 import GlobalNavigationBar from './_component/GlobalNavigationBar';
 import SideNavigationBar from './_component/SideNavigationBar';
+import FilterChip from './components/FilterChip';
 
 function MainPage() {
-  const [selectType, setSelectType] = useState<string>('');
-  const [selectFilter, setSelectFilter] = useState<string>('');
+  const [selectProductTypeName, setSelectProductTypeName] =
+    useState<string>('');
+  const [selectCategory, setSelectCategory] = useState<string>('');
+  const [selectTag, setSelectTag] = useState<string>('');
 
-  const handleReset = () => {
-    setSelectType('');
-    setSelectFilter('');
+  const handleTypeDelete = () => {
+    setSelectProductTypeName('');
   };
-  const handleFilterDelete = () => {
-    setSelectFilter('');
+  const handleCategoryDelete = () => {
+    setSelectCategory('');
+  };
+  const handleTagDelete = () => {
+    setSelectTag('');
+  };
+  const handleReset = () => {
+    handleTypeDelete();
+    handleCategoryDelete();
+    handleTagDelete();
   };
   const handleSelectType = (name: string) => {
-    setSelectType(name);
-    handleFilterDelete();
+    setSelectProductTypeName(name);
   };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      {selectType && (
-        <SideNavigationBar
-          selectFilter={selectFilter}
-          setSelectFilter={setSelectFilter}
-        />
-      )}
+      <SideNavigationBar
+        selectTag={selectTag}
+        selectCategory={selectCategory}
+        setSelectTag={setSelectTag}
+        setSelectCategory={setSelectCategory}
+      />
 
       <Container className="max-w-6xl">
         <Header />
 
         <GlobalNavigationBar
-          selectType={selectType}
+          selectType={selectProductTypeName}
           onSelectType={handleSelectType}
         />
 
         <Divider className="border-gray-400 mb-3" />
 
         <Box className="h-10 space-x-2">
-          {selectType && (
+          {(selectProductTypeName || selectCategory || selectTag) && (
             <Chip
               icon={<RestartAltIcon className=" fill-white" />}
               label="reset"
@@ -52,12 +61,25 @@ function MainPage() {
               className="text-white bg-main hover:bg-[#5b3e40]"
             />
           )}
-          {selectFilter && (
-            <Chip
-              label={`Filter: ${selectFilter}`}
-              variant="outlined"
-              onDelete={handleFilterDelete}
-              className="text-main border-main"
+          {selectProductTypeName && (
+            <FilterChip
+              labelType="Type"
+              selectFilterName={selectProductTypeName}
+              onDeleteChip={handleTypeDelete}
+            />
+          )}
+          {selectCategory && (
+            <FilterChip
+              labelType="Category"
+              selectFilterName={selectCategory}
+              onDeleteChip={handleCategoryDelete}
+            />
+          )}
+          {selectTag && (
+            <FilterChip
+              labelType="Tag"
+              selectFilterName={selectTag}
+              onDeleteChip={handleTagDelete}
             />
           )}
         </Box>

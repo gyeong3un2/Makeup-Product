@@ -1,6 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { Dispatch, SetStateAction } from 'react';
-import { productType } from '@/src/data/dummy';
+import { PRODUCT_MENU } from '@/src/data/dummy';
 
 interface IGlobalNavigationBarProps {
   selectType: string;
@@ -13,7 +12,7 @@ function GlobalNavigationBar({
 }: IGlobalNavigationBarProps) {
   return (
     <Box className="w-full h-12 flex items-center justify-center">
-      {productType.map((type) => (
+      {PRODUCT_MENU.productType.map((type) => (
         <Typography
           onClick={() => onSelectType(type)}
           className={`my-auto mx-5 ${
