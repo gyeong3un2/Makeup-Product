@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { Dispatch, SetStateAction } from 'react';
 import { productType } from '@/src/data/dummy';
 
-interface IGnbProps {
+interface IGlobalNavigationBarProps {
   selectType: string;
   setSelectType: Dispatch<SetStateAction<string>>;
   onClick: () => void;
@@ -12,7 +12,7 @@ function GlobalNavigationBar({
   selectType,
   setSelectType,
   onClick,
-}: IGnbProps) {
+}: IGlobalNavigationBarProps) {
   const handleSelectType = (name: string) => {
     setSelectType(name);
     onClick();

@@ -15,12 +15,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 const DRAWER_WIDTH = 240;
 
-interface ISnbProps {
+interface ISideNavigationBarProps {
   selectFilter: string;
   setSelectFilter: Dispatch<SetStateAction<string>>;
 }
 
-function SideNavigationBar({ selectFilter, setSelectFilter }: ISnbProps) {
+function SideNavigationBar({
+  selectFilter,
+  setSelectFilter,
+}: ISideNavigationBarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
