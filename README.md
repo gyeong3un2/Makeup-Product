@@ -4,6 +4,8 @@
 
 <br>
 
+- 배포 url: https://makeup-product.vercel.app/
+  
 - 상품 타입, 카테고리, 태그 별로 상품을 찾아볼 수 있습니다.
 
 <br>
@@ -27,11 +29,9 @@ Package Manager: `Yarn`
 - **헤더**
 
 - **GNB (Global Navigation Bar)**
-
   - 상품 타입
 
 - **SNB (Side Navigation Bar)**
-
   - 상품 필터 ( 카테고리, 태그 )
 
 - **본문**
