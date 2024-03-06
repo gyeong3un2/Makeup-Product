@@ -3,13 +3,13 @@
 import { useState } from 'react';
 import { Box, Chip, Container, Divider } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import Header from './_component/Header';
-import DisplayProducts from './_component/DisplayProducts';
-import GlobalNavigationBar from './_component/GlobalNavigationBar';
-import SideNavigationBar from './_component/SideNavigationBar';
-import FilterChip from './components/FilterChip';
+import Header from '../components/home/Header';
+import DisplayProducts from '../components/home/DisplayProducts';
+import GlobalNavigationBar from '../components/home/GlobalNavigationBar';
+import SideNavigationBar from '../components/home/SideNavigationBar';
+import FilterChip from '../components/FilterChip';
 
-function MainPage() {
+function Home() {
   const [selectProductTypeName, setSelectProductTypeName] =
     useState<string>('');
   const [selectCategory, setSelectCategory] = useState<string>('');
@@ -89,4 +89,4 @@ function MainPage() {
   );
 }
 
-export default MainPage;
+export default Home;
