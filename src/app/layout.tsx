@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import StreamQueryClientProvider from '../provider/StreamQueryClientProvider';
+import Provider from '../provider/Provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +18,7 @@ function RootLayout({
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <StreamQueryClientProvider>{children}</StreamQueryClientProvider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

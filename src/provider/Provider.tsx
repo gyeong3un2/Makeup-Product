@@ -16,7 +16,7 @@ interface IProviderProps {
   children: React.ReactNode;
 }
 
-function StreamQueryClientProvider({ children }: IProviderProps) {
+function Provider({ children }: IProviderProps) {
   const queryClient = new QueryClient({ defaultOptions });
 
   return (
@@ -27,4 +27,4 @@ function StreamQueryClientProvider({ children }: IProviderProps) {
   );
 }
 
-export default StreamQueryClientProvider;
+export default Provider;

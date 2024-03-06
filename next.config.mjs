@@ -4,17 +4,13 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: ['https', 'http'],
-        hostname: [
-          'cdn.shopify.com',
-          '3bc01d2807fb1bc0d25c-a86d2521f1af8989841b9619f5314be5.ssl.cf1.rackcdn.com',
-          'www.purpicks.com',
-          'static-assets.glossier.com',
-          'www.nyxcosmetics.com',
-          'www.fentybeauty.com',
-          '',
-        ],
+        protocol: 'http',
+        hostname: 's3.amazonaws.com'
       },
+      {
+        protocol: 'http',
+        hostname: 'images'
+      }
     ],
   },
   async headers() {
