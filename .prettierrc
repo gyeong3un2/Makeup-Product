@@ -1,0 +1,11 @@
+{
+  "endOfLine": "lf",
+
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+
+  "singleQuote": true,
+  "trailingComma": "all",
+  "useTabs": false,
+  "tabWidth": 2
+}
