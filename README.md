@@ -14,13 +14,14 @@ Frameworks: `Next.js 13` \
 Languages: `TypeScript` \
 CSS Framework: `Tailwind CSS` \
 React UI Tool: `MUI` \
-State Management: `Zustand` \
+State Management: `React Query`, `Zustand` \
 Code Formating: `Prettier`, `ESLint` \
 Package Manager: `Yarn`
 
 <br>
 
 ## 프로젝트 진행 단계
+
 ### 1단계: 기본 레이아웃 구현
 
 - **헤더**
@@ -35,3 +36,15 @@ Package Manager: `Yarn`
 
 - **본문**
   - 상품 리스트 ( 상품 이미지, 이름, 브랜드, 카테고리, 가격 )
+
+<br>
+
+## 프로젝트 실행 방법
+
+```shell
+# 필요한 모듈 설치
+yarn
+
+# 프로젝트 실행
+yarn dev
+```
