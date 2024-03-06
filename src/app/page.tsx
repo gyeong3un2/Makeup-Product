@@ -51,7 +51,7 @@ function Home() {
 
         <GlobalNavigationBar
           selectProductType={selectProductType}
-          onSelectTypeName={handleSelectType}
+          onSelectType={handleSelectType}
         />
 
         <Divider className="border-gray-400 mb-3" />

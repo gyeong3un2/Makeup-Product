@@ -3,18 +3,18 @@ import { PRODUCT_MENU } from '@/src/data/dummy';
 
 interface IGlobalNavigationBarProps {
   selectProductType: string;
-  onSelectTypeName: (name: string) => void;
+  onSelectType: (name: string) => void;
 }
 
 function GlobalNavigationBar({
   selectProductType,
-  onSelectTypeName,
+  onSelectType,
 }: IGlobalNavigationBarProps) {
   return (
     <Box className="w-full h-12 flex items-center justify-center">
       {PRODUCT_MENU.productType.map((type) => (
         <Typography
-          onClick={() => onSelectTypeName(type)}
+          onClick={() => onSelectType(type)}
           className={`my-auto mx-5 ${
             selectProductType === type
               ? 'text-main underline underline-offset-8'

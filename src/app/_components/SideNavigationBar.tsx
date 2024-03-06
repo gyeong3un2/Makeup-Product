@@ -27,8 +27,8 @@ function SideNavigationBar({
   setSelectTag,
   setSelectCategory,
 }: ISideNavigationBarProps) {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
+  const [isClosing, setIsClosing] = useState<boolean>(false);
 
   const handleDrawerClose = () => {
     setIsClosing(true);
