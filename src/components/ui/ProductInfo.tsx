@@ -1,20 +1,31 @@
 import { Typography } from '@mui/material';
 import { cardDetailInfo } from '@/src/data/dummy';
+import { Abel } from 'next/font/google';
+import clsx from 'clsx';
+
+const abel = Abel({
+  subsets: ['latin'],
+  weight: '400',
+});
 
 function ProductInfo() {
   return (
     <>
-      <Typography className="my-4" gutterBottom>
+      <Typography className={clsx(abel.className, 'my-3')} gutterBottom>
         {cardDetailInfo.brand}
       </Typography>
 
-      <Typography className="my-3">{cardDetailInfo.name}</Typography>
+      <Typography variant="h6" className={abel.className}>
+        {cardDetailInfo.name}
+      </Typography>
 
-      <Typography className="mt-3">
+      <Typography className={clsx(abel.className, 'mt-3')}>
         Category: {cardDetailInfo.category}
       </Typography>
 
-      <Typography className="mt-1">$ {cardDetailInfo.price}</Typography>
+      <Typography className={clsx(abel.className, 'my-1')}>
+        $ {cardDetailInfo.price}
+      </Typography>
     </>
   );
 }
