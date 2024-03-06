@@ -11,12 +11,12 @@ const abel = Abel({
 function ProductInfo() {
   return (
     <>
-      <Typography className={clsx(abel.className, 'my-3')} gutterBottom>
-        {cardDetailInfo.brand}
-      </Typography>
-
       <Typography variant="h6" className={abel.className}>
         {cardDetailInfo.name}
+      </Typography>
+
+      <Typography className={clsx(abel.className, 'my-3')} gutterBottom>
+        {cardDetailInfo.brand}
       </Typography>
 
       <Typography className={clsx(abel.className, 'mt-3')}>
