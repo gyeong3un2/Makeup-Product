@@ -17,6 +17,10 @@ function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <meta
+        httpEquiv="Content-Security-Policy"
+        content="upgrade-insecure-requests"
+      />
       <body className={inter.className}>
         <Provider>{children}</Provider>
       </body>
