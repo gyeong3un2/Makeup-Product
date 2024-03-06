@@ -1,7 +1,7 @@
 import { Box, Grid } from '@mui/material';
 import { cardDetailInfo } from '@/src/data/dummy';
 
-function ProductColors() {
+function ProductColor() {
   return (
     <Grid container spacing={0.7}>
       {cardDetailInfo.product_colors.map((colour, index) => (
@@ -15,4 +15,4 @@ function ProductColors() {
   );
 }
 
-export default ProductColors;
+export default ProductColor;

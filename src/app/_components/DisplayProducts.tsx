@@ -1,7 +1,7 @@
 import { Card, CardContent, Grid } from '@mui/material';
 import { numbers, cardInfo } from '@/src/data/dummy';
 import Image from 'next/image';
-import ProductColors from '../../components/ui/ProductColors';
+import ProductColor from '../../components/ui/ProductColor';
 import ProductInfo from '../../components/ui/ProductInfo';
 
 function DisplayProducts() {
@@ -21,7 +21,7 @@ function DisplayProducts() {
             <CardContent>
               <ProductInfo />
 
-              <ProductColors />
+              <ProductColor />
             </CardContent>
           </Card>
         </Grid>

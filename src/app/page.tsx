@@ -10,15 +10,18 @@ import SideNavigationBar from './_components/SideNavigationBar';
 import FilterChip from '../components/ui/FilterChip';
 
 function Home() {
-  const [selectProductTypeName, setSelectProductTypeName] =
-    useState<string>('');
+  const [selectProductType, setSelectProductType] = useState<string>('');
   const [selectCategory, setSelectCategory] = useState<string>('');
   const [selectTag, setSelectTag] = useState<string>('');
+
+  const handleSelectType = (name: string) => {
+    setSelectProductType(name);
+  };
 
   const handleFilterDelete = (name: string) => {
     switch (name) {
       case 'type':
-        setSelectProductTypeName('');
+        setSelectProductType('');
         break;
       case 'category':
         setSelectCategory('');
@@ -27,15 +30,11 @@ function Home() {
         setSelectTag('');
         break;
       case 'reset':
-        setSelectProductTypeName('');
+        setSelectProductType('');
         setSelectCategory('');
         setSelectTag('');
         break;
     }
-  };
-
-  const handleSelectType = (name: string) => {
-    setSelectProductTypeName(name);
   };
 
   return (
@@ -51,14 +50,14 @@ function Home() {
         <Header />
 
         <GlobalNavigationBar
-          selectProductTypeName={selectProductTypeName}
+          selectProductType={selectProductType}
           onSelectTypeName={handleSelectType}
         />
 
         <Divider className="border-gray-400 mb-3" />
 
         <Box className="h-10 space-x-2">
-          {(selectProductTypeName || selectCategory || selectTag) && (
+          {(selectProductType || selectCategory || selectTag) && (
             <Chip
               icon={<RestartAltIcon className=" fill-white" />}
               label="reset"
@@ -66,10 +65,10 @@ function Home() {
               className="text-white bg-main hover:bg-[#5b3e40]"
             />
           )}
-          {selectProductTypeName && (
+          {selectProductType && (
             <FilterChip
               labelType="Type"
-              selectFilterName={selectProductTypeName}
+              selectFilterName={selectProductType}
               onDeleteChip={() => handleFilterDelete('type')}
             />
           )}
