@@ -45,11 +45,11 @@ function SideNavigationBar({
     }
   };
 
-  const handleSelectCategory = (name: string) => {
+  const handleSelectCategory = (name: typeof selectCategory) => {
     handleDrawerClose();
     setSelectCategory(name);
   };
-  const handleSelectTag = (name: string) => {
+  const handleSelectTag = (name: typeof selectTag) => {
     handleDrawerClose();
     setSelectTag(name);
   };

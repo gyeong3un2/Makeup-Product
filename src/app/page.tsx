@@ -14,7 +14,7 @@ function Home() {
   const [selectCategory, setSelectCategory] = useState<string>('');
   const [selectTag, setSelectTag] = useState<string>('');
 
-  const handleSelectType = (name: string) => {
+  const handleSelectType = (name: typeof selectProductType) => {
     setSelectProductType(name);
   };
 
