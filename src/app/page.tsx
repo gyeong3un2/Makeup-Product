@@ -3,11 +3,11 @@
 import { useState } from 'react';
 import { Box, Chip, Container, Divider } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import Header from '../components/home/Header';
-import DisplayProducts from '../components/home/DisplayProducts';
-import GlobalNavigationBar from '../components/home/GlobalNavigationBar';
-import SideNavigationBar from '../components/home/SideNavigationBar';
-import FilterChip from '../components/FilterChip';
+import Header from './_components/Header';
+import DisplayProducts from './_components/DisplayProducts';
+import GlobalNavigationBar from './_components/GlobalNavigationBar';
+import SideNavigationBar from './_components/SideNavigationBar';
+import FilterChip from '../components/ui/FilterChip';
 
 function Home() {
   const [selectProductTypeName, setSelectProductTypeName] =

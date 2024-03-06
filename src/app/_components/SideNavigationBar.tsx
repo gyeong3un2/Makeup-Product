@@ -8,7 +8,7 @@ import {
   Typography,
 } from '@mui/material';
 import { PRODUCT_MENU } from '@/src/data/dummy';
-import FilterListName from '../FilterList';
+import FilterListName from '../../components/ui/FilterList';
 
 import MenuIcon from '@mui/icons-material/Menu';
 
