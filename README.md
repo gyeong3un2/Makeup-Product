@@ -8,8 +8,19 @@
 
 <br>
 
----
+## 기술스택
 
+Frameworks: `Next.js 13` \
+Languages: `TypeScript` \
+CSS Framework: `Tailwind CSS` \
+React UI Tool: `MUI` \
+State Management: `Zustand` \
+Code Formating: `Prettier`, `ESLint` \
+Package Manager: `Yarn`
+
+<br>
+
+## 프로젝트 진행 단계
 ### 1단계: 기본 레이아웃 구성
 
 - **헤더**
