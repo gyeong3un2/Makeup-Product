@@ -15,20 +15,25 @@ function Home() {
   const [selectCategory, setSelectCategory] = useState<string>('');
   const [selectTag, setSelectTag] = useState<string>('');
 
-  const handleTypeDelete = () => {
-    setSelectProductTypeName('');
+  const handleFilterDelete = (name: string) => {
+    switch (name) {
+      case 'type':
+        setSelectProductTypeName('');
+        break;
+      case 'category':
+        setSelectCategory('');
+        break;
+      case 'tag':
+        setSelectTag('');
+        break;
+      case 'reset':
+        setSelectProductTypeName('');
+        setSelectCategory('');
+        setSelectTag('');
+        break;
+    }
   };
-  const handleCategoryDelete = () => {
-    setSelectCategory('');
-  };
-  const handleTagDelete = () => {
-    setSelectTag('');
-  };
-  const handleReset = () => {
-    handleTypeDelete();
-    handleCategoryDelete();
-    handleTagDelete();
-  };
+
   const handleSelectType = (name: string) => {
     setSelectProductTypeName(name);
   };
@@ -46,8 +51,8 @@ function Home() {
         <Header />
 
         <GlobalNavigationBar
-          selectType={selectProductTypeName}
-          onSelectType={handleSelectType}
+          selectProductTypeName={selectProductTypeName}
+          onSelectTypeName={handleSelectType}
         />
 
         <Divider className="border-gray-400 mb-3" />
@@ -57,7 +62,7 @@ function Home() {
             <Chip
               icon={<RestartAltIcon className=" fill-white" />}
               label="reset"
-              onClick={handleReset}
+              onClick={() => handleFilterDelete('reset')}
               className="text-white bg-main hover:bg-[#5b3e40]"
             />
           )}
@@ -65,21 +70,21 @@ function Home() {
             <FilterChip
               labelType="Type"
               selectFilterName={selectProductTypeName}
-              onDeleteChip={handleTypeDelete}
+              onDeleteChip={() => handleFilterDelete('type')}
             />
           )}
           {selectCategory && (
             <FilterChip
               labelType="Category"
               selectFilterName={selectCategory}
-              onDeleteChip={handleCategoryDelete}
+              onDeleteChip={() => handleFilterDelete('category')}
             />
           )}
           {selectTag && (
             <FilterChip
               labelType="Tag"
               selectFilterName={selectTag}
-              onDeleteChip={handleTagDelete}
+              onDeleteChip={() => handleFilterDelete('tag')}
             />
           )}
         </Box>
