@@ -8,12 +8,13 @@ import { numbers } from '@/src/data/dummy';
 
 interface IProductListProps {
   productList: GetProductListResponse[] | undefined;
+  fetchStatus: string;
 }
 
-function DisplayProducts({ productList }: IProductListProps) {
+function DisplayProducts({ productList, fetchStatus }: IProductListProps) {
   return (
     <Grid container rowSpacing={2}>
-      {productList
+      {productList && fetchStatus === 'idle'
         ? productList.map((product: GetProductListResponse) => (
             <Grid item xs={12} sm={3} md={3} key={product.id}>
               <Card className="shadow-none max-screen-w-64 hover:cursor-pointer hover:shadow-2xl transition ease-in-out hover:-translate-y-1 duration-300">

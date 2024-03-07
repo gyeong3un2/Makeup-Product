@@ -18,7 +18,11 @@ function Home() {
   const [selectCategory, setSelectCategory] = useState<string>('');
   const [selectTag, setSelectTag] = useState<string>('');
 
-  const { data: productList, refetch } = useGetFilterProductList({
+  const {
+    fetchStatus,
+    data: productList,
+    refetch,
+  } = useGetFilterProductList({
     selectProductType,
     selectCategory,
     selectTag,
@@ -31,6 +35,10 @@ function Home() {
   useEffect(() => {
     refetch();
   }, [selectProductType, selectCategory, selectTag]);
+
+  useEffect(() => {
+    console.log('fetchStatus: ', fetchStatus);
+  }, [fetchStatus]);
 
   const handleFilterDelete = (name: string) => {
     switch (name) {
@@ -102,7 +110,7 @@ function Home() {
             />
           )}
         </Box>
-        <DisplayProducts productList={productList} />
+        <DisplayProducts productList={productList} fetchStatus={fetchStatus} />
       </Container>
     </main>
   );
