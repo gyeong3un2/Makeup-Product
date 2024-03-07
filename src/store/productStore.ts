@@ -1,38 +1,30 @@
 import { create } from 'zustand';
 
-export interface IProductTypeState {
+export interface IProductState {
   selectProductType: string;
-  setSelectProductType: (productType: string) => void;
+  setSelectProductType: (selectProductType: string) => void;
   removeSelectProductType: () => void;
+
+  selectProductCategory: string;
+  setSelectProductCategory: (selectProductCategory: string) => void;
+  removeSelectProductCategory: () => void;
+
+  selectProductTag: string;
+  setSelectProductTag: (selectProductTag: string) => void;
+  removeSelectProductTag: () => void;
 }
 
-export const productTypeStore = create<IProductTypeState>((set) => ({
+export const productStore = create<IProductState>((set) => ({
   selectProductType: '',
   setSelectProductType: (selectProductType: string) =>
     set({ selectProductType }),
   removeSelectProductType: () => set({ selectProductType: '' }),
-}));
 
-export interface IProductCategoryState {
-  selectProductCategory: string;
-  setSelectProductCategory: (productProductCategory: string) => void;
-  removeSelectProductCategory: () => void;
-}
-
-export const productCategoryStore = create<IProductCategoryState>((set) => ({
   selectProductCategory: '',
   setSelectProductCategory: (selectProductCategory: string) =>
     set({ selectProductCategory }),
   removeSelectProductCategory: () => set({ selectProductCategory: '' }),
-}));
 
-export interface IProductTagState {
-  selectProductTag: string;
-  setSelectProductTag: (productProductTag: string) => void;
-  removeSelectProductTag: () => void;
-}
-
-export const productTagStore = create<IProductTagState>((set) => ({
   selectProductTag: '',
   setSelectProductTag: (selectProductTag: string) => set({ selectProductTag }),
   removeSelectProductTag: () => set({ selectProductTag: '' }),

@@ -11,12 +11,7 @@ import { PRODUCT_MENU } from '@/src/data/product';
 import FilterListName from '../../components/ui/FilterList';
 
 import MenuIcon from '@mui/icons-material/Menu';
-import {
-  IProductCategoryState,
-  IProductTagState,
-  productCategoryStore,
-  productTagStore,
-} from '@/src/store/productStore';
+import { productStore, IProductState } from '@/src/store/productStore';
 
 const DRAWER_WIDTH = 240;
 
@@ -25,10 +20,12 @@ interface ISideNavigationBarProps {
 }
 
 function SideNavigationBar({ refetch }: ISideNavigationBarProps) {
-  const { selectProductCategory, setSelectProductCategory } =
-    productCategoryStore<IProductCategoryState>((state) => state);
-  const { selectProductTag, setSelectProductTag, removeSelectProductTag } =
-    productTagStore<IProductTagState>((state) => state);
+  const {
+    selectProductCategory,
+    selectProductTag,
+    setSelectProductCategory,
+    setSelectProductTag,
+  } = productStore<IProductState>((state) => state);
 
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [isClosing, setIsClosing] = useState<boolean>(false);

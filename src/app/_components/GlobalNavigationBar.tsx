@@ -1,10 +1,10 @@
 import { Box, Typography } from '@mui/material';
 import { PRODUCT_MENU } from '@/src/data/product';
-import { IProductTypeState, productTypeStore } from '@/src/store/productStore';
+import { productStore, IProductState } from '@/src/store/productStore';
 
 function GlobalNavigationBar() {
   const { selectProductType, setSelectProductType } =
-    productTypeStore<IProductTypeState>((state) => state);
+    productStore<IProductState>((state) => state);
 
   return (
     <Box className="w-full h-12 flex items-center justify-center">

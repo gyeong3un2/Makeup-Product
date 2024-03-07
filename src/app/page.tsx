@@ -12,22 +12,17 @@ import {
 } from './_components';
 import { FilterChip } from '@/src/components/ui';
 import { useGetFilterProductList } from '../api/product';
-import {
-  productTypeStore,
-  IProductTypeState,
-  IProductCategoryState,
-  productCategoryStore,
-  IProductTagState,
-  productTagStore,
-} from '../store/productStore';
+import { IProductState, productStore } from '../store/productStore';
 
 function Home() {
-  const { selectProductType, removeSelectProductType } =
-    productTypeStore<IProductTypeState>((state) => state);
-  const { selectProductCategory, removeSelectProductCategory } =
-    productCategoryStore<IProductCategoryState>((state) => state);
-  const { selectProductTag, removeSelectProductTag } =
-    productTagStore<IProductTagState>((state) => state);
+  const {
+    selectProductType,
+    selectProductCategory,
+    selectProductTag,
+    removeSelectProductType,
+    removeSelectProductCategory,
+    removeSelectProductTag,
+  } = productStore<IProductState>((state) => state);
 
   const { fetchStatus, data: productList, refetch } = useGetFilterProductList();
 

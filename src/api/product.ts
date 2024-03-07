@@ -1,13 +1,6 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { GetProductListResponse } from '../types';
-import {
-  IProductCategoryState,
-  IProductTagState,
-  IProductTypeState,
-  productCategoryStore,
-  productTagStore,
-  productTypeStore,
-} from '../store/productStore';
+import { productStore, IProductState } from '../store/productStore';
 
 /**
  * 상품 목록 조회 API
@@ -15,15 +8,8 @@ import {
 export const useGetFilterProductList = <
   T extends GetProductListResponse[],
 >(): UseQueryResult<T> => {
-  const { selectProductType } = productTypeStore<IProductTypeState>(
-    (state) => state,
-  );
-  const { selectProductCategory } = productCategoryStore<IProductCategoryState>(
-    (state) => state,
-  );
-  const { selectProductTag } = productTagStore<IProductTagState>(
-    (state) => state,
-  );
+  const { selectProductType, selectProductCategory, selectProductTag } =
+    productStore<IProductState>((state) => state);
 
   return useQuery({
     queryKey: ['filter product type'],
