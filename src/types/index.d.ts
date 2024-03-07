@@ -17,7 +17,7 @@ export type GetProductListResponse = {
   }[];
   product_link: string;
   product_type: string;
-  rating: string;
+  rating: number;
   tag_list: string[];
   updated_at: string;
   website_link: string;

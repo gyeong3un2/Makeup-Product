@@ -28,7 +28,11 @@ function ProductInfo({ product }: IProductInfoProps) {
       </Typography>
 
       <Typography className={clsx(abel.className, 'my-1')}>
-        {product.price_sign} {product.price}
+        $ {product.price}
+      </Typography>
+
+      <Typography className={clsx(abel.className, 'my-1')}>
+        {product.rating && '★'} {product.rating}
       </Typography>
     </>
   );

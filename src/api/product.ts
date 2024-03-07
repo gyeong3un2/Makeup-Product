@@ -1,18 +1,5 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { GetProductListResponse } from '../types';
-import { apiFetch } from '../app/utils/httpClient';
-
-/**
- * 상품 전체 목록 조회
- */
-export const useGetAllProductList = <
-  T extends GetProductListResponse[],
->(): UseQueryResult<T> => {
-  return useQuery({
-    queryKey: ['all product'],
-    queryFn: apiFetch,
-  });
-};
 
 interface IFetchProps {
   selectProductType: string;
@@ -42,9 +29,7 @@ export const useGetFilterProductList = <T extends GetProductListResponse[]>({
         },
       );
 
-      const data = await response.json();
-      // console.log('data: ', data);
-      return data;
+      return await response.json();
     },
     staleTime: 1000 * 60 * 60, // 1시간
   });
