@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { PRODUCT_MENU } from '@/src/data/dummy';
+import { PRODUCT_MENU } from '@/src/data/product';
 
 interface IGlobalNavigationBarProps {
   selectProductType: string;

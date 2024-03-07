@@ -10,7 +10,7 @@ import {
   GlobalNavigationBar,
   SideNavigationBar,
 } from './_components';
-import { FilterChip } from '../components/ui';
+import { FilterChip } from '@/src/components/ui';
 import { useGetFilterProductList } from '../api/product';
 
 function Home() {

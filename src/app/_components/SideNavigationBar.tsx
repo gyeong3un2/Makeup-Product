@@ -7,7 +7,7 @@ import {
   IconButton,
   Typography,
 } from '@mui/material';
-import { PRODUCT_MENU } from '@/src/data/dummy';
+import { PRODUCT_MENU } from '@/src/data/product';
 import FilterListName from '../../components/ui/FilterList';
 
 import MenuIcon from '@mui/icons-material/Menu';

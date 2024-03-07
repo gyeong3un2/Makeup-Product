@@ -1,10 +1,8 @@
-import { Card, CardContent, Grid } from '@mui/material';
 import Image from 'next/image';
-import ProductColor from '../../components/ui/ProductColor';
-import ProductInfo from '../../components/ui/ProductInfo';
+import { Card, CardContent, Grid } from '@mui/material';
 import { GetProductListResponse } from '@/src/types/index';
-import SkeletonUI from './SkeletonUI';
-import { numbers } from '@/src/data/dummy';
+import { skeletonCounts } from '@/src/data/product';
+import { ProductInfo, ProductColor, SkeletonUI } from '@/src/components/ui';
 
 interface IProductListProps {
   productList: GetProductListResponse[] | undefined;
@@ -34,8 +32,8 @@ function DisplayProducts({ productList, fetchStatus }: IProductListProps) {
               </Card>
             </Grid>
           ))
-        : numbers.map((number) => (
-            <Grid item xs={12} sm={3} md={3} key={number}>
+        : skeletonCounts.map((count) => (
+            <Grid item xs={12} sm={3} md={3} key={count}>
               <SkeletonUI />
             </Grid>
           ))}
