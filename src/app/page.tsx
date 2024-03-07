@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Chip, Container, Divider } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
@@ -11,15 +11,26 @@ import {
   SideNavigationBar,
 } from './_components';
 import { FilterChip } from '../components/ui';
+import { useGetFilterProductList } from '../api/product';
 
 function Home() {
   const [selectProductType, setSelectProductType] = useState<string>('');
   const [selectCategory, setSelectCategory] = useState<string>('');
   const [selectTag, setSelectTag] = useState<string>('');
 
+  const { data: productList, refetch } = useGetFilterProductList({
+    selectProductType,
+    selectCategory,
+    selectTag,
+  });
+
   const handleSelectType = (name: typeof selectProductType) => {
     setSelectProductType(name);
   };
+
+  useEffect(() => {
+    refetch();
+  }, [selectProductType, selectCategory, selectTag]);
 
   const handleFilterDelete = (name: string) => {
     switch (name) {
@@ -43,6 +54,7 @@ function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
       <SideNavigationBar
+        refetch={refetch}
         selectTag={selectTag}
         selectCategory={selectCategory}
         setSelectTag={setSelectTag}
@@ -90,7 +102,7 @@ function Home() {
             />
           )}
         </Box>
-        <DisplayProducts />
+        <DisplayProducts productList={productList} />
       </Container>
     </main>
   );

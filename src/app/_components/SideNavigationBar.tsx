@@ -15,6 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 const DRAWER_WIDTH = 240;
 
 interface ISideNavigationBarProps {
+  refetch: () => void;
   selectTag: string;
   selectCategory: string;
   setSelectTag: Dispatch<SetStateAction<string>>;
@@ -22,6 +23,7 @@ interface ISideNavigationBarProps {
 }
 
 function SideNavigationBar({
+  refetch,
   selectTag,
   selectCategory,
   setSelectTag,
@@ -46,10 +48,12 @@ function SideNavigationBar({
   };
 
   const handleSelectCategory = (name: typeof selectCategory) => {
+    refetch();
     handleDrawerClose();
     setSelectCategory(name);
   };
   const handleSelectTag = (name: typeof selectTag) => {
+    refetch();
     handleDrawerClose();
     setSelectTag(name);
   };

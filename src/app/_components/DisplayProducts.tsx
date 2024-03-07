@@ -2,19 +2,15 @@ import { Card, CardContent, Grid } from '@mui/material';
 import Image from 'next/image';
 import ProductColor from '../../components/ui/ProductColor';
 import ProductInfo from '../../components/ui/ProductInfo';
-import { useGetAllProductList } from '@/src/api/product';
-import { useEffect } from 'react';
 import { GetProductListResponse } from '@/src/types/index';
 import SkeletonUI from './SkeletonUI';
 import { numbers } from '@/src/data/dummy';
 
-function DisplayProducts() {
-  const { status, data: productList } = useGetAllProductList();
+interface IProductListProps {
+  productList: GetProductListResponse[] | undefined;
+}
 
-  useEffect(() => {
-    console.log('status: ', status);
-  }, [status]);
-
+function DisplayProducts({ productList }: IProductListProps) {
   return (
     <Grid container rowSpacing={2}>
       {productList
@@ -30,9 +26,9 @@ function DisplayProducts() {
                 />
 
                 <CardContent>
-                  <ProductInfo />
+                  <ProductInfo product={product} />
 
-                  <ProductColor />
+                  <ProductColor productColors={product.product_colors} />
                 </CardContent>
               </Card>
             </Grid>

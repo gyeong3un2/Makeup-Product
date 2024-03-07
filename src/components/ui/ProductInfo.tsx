@@ -1,30 +1,34 @@
 import { Typography } from '@mui/material';
-import { cardDetailInfo } from '@/src/data/dummy';
 import { Abel } from 'next/font/google';
 import clsx from 'clsx';
+import { GetProductListResponse } from '@/src/types';
 
 const abel = Abel({
   subsets: ['latin'],
   weight: '400',
 });
 
-function ProductInfo() {
+interface IProductInfoProps {
+  product: GetProductListResponse;
+}
+
+function ProductInfo({ product }: IProductInfoProps) {
   return (
     <>
       <Typography variant="h6" className={abel.className}>
-        {cardDetailInfo.name}
+        {product.name}
       </Typography>
 
       <Typography className={clsx(abel.className, 'my-3')} gutterBottom>
-        {cardDetailInfo.brand}
+        {product.brand}
       </Typography>
 
       <Typography className={clsx(abel.className, 'mt-3')}>
-        Category: {cardDetailInfo.category}
+        Category: {product.category}
       </Typography>
 
       <Typography className={clsx(abel.className, 'my-1')}>
-        $ {cardDetailInfo.price}
+        {product.price_sign} {product.price}
       </Typography>
     </>
   );

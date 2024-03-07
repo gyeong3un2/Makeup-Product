@@ -1,12 +1,16 @@
-import { Box, Grid } from '@mui/material';
-import { cardDetailInfo } from '@/src/data/dummy';
+import { Grid } from '@mui/material';
+import { GetProductListResponse } from '@/src/types';
 
-function ProductColor() {
+interface IProductInfoProps {
+  productColors: GetProductListResponse['product_colors'];
+}
+
+function ProductColor({ productColors }: IProductInfoProps) {
   return (
     <Grid container spacing={0.7}>
-      {cardDetailInfo.product_colors.map((color) => (
-        <Grid item key={color.colour_name}>
-          <Box
+      {productColors.map((color, index) => (
+        <Grid item key={index}>
+          <div
             className={`rounded-full w-5 h-5 m-0.7 bg-[${color.hex_value}]`}
           />
         </Grid>

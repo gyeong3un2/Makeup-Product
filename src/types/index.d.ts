@@ -14,7 +14,7 @@ export type GetProductListResponse = {
   product_colors: {
     colour_name: string;
     hex_value: string;
-  };
+  }[];
   product_link: string;
   product_type: string;
   rating: string;
