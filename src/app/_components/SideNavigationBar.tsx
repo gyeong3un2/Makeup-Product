@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import {
   Box,
   Divider,
@@ -11,24 +11,25 @@ import { PRODUCT_MENU } from '@/src/data/product';
 import FilterListName from '../../components/ui/FilterList';
 
 import MenuIcon from '@mui/icons-material/Menu';
+import {
+  IProductCategoryState,
+  IProductTagState,
+  productCategoryStore,
+  productTagStore,
+} from '@/src/store/productStore';
 
 const DRAWER_WIDTH = 240;
 
 interface ISideNavigationBarProps {
   refetch: () => void;
-  selectTag: string;
-  selectCategory: string;
-  setSelectTag: Dispatch<SetStateAction<string>>;
-  setSelectCategory: Dispatch<SetStateAction<string>>;
 }
 
-function SideNavigationBar({
-  refetch,
-  selectTag,
-  selectCategory,
-  setSelectTag,
-  setSelectCategory,
-}: ISideNavigationBarProps) {
+function SideNavigationBar({ refetch }: ISideNavigationBarProps) {
+  const { selectProductCategory, setSelectProductCategory } =
+    productCategoryStore<IProductCategoryState>((state) => state);
+  const { selectProductTag, setSelectProductTag, removeSelectProductTag } =
+    productTagStore<IProductTagState>((state) => state);
+
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [isClosing, setIsClosing] = useState<boolean>(false);
 
@@ -47,15 +48,15 @@ function SideNavigationBar({
     }
   };
 
-  const handleSelectCategory = (name: typeof selectCategory) => {
+  const handleSelectCategory = (name: typeof selectProductCategory) => {
     refetch();
     handleDrawerClose();
-    setSelectCategory(name);
+    setSelectProductCategory(name);
   };
-  const handleSelectTag = (name: typeof selectTag) => {
+  const handleSelectTag = (name: typeof selectProductTag) => {
     refetch();
     handleDrawerClose();
-    setSelectTag(name);
+    setSelectProductTag(name);
   };
 
   const drawer = (
@@ -69,12 +70,12 @@ function SideNavigationBar({
         <Grid container>
           <FilterListName
             data={PRODUCT_MENU.categoryLeft}
-            selectCategory={selectCategory}
+            selectCategory={selectProductCategory}
             onSelectFilter={handleSelectCategory}
           />
           <FilterListName
             data={PRODUCT_MENU.categoryRight}
-            selectCategory={selectCategory}
+            selectCategory={selectProductCategory}
             onSelectFilter={handleSelectCategory}
           />
         </Grid>
@@ -87,12 +88,12 @@ function SideNavigationBar({
         <Grid container>
           <FilterListName
             data={PRODUCT_MENU.tagLeft}
-            selectCategory={selectTag}
+            selectCategory={selectProductTag}
             onSelectFilter={handleSelectTag}
           />
           <FilterListName
             data={PRODUCT_MENU.tagRight}
-            selectCategory={selectTag}
+            selectCategory={selectProductTag}
             onSelectFilter={handleSelectTag}
           />
         </Grid>

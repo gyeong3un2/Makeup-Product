@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Box, Chip, Container, Divider } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 
@@ -12,75 +12,52 @@ import {
 } from './_components';
 import { FilterChip } from '@/src/components/ui';
 import { useGetFilterProductList } from '../api/product';
+import {
+  productTypeStore,
+  IProductTypeState,
+  IProductCategoryState,
+  productCategoryStore,
+  IProductTagState,
+  productTagStore,
+} from '../store/productStore';
 
 function Home() {
-  const [selectProductType, setSelectProductType] = useState<string>('');
-  const [selectCategory, setSelectCategory] = useState<string>('');
-  const [selectTag, setSelectTag] = useState<string>('');
+  const { selectProductType, removeSelectProductType } =
+    productTypeStore<IProductTypeState>((state) => state);
+  const { selectProductCategory, removeSelectProductCategory } =
+    productCategoryStore<IProductCategoryState>((state) => state);
+  const { selectProductTag, removeSelectProductTag } =
+    productTagStore<IProductTagState>((state) => state);
 
-  const {
-    fetchStatus,
-    data: productList,
-    refetch,
-  } = useGetFilterProductList({
-    selectProductType,
-    selectCategory,
-    selectTag,
-  });
-
-  const handleSelectType = (name: typeof selectProductType) => {
-    setSelectProductType(name);
-  };
+  const { fetchStatus, data: productList, refetch } = useGetFilterProductList();
 
   useEffect(() => {
     refetch();
-  }, [selectProductType, selectCategory, selectTag]);
+  }, [selectProductType, selectProductCategory, selectProductTag]);
 
-  const handleFilterDelete = (name: string) => {
-    switch (name) {
-      case 'type':
-        setSelectProductType('');
-        break;
-      case 'category':
-        setSelectCategory('');
-        break;
-      case 'tag':
-        setSelectTag('');
-        break;
-      case 'reset':
-        setSelectProductType('');
-        setSelectCategory('');
-        setSelectTag('');
-        break;
-    }
+  const handleFilterReset = () => {
+    removeSelectProductType();
+    removeSelectProductCategory();
+    removeSelectProductTag();
   };
 
   return (
     <main className="flex min-h-screen flex-col items-center">
-      <SideNavigationBar
-        refetch={refetch}
-        selectTag={selectTag}
-        selectCategory={selectCategory}
-        setSelectTag={setSelectTag}
-        setSelectCategory={setSelectCategory}
-      />
+      <SideNavigationBar refetch={refetch} />
 
       <Container className="max-w-6xl">
         <Header />
 
-        <GlobalNavigationBar
-          selectProductType={selectProductType}
-          onSelectType={handleSelectType}
-        />
+        <GlobalNavigationBar />
 
         <Divider className="border-gray-400 mb-3" />
 
         <Box className="h-10 space-x-2">
-          {(selectProductType || selectCategory || selectTag) && (
+          {(selectProductType || selectProductCategory || selectProductTag) && (
             <Chip
               icon={<RestartAltIcon className=" fill-white" />}
               label="reset"
-              onClick={() => handleFilterDelete('reset')}
+              onClick={handleFilterReset}
               className="text-white bg-main hover:bg-[#5b3e40]"
             />
           )}
@@ -88,21 +65,21 @@ function Home() {
             <FilterChip
               labelType="Type"
               selectFilterName={selectProductType}
-              onDeleteChip={() => handleFilterDelete('type')}
+              onDeleteChip={removeSelectProductType}
             />
           )}
-          {selectCategory && (
+          {selectProductCategory && (
             <FilterChip
               labelType="Category"
-              selectFilterName={selectCategory}
-              onDeleteChip={() => handleFilterDelete('category')}
+              selectFilterName={selectProductCategory}
+              onDeleteChip={removeSelectProductCategory}
             />
           )}
-          {selectTag && (
+          {selectProductTag && (
             <FilterChip
               labelType="Tag"
-              selectFilterName={selectTag}
-              onDeleteChip={() => handleFilterDelete('tag')}
+              selectFilterName={selectProductTag}
+              onDeleteChip={removeSelectProductTag}
             />
           )}
         </Box>

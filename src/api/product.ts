@@ -1,19 +1,30 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { GetProductListResponse } from '../types';
+import {
+  IProductCategoryState,
+  IProductTagState,
+  IProductTypeState,
+  productCategoryStore,
+  productTagStore,
+  productTypeStore,
+} from '../store/productStore';
 
-interface IFetchProps {
-  selectProductType: string;
-  selectCategory: string;
-  selectTag: string;
-}
 /**
- * 상품 타입별 목록 조회
+ * 상품 목록 조회 API
  */
-export const useGetFilterProductList = <T extends GetProductListResponse[]>({
-  selectProductType,
-  selectCategory,
-  selectTag,
-}: IFetchProps): UseQueryResult<T> => {
+export const useGetFilterProductList = <
+  T extends GetProductListResponse[],
+>(): UseQueryResult<T> => {
+  const { selectProductType } = productTypeStore<IProductTypeState>(
+    (state) => state,
+  );
+  const { selectProductCategory } = productCategoryStore<IProductCategoryState>(
+    (state) => state,
+  );
+  const { selectProductTag } = productTagStore<IProductTagState>(
+    (state) => state,
+  );
+
   return useQuery({
     queryKey: ['filter product type'],
     queryFn: async () => {
@@ -21,8 +32,8 @@ export const useGetFilterProductList = <T extends GetProductListResponse[]>({
         `${process.env.NEXT_PUBLIC_API}?` +
           new URLSearchParams({
             product_type: selectProductType,
-            product_category: selectCategory,
-            product_tags: selectTag,
+            product_category: selectProductCategory,
+            product_tags: selectProductTag,
           }),
         {
           method: 'GET',

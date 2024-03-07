@@ -1,20 +1,16 @@
 import { Box, Typography } from '@mui/material';
 import { PRODUCT_MENU } from '@/src/data/product';
+import { IProductTypeState, productTypeStore } from '@/src/store/productStore';
 
-interface IGlobalNavigationBarProps {
-  selectProductType: string;
-  onSelectType: (name: string) => void;
-}
+function GlobalNavigationBar() {
+  const { selectProductType, setSelectProductType } =
+    productTypeStore<IProductTypeState>((state) => state);
 
-function GlobalNavigationBar({
-  selectProductType,
-  onSelectType,
-}: IGlobalNavigationBarProps) {
   return (
     <Box className="w-full h-12 flex items-center justify-center">
       {PRODUCT_MENU.productType.map((type) => (
         <Typography
-          onClick={() => onSelectType(type)}
+          onClick={() => setSelectProductType(type)}
           className={`my-auto mx-5 ${
             selectProductType === type
               ? 'text-main underline underline-offset-8'
