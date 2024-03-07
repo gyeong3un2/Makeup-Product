@@ -106,6 +106,7 @@ function Home() {
             />
           )}
         </Box>
+
         <DisplayProducts productList={productList} fetchStatus={fetchStatus} />
       </Container>
     </main>
