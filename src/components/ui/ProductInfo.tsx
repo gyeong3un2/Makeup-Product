@@ -28,7 +28,7 @@ function ProductInfo({ product }: IProductInfoProps) {
       </Typography>
 
       <Typography className={clsx(abel.className, 'my-1')}>
-        $ {product.price}
+        {product.price_sign && product.price_sign} {product.price}
       </Typography>
 
       <Typography className={clsx(abel.className, 'my-1')}>
