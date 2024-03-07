@@ -36,10 +36,6 @@ function Home() {
     refetch();
   }, [selectProductType, selectCategory, selectTag]);
 
-  useEffect(() => {
-    console.log('fetchStatus: ', fetchStatus);
-  }, [fetchStatus]);
-
   const handleFilterDelete = (name: string) => {
     switch (name) {
       case 'type':

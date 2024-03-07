@@ -24,7 +24,7 @@ function ProductInfo({ product }: IProductInfoProps) {
       </Typography>
 
       <Typography className={clsx(abel.className, 'mt-3')}>
-        Category: {product.category}
+        {product.category && 'Category:'} {product.category}
       </Typography>
 
       <Typography className={clsx(abel.className, 'my-1')}>

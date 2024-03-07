@@ -11,7 +11,8 @@ function ProductColor({ productColors }: IProductInfoProps) {
       {productColors.map((color, index) => (
         <Grid item key={index}>
           <div
-            className={`rounded-full w-5 h-5 m-0.7 bg-[${color.hex_value}]`}
+            style={{ backgroundColor: `${color.hex_value}` }}
+            className={`rounded-full w-5 h-5 m-0.7`}
           />
         </Grid>
       ))}
