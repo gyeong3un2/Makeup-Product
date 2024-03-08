@@ -41,11 +41,11 @@ function SideNavigationBar() {
     }
   };
 
-  const handleSelectCategory = (name: typeof selectProductCategory) => {
+  const handleSelectCategory = (name: string) => {
     handleDrawerClose();
     setSelectProductCategory(name);
   };
-  const handleSelectTag = (name: typeof selectProductTag) => {
+  const handleSelectTag = (name: string) => {
     handleDrawerClose();
     setSelectProductTag(name);
   };
