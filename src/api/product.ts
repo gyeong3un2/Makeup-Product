@@ -12,7 +12,7 @@ export const useGetFilterProductList = <
     productStore<IProductState>((state) => state);
 
   return useQuery({
-    queryKey: ['filter product type'],
+    queryKey: ['product list'],
     queryFn: async () => {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API}?` +
