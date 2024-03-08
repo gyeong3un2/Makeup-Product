@@ -1,7 +1,6 @@
 'use client';
 
-import { Container } from '@mui/material';
-
+import { Container, Fab } from '@mui/material';
 import {
   Header,
   DisplayProducts,
@@ -11,6 +10,7 @@ import {
 } from './_components';
 import { useGetProductList } from '@/api/product';
 import { productStore, IProductState } from '@/store/productStore';
+import FloatingUpButton from './_components/FloatingUpButton';
 
 function Home() {
   const { selectProductType, selectProductCategory, selectProductTag } =
@@ -25,6 +25,8 @@ function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
       <SideNavigationBar />
+
+      <FloatingUpButton />
 
       <Container className="max-w-6xl">
         <Header />
