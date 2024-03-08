@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { PRODUCT_MENU } from '@/src/data/product';
-import { SideFilterList } from '@/src/components/ui';
+import { SNBFilterList } from '@/src/components/ui';
 
 import { productStore, IProductState } from '@/src/store/productStore';
 
@@ -65,12 +65,12 @@ function SideNavigationBar({ refetch }: ISideNavigationBarProps) {
         <Divider />
 
         <Grid container>
-          <SideFilterList
+          <SNBFilterList
             data={PRODUCT_MENU.categoryLeft}
             selectCategory={selectProductCategory}
             onSelectFilter={handleSelectCategory}
           />
-          <SideFilterList
+          <SNBFilterList
             data={PRODUCT_MENU.categoryRight}
             selectCategory={selectProductCategory}
             onSelectFilter={handleSelectCategory}
@@ -83,12 +83,12 @@ function SideNavigationBar({ refetch }: ISideNavigationBarProps) {
         <Divider />
 
         <Grid container>
-          <SideFilterList
+          <SNBFilterList
             data={PRODUCT_MENU.tagLeft}
             selectCategory={selectProductTag}
             onSelectFilter={handleSelectTag}
           />
-          <SideFilterList
+          <SNBFilterList
             data={PRODUCT_MENU.tagRight}
             selectCategory={selectProductTag}
             onSelectFilter={handleSelectTag}

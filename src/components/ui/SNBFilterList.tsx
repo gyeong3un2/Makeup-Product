@@ -6,7 +6,7 @@ interface FilterListProps {
   onSelectFilter: (name: string) => void;
 }
 
-function SideFilterList({
+function SNBFilterList({
   data,
   selectCategory,
   onSelectFilter,
@@ -31,4 +31,4 @@ function SideFilterList({
   );
 }
 
-export default SideFilterList;
+export default SNBFilterList;

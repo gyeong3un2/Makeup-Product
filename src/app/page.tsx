@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Container, Divider } from '@mui/material';
+import { Container } from '@mui/material';
 
 import {
   Header,
