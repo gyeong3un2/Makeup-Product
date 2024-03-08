@@ -7,10 +7,10 @@ import {
   IconButton,
   Typography,
 } from '@mui/material';
-import { PRODUCT_MENU } from '@/src/data/product';
-import FilterListName from '../../components/ui/FilterList';
-
 import MenuIcon from '@mui/icons-material/Menu';
+import { PRODUCT_MENU } from '@/src/data/product';
+import { SideFilterList } from '@/src/components/ui';
+
 import { productStore, IProductState } from '@/src/store/productStore';
 
 const DRAWER_WIDTH = 240;
@@ -65,12 +65,12 @@ function SideNavigationBar({ refetch }: ISideNavigationBarProps) {
         <Divider />
 
         <Grid container>
-          <FilterListName
+          <SideFilterList
             data={PRODUCT_MENU.categoryLeft}
             selectCategory={selectProductCategory}
             onSelectFilter={handleSelectCategory}
           />
-          <FilterListName
+          <SideFilterList
             data={PRODUCT_MENU.categoryRight}
             selectCategory={selectProductCategory}
             onSelectFilter={handleSelectCategory}
@@ -83,12 +83,12 @@ function SideNavigationBar({ refetch }: ISideNavigationBarProps) {
         <Divider />
 
         <Grid container>
-          <FilterListName
+          <SideFilterList
             data={PRODUCT_MENU.tagLeft}
             selectCategory={selectProductTag}
             onSelectFilter={handleSelectTag}
           />
-          <FilterListName
+          <SideFilterList
             data={PRODUCT_MENU.tagRight}
             selectCategory={selectProductTag}
             onSelectFilter={handleSelectTag}

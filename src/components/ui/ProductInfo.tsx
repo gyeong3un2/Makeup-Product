@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { Typography } from '@mui/material';
 import { Abel } from 'next/font/google';
+import { Typography } from '@mui/material';
 import { GetProductListResponse } from '@/src/types';
 
 const abel = Abel({
