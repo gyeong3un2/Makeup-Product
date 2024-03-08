@@ -13,7 +13,7 @@ import { SNBFilterList } from '@/components/ui';
 
 import { productStore, IProductState } from '@/store/productStore';
 
-const DRAWER_WIDTH = 240;
+const DRAWER_WIDTH = '21rem';
 
 function SideNavigationBar() {
   const {
@@ -55,14 +55,14 @@ function SideNavigationBar() {
   };
 
   const drawer = (
-    <div className="border rounded-lg mt-12 p-2">
-      <Box className="mb-5">
-        <Typography className="p-2 text-xs text-gray-500">
+    <div className="border rounded-lg mt-[2rem] p-[0.5rem]">
+      <Box className="mb-[1.25rem]">
+        <Typography className="p-[0.5rem] text-[0.9rem] text-gray-500">
           By Categorys
         </Typography>
         <Divider />
 
-        <Grid container>
+        <Grid container className="flex-col">
           <SNBFilterList
             data={PRODUCT_MENU.categoryLeft}
             selectCategory={selectProductCategory}
@@ -77,10 +77,12 @@ function SideNavigationBar() {
       </Box>
 
       <Box>
-        <Typography className="p-2 text-xs text-gray-500">By Tags</Typography>
+        <Typography className="p-[0.5rem] text-[0.9rem] text-gray-500">
+          By Tags
+        </Typography>
         <Divider />
 
-        <Grid container>
+        <Grid container className="flex-col">
           <SNBFilterList
             data={PRODUCT_MENU.tagLeft}
             selectCategory={selectProductTag}
@@ -102,8 +104,7 @@ function SideNavigationBar() {
         color="inherit"
         aria-label="open drawer"
         onClick={handleDrawerToggle}
-        className="absolute left-0"
-        sx={{ display: { xl: 'none' } }}
+        className="absolute left-0 block xl3:hidden"
       >
         <MenuIcon />
       </IconButton>
@@ -128,16 +129,15 @@ function SideNavigationBar() {
         </Drawer>
 
         <Box
-          className="absolute -ml-[52.5rem]"
+          className="absolute hidden xl2:block xl2:-ml-[50rem] ease-in-out transition-all"
           sx={{
-            display: { lg: 'none', xl: 'block' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: DRAWER_WIDTH,
             },
           }}
         >
-          <Box className="h-36" />
+          <Box className="h-[9rem]" />
           {drawer}
         </Box>
       </Box>

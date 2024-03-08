@@ -10,7 +10,12 @@ const gruppo = Gruppo({
 function Header() {
   return (
     <Box className="text-center p-[3rem]">
-      <Typography className={clsx(gruppo.className, 'text-[3rem]')}>
+      <Typography
+        className={clsx(
+          gruppo.className,
+          'text-[2.5rem] ease-in-out transition-all',
+        )}
+      >
         Listing Products
       </Typography>
     </Box>
