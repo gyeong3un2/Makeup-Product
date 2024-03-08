@@ -6,7 +6,11 @@ interface FilterListProps {
   onSelectFilter: (name: string) => void;
 }
 
-function FilterList({ data, selectCategory, onSelectFilter }: FilterListProps) {
+function SNBFilterList({
+  data,
+  selectCategory,
+  onSelectFilter,
+}: FilterListProps) {
   return (
     <Grid item xs={6}>
       {data.map((name: string) => (
@@ -27,4 +31,4 @@ function FilterList({ data, selectCategory, onSelectFilter }: FilterListProps) {
   );
 }
 
-export default FilterList;
+export default SNBFilterList;
