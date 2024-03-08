@@ -16,12 +16,7 @@ export const useGetProductList = <T extends GetProductListResponse[]>({
   selectProductTag,
 }: IGetProductList): UseQueryResult<T> => {
   return useQuery({
-    queryKey: [
-      'product list',
-      selectProductType,
-      selectProductCategory,
-      selectProductTag,
-    ],
+    queryKey: [selectProductType, selectProductCategory, selectProductTag],
     queryFn: async () => {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API}?` +
