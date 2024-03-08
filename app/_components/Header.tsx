@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material';
+import clsx from 'clsx';
 import { Gruppo } from 'next/font/google';
 
 const gruppo = Gruppo({
@@ -8,8 +9,8 @@ const gruppo = Gruppo({
 
 function Header() {
   return (
-    <Box className="text-center p-12">
-      <Typography variant="h3" className={gruppo.className}>
+    <Box className="text-center p-[3rem]">
+      <Typography className={clsx(gruppo.className, 'text-[3rem]')}>
         Listing Products
       </Typography>
     </Box>

@@ -23,31 +23,35 @@ function SideNavigationBar() {
     setSelectProductTag,
   } = productStore<IProductState>((state) => state);
 
-  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
-  const [isClosing, setIsClosing] = useState<boolean>(false);
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false); // Drawer를 열고 닫기 위한 변수
+  const [isClosing, setIsClosing] = useState<boolean>(false); // Drawer 트랜지션을 위한 변수, Drawer가 닫히는 중인지 여부를 확인하기 위한 변수
 
+  // Drawer를 닫기 위한 함수
   const handleDrawerClose = () => {
     setIsClosing(true);
     setMobileOpen(false);
   };
 
+  // Drawer가 닫히는 중인지 여부를 확인하기 위한 변수
   const handleDrawerTransitionEnd = () => {
     setIsClosing(false);
   };
 
+  // Drawer를 열고 닫기 위한 함수
   const handleDrawerToggle = () => {
     if (!isClosing) {
       setMobileOpen(!mobileOpen);
     }
   };
 
+  // 카테고리와 태그를 선택하기 위한 함수
   const handleSelectCategory = (name: string) => {
-    handleDrawerClose();
     setSelectProductCategory(name);
+    handleDrawerClose();
   };
   const handleSelectTag = (name: string) => {
-    handleDrawerClose();
     setSelectProductTag(name);
+    handleDrawerClose();
   };
 
   const drawer = (
