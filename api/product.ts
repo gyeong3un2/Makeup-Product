@@ -1,6 +1,6 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { GetProductListResponse } from '../types';
-import { productStore, IProductState } from '../store/productStore';
+import { GetProductListResponse } from '@/types';
+import { productStore, IProductState } from '@/store/productStore';
 
 /**
  * 상품 목록 조회 API

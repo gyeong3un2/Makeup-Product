@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { Card, CardContent, Grid } from '@mui/material';
-import { GetProductListResponse } from '@/src/types/index';
-import { skeletonCounts } from '@/src/data/product';
-import { ProductInfo, ProductColor, SkeletonUI } from '@/src/components/ui';
+import { GetProductListResponse } from '@/types/index';
+import { skeletonCounts } from '@/data/product';
+import { ProductInfo, ProductColor, SkeletonUI } from '@/components/ui';
 
 interface IProductListProps {
   productList: GetProductListResponse[] | undefined;

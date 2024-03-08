@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material';
-import { GetProductListResponse } from '@/src/types';
+import { GetProductListResponse } from '@/types';
 
 interface IProductInfoProps {
   productColors: GetProductListResponse['product_colors'];

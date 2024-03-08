@@ -8,10 +8,10 @@ import {
   Typography,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { PRODUCT_MENU } from '@/src/data/product';
-import { SNBFilterList } from '@/src/components/ui';
+import { PRODUCT_MENU } from '@/data/product';
+import { SNBFilterList } from '@/components/ui';
 
-import { productStore, IProductState } from '@/src/store/productStore';
+import { productStore, IProductState } from '@/store/productStore';
 
 const DRAWER_WIDTH = 240;
 

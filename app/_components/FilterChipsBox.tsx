@@ -1,7 +1,7 @@
 import { Box, Chip } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import { IProductState, productStore } from '@/src/store/productStore';
-import { FilterChip } from '@/src/components/ui';
+import { IProductState, productStore } from '@/store/productStore';
+import { FilterChip } from '@/components/ui';
 
 function FilterChipsBox() {
   const {

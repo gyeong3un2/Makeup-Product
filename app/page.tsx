@@ -10,8 +10,8 @@ import {
   SideNavigationBar,
   FilterChipsBox,
 } from './_components';
-import { useGetFilterProductList } from '../api/product';
-import { IProductState, productStore } from '../store/productStore';
+import { useGetFilterProductList } from '@/api/product';
+import { productStore, IProductState } from '@/store/productStore';
 
 function Home() {
   const { selectProductType, selectProductCategory, selectProductTag } =

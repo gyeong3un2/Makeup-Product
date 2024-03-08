@@ -1,6 +1,6 @@
 import { Box, Divider, Typography } from '@mui/material';
-import { PRODUCT_MENU } from '@/src/data/product';
-import { productStore, IProductState } from '@/src/store/productStore';
+import { PRODUCT_MENU } from '@/data/product';
+import { productStore, IProductState } from '@/store/productStore';
 
 function GlobalNavigationBar() {
   const { selectProductType, setSelectProductType } =
