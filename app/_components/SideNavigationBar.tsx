@@ -15,11 +15,7 @@ import { productStore, IProductState } from '@/store/productStore';
 
 const DRAWER_WIDTH = 240;
 
-interface ISideNavigationBarProps {
-  refetch: () => void;
-}
-
-function SideNavigationBar({ refetch }: ISideNavigationBarProps) {
+function SideNavigationBar() {
   const {
     selectProductCategory,
     selectProductTag,
@@ -46,12 +42,10 @@ function SideNavigationBar({ refetch }: ISideNavigationBarProps) {
   };
 
   const handleSelectCategory = (name: typeof selectProductCategory) => {
-    refetch();
     handleDrawerClose();
     setSelectProductCategory(name);
   };
   const handleSelectTag = (name: typeof selectProductTag) => {
-    refetch();
     handleDrawerClose();
     setSelectProductTag(name);
   };

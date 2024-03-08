@@ -1,18 +1,27 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { GetProductListResponse } from '@/types';
-import { productStore, IProductState } from '@/store/productStore';
+
+interface IGetProductList {
+  selectProductType: string;
+  selectProductCategory: string;
+  selectProductTag: string;
+}
 
 /**
  * 상품 목록 조회 API
  */
-export const useGetFilterProductList = <
-  T extends GetProductListResponse[],
->(): UseQueryResult<T> => {
-  const { selectProductType, selectProductCategory, selectProductTag } =
-    productStore<IProductState>((state) => state);
-
+export const useGetProductList = <T extends GetProductListResponse[]>({
+  selectProductType,
+  selectProductCategory,
+  selectProductTag,
+}: IGetProductList): UseQueryResult<T> => {
   return useQuery({
-    queryKey: ['product list'],
+    queryKey: [
+      'product list',
+      selectProductType,
+      selectProductCategory,
+      selectProductTag,
+    ],
     queryFn: async () => {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API}?` +

@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import { Container } from '@mui/material';
 
 import {
@@ -10,22 +9,22 @@ import {
   SideNavigationBar,
   FilterChipsBox,
 } from './_components';
-import { useGetFilterProductList } from '@/api/product';
+import { useGetProductList } from '@/api/product';
 import { productStore, IProductState } from '@/store/productStore';
 
 function Home() {
   const { selectProductType, selectProductCategory, selectProductTag } =
     productStore<IProductState>((state) => state);
 
-  const { fetchStatus, data: productList, refetch } = useGetFilterProductList();
-
-  useEffect(() => {
-    refetch();
-  }, [selectProductType, selectProductCategory, selectProductTag]);
+  const { fetchStatus, data: productList } = useGetProductList({
+    selectProductType,
+    selectProductCategory,
+    selectProductTag,
+  });
 
   return (
     <main className="flex min-h-screen flex-col items-center">
-      <SideNavigationBar refetch={refetch} />
+      <SideNavigationBar />
 
       <Container className="max-w-6xl">
         <Header />
