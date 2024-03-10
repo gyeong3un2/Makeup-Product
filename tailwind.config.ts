@@ -23,14 +23,3 @@ const config: Config = {
   plugins: [],
 };
 export default config;
-
-// xxxs: '345px',
-// xxs: '413px',
-// xs: '563px',
-// sm: '640px',
-// md: '768px',
-// lg: '1024px',
-// lg2: '1102px',
-// xl: '1280px',
-// xl2: '1450px',
-// xl3: '1700px',
