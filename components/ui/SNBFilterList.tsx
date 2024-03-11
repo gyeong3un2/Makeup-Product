@@ -1,4 +1,5 @@
 import { Grid, ListItem, Typography } from '@mui/material';
+import clsx from 'clsx';
 
 interface FilterListProps {
   data: string[];
@@ -14,14 +15,13 @@ function SNBFilterList({
   return (
     <Grid item xs={6}>
       {data.map((name: string) => (
-        <ListItem key={name} className="w-[13rem]">
+        <ListItem key={name} className="w-52">
           <Typography
             onClick={() => onSelectFilter(name)}
-            className={`text-[1rem] ${
-              selectFilter === name
-                ? 'text-main underline underline-offset-[0.4rem]'
-                : ''
-            } textHover`}
+            className={clsx(
+              'text-4 textHover',
+              selectFilter === name && 'selectFilter',
+            )}
           >
             {name}
           </Typography>

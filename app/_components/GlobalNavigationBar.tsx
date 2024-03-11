@@ -9,19 +9,15 @@ function GlobalNavigationBar() {
 
   return (
     <>
-      <Divider className="border-gray-300 mt-6 mb-[0.5rem]" />
+      <Divider className="border-gray-300 mt-10 mb-2" />
 
-      <Box className="w-full min-h-[2.5rem] flex flex-wrap items-center justify-center ease-in-out transition-all">
+      <Box className="w-full min-h-10 flex flex-wrap items-center justify-center ease-in-out transition-all">
         {PRODUCT_MENU.productType.map((type) => (
           <Typography
             onClick={() => setSelectProductType(type)}
             className={clsx(
-              `my-auto mx-[1rem] text-[1rem] ${
-                selectProductType === type
-                  ? 'text-main underline underline-offset-[0.4rem]'
-                  : ''
-              }`,
-              'textHover',
+              'my-auto mx-4 text-4 textHover',
+              selectProductType === type && 'selectFilter',
             )}
             key={type}
           >
@@ -30,7 +26,7 @@ function GlobalNavigationBar() {
         ))}
       </Box>
 
-      <Divider className="border-gray-300 mt-[0.5rem] mb-[1rem]" />
+      <Divider className="border-gray-300 mt-2 mb-4" />
     </>
   );
 }
