@@ -58,12 +58,12 @@ function SideNavigationBar() {
         <Grid container className="flex-col">
           <SNBFilterList
             data={PRODUCT_MENU.categoryLeft}
-            selectCategory={selectProductCategory}
+            selectFilter={selectProductCategory}
             onSelectFilter={handleSelectCategory}
           />
           <SNBFilterList
             data={PRODUCT_MENU.categoryRight}
-            selectCategory={selectProductCategory}
+            selectFilter={selectProductCategory}
             onSelectFilter={handleSelectCategory}
           />
         </Grid>
@@ -78,12 +78,12 @@ function SideNavigationBar() {
         <Grid container className="flex-col">
           <SNBFilterList
             data={PRODUCT_MENU.tagLeft}
-            selectCategory={selectProductTag}
+            selectFilter={selectProductTag}
             onSelectFilter={handleSelectTag}
           />
           <SNBFilterList
             data={PRODUCT_MENU.tagRight}
-            selectCategory={selectProductTag}
+            selectFilter={selectProductTag}
             onSelectFilter={handleSelectTag}
           />
         </Grid>

@@ -2,13 +2,13 @@ import { Grid, ListItem, Typography } from '@mui/material';
 
 interface FilterListProps {
   data: string[];
-  selectCategory: string;
+  selectFilter: string;
   onSelectFilter: (name: string) => void;
 }
 
 function SNBFilterList({
   data,
-  selectCategory,
+  selectFilter,
   onSelectFilter,
 }: FilterListProps) {
   return (
@@ -18,7 +18,7 @@ function SNBFilterList({
           <Typography
             onClick={() => onSelectFilter(name)}
             className={`text-[1rem] ${
-              selectCategory === name
+              selectFilter === name
                 ? 'text-main underline underline-offset-[0.4rem]'
                 : ''
             } textHover`}
