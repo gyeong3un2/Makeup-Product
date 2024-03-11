@@ -3,7 +3,7 @@ import { Chip } from '@mui/material';
 interface IChipProps {
   labelType: string;
   selectFilterName: string;
-  onDeleteChip: (name: string) => void;
+  onDeleteChip: () => void;
 }
 
 function FilterChip({ labelType, selectFilterName, onDeleteChip }: IChipProps) {
@@ -12,7 +12,7 @@ function FilterChip({ labelType, selectFilterName, onDeleteChip }: IChipProps) {
       label={`${labelType}: ${selectFilterName}`}
       variant="outlined"
       onDelete={onDeleteChip}
-      className="text-main border-main"
+      className="text-main border-main mx-1 mb-1 h-10"
     />
   );
 }

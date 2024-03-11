@@ -1,27 +1,27 @@
 import { Grid, ListItem, Typography } from '@mui/material';
+import clsx from 'clsx';
 
 interface FilterListProps {
   data: string[];
-  selectCategory: string;
+  selectFilter: string;
   onSelectFilter: (name: string) => void;
 }
 
 function SNBFilterList({
   data,
-  selectCategory,
+  selectFilter,
   onSelectFilter,
 }: FilterListProps) {
   return (
     <Grid item xs={6}>
       {data.map((name: string) => (
-        <ListItem key={name} className="w-32">
+        <ListItem key={name} className="w-52">
           <Typography
             onClick={() => onSelectFilter(name)}
-            className={`text-sm ${
-              selectCategory === name
-                ? 'text-main underline underline-offset-4'
-                : ''
-            } hover:underline hover:underline-offset-4 hover:cursor-pointer hover:text-main transition-all ease-in-out`}
+            className={clsx(
+              'text-4 textHover',
+              selectFilter === name && 'selectFilter',
+            )}
           >
             {name}
           </Typography>

@@ -1,6 +1,7 @@
 import { Box, Divider, Typography } from '@mui/material';
 import { PRODUCT_MENU } from '@/data/product';
 import { productStore, IProductState } from '@/store/productStore';
+import clsx from 'clsx';
 
 function GlobalNavigationBar() {
   const { selectProductType, setSelectProductType } =
@@ -8,15 +9,16 @@ function GlobalNavigationBar() {
 
   return (
     <>
-      <Box className="w-full h-12 flex items-center justify-center">
+      <Divider className="border-gray-300 mt-10 mb-2" />
+
+      <Box className="w-full min-h-10 flex flex-wrap items-center justify-center ease-in-out transition-all">
         {PRODUCT_MENU.productType.map((type) => (
           <Typography
             onClick={() => setSelectProductType(type)}
-            className={`my-auto mx-5 ${
-              selectProductType === type
-                ? 'text-main underline underline-offset-8'
-                : ''
-            } hover:underline hover:underline-offset-8 hover:cursor-pointer hover:text-main transition-all ease-in-out`}
+            className={clsx(
+              'my-auto mx-4 text-4 textHover',
+              selectProductType === type && 'selectFilter',
+            )}
             key={type}
           >
             {type}
@@ -24,7 +26,7 @@ function GlobalNavigationBar() {
         ))}
       </Box>
 
-      <Divider className="border-gray-400 mb-3" />
+      <Divider className="border-gray-300 mt-2 mb-4" />
     </>
   );
 }

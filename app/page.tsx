@@ -1,16 +1,16 @@
 'use client';
 
-import { Container, Fab } from '@mui/material';
+import { Container } from '@mui/material';
 import {
   Header,
   DisplayProducts,
   GlobalNavigationBar,
   SideNavigationBar,
   FilterChipsBox,
+  FloatingUpButton,
 } from './_components';
 import { useGetProductList } from '@/api/product';
 import { productStore, IProductState } from '@/store/productStore';
-import FloatingUpButton from './_components/FloatingUpButton';
 
 function Home() {
   const { selectProductType, selectProductCategory, selectProductTag } =
@@ -28,7 +28,7 @@ function Home() {
 
       <FloatingUpButton />
 
-      <Container className="max-w-6xl">
+      <Container className="max-w-xl">
         <Header />
 
         <GlobalNavigationBar />

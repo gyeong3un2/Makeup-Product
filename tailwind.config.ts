@@ -6,11 +6,15 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      xl2: '1610px',
+    },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      margin: {
+        '50': '50rem',
+      },
+      maxWidth: {
+        xl: '72rem',
       },
       colors: {
         main: '#8a6063',

@@ -15,23 +15,23 @@ interface IProductInfoProps {
 function ProductInfo({ product }: IProductInfoProps) {
   return (
     <>
-      <Typography variant="h6" className={abel.className}>
+      <Typography className={clsx(abel.className, 'text-xl')}>
         {product.name}
       </Typography>
 
-      <Typography className={clsx(abel.className, 'my-3')} gutterBottom>
+      <Typography className={clsx(abel.className, 'text-lg my-3')} gutterBottom>
         {product.brand}
       </Typography>
 
-      <Typography className={clsx(abel.className, 'mt-3')}>
+      <Typography className={clsx(abel.className, 'text-base mt-3')}>
         {product.category && 'Category:'} {product.category}
       </Typography>
 
-      <Typography className={clsx(abel.className, 'my-1')}>
+      <Typography className={clsx(abel.className, 'text-base my-1')}>
         {product.price_sign && product.price_sign} {product.price}
       </Typography>
 
-      <Typography className={clsx(abel.className, 'my-1')}>
+      <Typography className={clsx(abel.className, 'text-base my-1')}>
         {product.rating && '★'} {product.rating}
       </Typography>
     </>

@@ -1,19 +1,11 @@
 import { useState } from 'react';
-import {
-  Box,
-  Divider,
-  Drawer,
-  Grid,
-  IconButton,
-  Typography,
-} from '@mui/material';
+import { Box, Divider, Drawer, Grid, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { PRODUCT_MENU } from '@/data/product';
 import { SNBFilterList } from '@/components/ui';
-
 import { productStore, IProductState } from '@/store/productStore';
 
-const DRAWER_WIDTH = 240;
+const DRAWER_WIDTH = '80';
 
 function SideNavigationBar() {
   const {
@@ -24,7 +16,7 @@ function SideNavigationBar() {
   } = productStore<IProductState>((state) => state);
 
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
-  const [isClosing, setIsClosing] = useState<boolean>(false);
+  const [isClosing, setIsClosing] = useState<boolean>(false); // Drawer 트랜지션을 위한 변수, Drawer가 닫히는 중인지 여부를 확인하기 위한 변수
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -42,31 +34,31 @@ function SideNavigationBar() {
   };
 
   const handleSelectCategory = (name: string) => {
-    handleDrawerClose();
     setSelectProductCategory(name);
+    handleDrawerClose();
   };
   const handleSelectTag = (name: string) => {
-    handleDrawerClose();
     setSelectProductTag(name);
+    handleDrawerClose();
   };
 
   const drawer = (
-    <div className="border rounded-lg mt-12 p-2">
+    <div className="border rounded-lg mt-8 p-2">
       <Box className="mb-5">
         <Typography className="p-2 text-xs text-gray-500">
           By Categorys
         </Typography>
         <Divider />
 
-        <Grid container>
+        <Grid container className="flex-col">
           <SNBFilterList
             data={PRODUCT_MENU.categoryLeft}
-            selectCategory={selectProductCategory}
+            selectFilter={selectProductCategory}
             onSelectFilter={handleSelectCategory}
           />
           <SNBFilterList
             data={PRODUCT_MENU.categoryRight}
-            selectCategory={selectProductCategory}
+            selectFilter={selectProductCategory}
             onSelectFilter={handleSelectCategory}
           />
         </Grid>
@@ -76,15 +68,15 @@ function SideNavigationBar() {
         <Typography className="p-2 text-xs text-gray-500">By Tags</Typography>
         <Divider />
 
-        <Grid container>
+        <Grid container className="flex-col">
           <SNBFilterList
             data={PRODUCT_MENU.tagLeft}
-            selectCategory={selectProductTag}
+            selectFilter={selectProductTag}
             onSelectFilter={handleSelectTag}
           />
           <SNBFilterList
             data={PRODUCT_MENU.tagRight}
-            selectCategory={selectProductTag}
+            selectFilter={selectProductTag}
             onSelectFilter={handleSelectTag}
           />
         </Grid>
@@ -94,15 +86,13 @@ function SideNavigationBar() {
 
   return (
     <Box>
-      <IconButton
-        color="inherit"
+      <Box
         aria-label="open drawer"
         onClick={handleDrawerToggle}
-        className="absolute left-0"
-        sx={{ display: { xl: 'none' } }}
+        className="absolute top-4 left-4 block xl2:hidden hover:cursor-pointer"
       >
         <MenuIcon />
-      </IconButton>
+      </Box>
       <Box component="nav" className={`w-sm-${DRAWER_WIDTH}`}>
         <Drawer
           variant="temporary"
@@ -112,8 +102,8 @@ function SideNavigationBar() {
           ModalProps={{
             keepMounted: true,
           }}
+          className="block xl:hidden"
           sx={{
-            display: { xl: 'block' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: DRAWER_WIDTH,
@@ -124,16 +114,14 @@ function SideNavigationBar() {
         </Drawer>
 
         <Box
-          className="absolute -ml-[52.5rem]"
+          className="absolute hidden mt-36 xl2:block xl2:-ml-50 ease-in-out transition-all"
           sx={{
-            display: { lg: 'none', xl: 'block' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: DRAWER_WIDTH,
             },
           }}
         >
-          <Box className="h-36" />
           {drawer}
         </Box>
       </Box>
