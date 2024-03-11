@@ -6,7 +6,7 @@ import { SNBFilterList } from '@/components/ui';
 
 import { productStore, IProductState } from '@/store/productStore';
 
-const DRAWER_WIDTH = 80;
+const DRAWER_WIDTH = '80';
 
 function SideNavigationBar() {
   const {

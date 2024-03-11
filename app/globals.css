@@ -6,14 +6,8 @@ html {
   font-size: 10px; /* 더 작은 화면에서는 작은 font-size를 사용 */
 }
 
-.selectFilter {
-  text-decoration: underline;
-  text-underline-offset: 0.4rem;
-  cursor: pointer;
-  color: #8a6063;
-}
-
 /* 호버 시의 글자 크기 조정 */
+.selectFilter,
 .textHover:hover {
   text-decoration: underline;
   text-underline-offset: 0.4rem;
