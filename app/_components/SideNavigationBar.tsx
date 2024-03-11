@@ -1,12 +1,5 @@
 import { useState } from 'react';
-import {
-  Box,
-  Divider,
-  Drawer,
-  Grid,
-  IconButton,
-  Typography,
-} from '@mui/material';
+import { Box, Divider, Drawer, Grid, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { PRODUCT_MENU } from '@/data/product';
 import { SNBFilterList } from '@/components/ui';
@@ -115,8 +108,8 @@ function SideNavigationBar() {
           ModalProps={{
             keepMounted: true,
           }}
+          className="hidden xl:block"
           sx={{
-            display: { xl: 'block' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: DRAWER_WIDTH,

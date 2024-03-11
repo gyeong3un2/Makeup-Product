@@ -1,4 +1,4 @@
-import { Box, Divider, Grid, Typography } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import { PRODUCT_MENU } from '@/data/product';
 import { productStore, IProductState } from '@/store/productStore';
 
