@@ -100,14 +100,12 @@ function SideNavigationBar() {
 
   return (
     <Box>
-      <IconButton
-        color="inherit"
-        aria-label="open drawer"
+      <Box
         onClick={handleDrawerToggle}
-        className="absolute left-0 block xl3:hidden"
+        className="absolute top-[1rem] left-[1rem] block xl2:hidden hover:cursor-pointer"
       >
         <MenuIcon />
-      </IconButton>
+      </Box>
       <Box component="nav" className={`w-sm-${DRAWER_WIDTH}`}>
         <Drawer
           variant="temporary"
@@ -129,7 +127,7 @@ function SideNavigationBar() {
         </Drawer>
 
         <Box
-          className="absolute hidden xl2:block xl2:-ml-[50rem] ease-in-out transition-all"
+          className="absolute hidden mt-[9rem] xl2:block xl2:-ml-[50rem] ease-in-out transition-all"
           sx={{
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
@@ -137,7 +135,6 @@ function SideNavigationBar() {
             },
           }}
         >
-          <Box className="h-[9rem]" />
           {drawer}
         </Box>
       </Box>
