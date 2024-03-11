@@ -1,6 +1,7 @@
 import { Box, Divider, Typography } from '@mui/material';
 import { PRODUCT_MENU } from '@/data/product';
 import { productStore, IProductState } from '@/store/productStore';
+import clsx from 'clsx';
 
 function GlobalNavigationBar() {
   const { selectProductType, setSelectProductType } =
@@ -14,11 +15,14 @@ function GlobalNavigationBar() {
         {PRODUCT_MENU.productType.map((type) => (
           <Typography
             onClick={() => setSelectProductType(type)}
-            className={`my-auto mx-[1rem] text-[1rem] ${
-              selectProductType === type
-                ? 'text-main underline underline-offset-[0.4rem]'
-                : ''
-            } hover:underline hover:underline-offset-[0.4rem] hover:cursor-pointer hover:text-main transition-all ease-in-out`}
+            className={clsx(
+              `my-auto mx-[1rem] text-[1rem] ${
+                selectProductType === type
+                  ? 'text-main underline underline-offset-[0.4rem]'
+                  : ''
+              }`,
+              'textHover',
+            )}
             key={type}
           >
             {type}

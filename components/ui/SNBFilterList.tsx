@@ -21,7 +21,7 @@ function SNBFilterList({
               selectCategory === name
                 ? 'text-main underline underline-offset-[0.4rem]'
                 : ''
-            } hover:underline hover:underline-offset-[0.4rem] hover:cursor-pointer hover:text-main transition-all ease-in-out`}
+            } textHover`}
           >
             {name}
           </Typography>
