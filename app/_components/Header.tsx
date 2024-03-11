@@ -9,11 +9,11 @@ const gruppo = Gruppo({
 
 function Header() {
   return (
-    <Box className="text-center p-[3rem]">
+    <Box className="text-center p-12">
       <Typography
         className={clsx(
           gruppo.className,
-          'text-[2.5rem] ease-in-out transition-all',
+          'text-3xl ease-in-out transition-all',
         )}
       >
         Listing Products

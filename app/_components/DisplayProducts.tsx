@@ -15,9 +15,9 @@ function DisplayProducts({ productList, fetchStatus }: IProductListProps) {
       {productList && fetchStatus === 'idle'
         ? productList.map((product: GetProductListResponse) => (
             <Grid item xs={12} sm={6} md={3} key={product.id}>
-              <Card className="h-full shadow-none max-screen-w-[16rem] hover:cursor-pointer hover:shadow-2xl transition ease-in-out hover:-translate-y-[0.25rem] duration-300">
+              <Card className="h-full shadow-none max-screen-w-64 hover:cursor-pointer hover:shadow-2xl transition ease-in-out hover:-translate-y-1 duration-300">
                 <Image
-                  className="w-[9rem] m-auto my-[0.75rem]"
+                  className="w-36 m-auto my-3"
                   src={`http:${product.api_featured_image}`}
                   alt={product.name}
                   width={24}

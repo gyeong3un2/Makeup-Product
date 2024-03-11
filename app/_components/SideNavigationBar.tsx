@@ -6,7 +6,7 @@ import { SNBFilterList } from '@/components/ui';
 
 import { productStore, IProductState } from '@/store/productStore';
 
-const DRAWER_WIDTH = '21rem';
+const DRAWER_WIDTH = 80;
 
 function SideNavigationBar() {
   const {
@@ -48,9 +48,9 @@ function SideNavigationBar() {
   };
 
   const drawer = (
-    <div className="border rounded-lg mt-[2rem] p-[0.5rem]">
-      <Box className="mb-[1.25rem]">
-        <Typography className="p-[0.5rem] text-[0.9rem] text-gray-500">
+    <div className="border rounded-lg mt-8 p-2">
+      <Box className="mb-5">
+        <Typography className="p-2 text-xs text-gray-500">
           By Categorys
         </Typography>
         <Divider />
@@ -70,9 +70,7 @@ function SideNavigationBar() {
       </Box>
 
       <Box>
-        <Typography className="p-[0.5rem] text-[0.9rem] text-gray-500">
-          By Tags
-        </Typography>
+        <Typography className="p-2 text-xs text-gray-500">By Tags</Typography>
         <Divider />
 
         <Grid container className="flex-col">
@@ -96,7 +94,7 @@ function SideNavigationBar() {
       <Box
         aria-label="open drawer"
         onClick={handleDrawerToggle}
-        className="absolute top-[1rem] left-[1rem] block xl2:hidden hover:cursor-pointer"
+        className="absolute top-4 left-4 block xl2:hidden hover:cursor-pointer"
       >
         <MenuIcon />
       </Box>
@@ -121,7 +119,7 @@ function SideNavigationBar() {
         </Drawer>
 
         <Box
-          className="absolute hidden mt-[9rem] xl2:block xl2:-ml-[50rem] ease-in-out transition-all"
+          className="absolute hidden mt-36 xl2:block xl2:-ml-50 ease-in-out transition-all"
           sx={{
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',

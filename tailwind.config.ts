@@ -10,6 +10,12 @@ const config: Config = {
       xl2: '1610px',
     },
     extend: {
+      margin: {
+        '50': '50rem',
+      },
+      maxWidth: {
+        xl: '72rem',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

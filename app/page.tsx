@@ -28,7 +28,7 @@ function Home() {
 
       <FloatingUpButton />
 
-      <Container className="max-w-[72rem]">
+      <Container className="max-w-xl">
         <Header />
 
         <GlobalNavigationBar />

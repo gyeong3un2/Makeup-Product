@@ -20,13 +20,13 @@ function FilterChipsBox() {
   };
 
   return (
-    <Box className="min-h-[2.5rem]">
+    <Box className="min-h-10">
       {(selectProductType || selectProductCategory || selectProductTag) && (
         <Chip
           icon={<RestartAltIcon className=" fill-white" />}
           label="reset"
           onClick={handleFilterReset}
-          className="text-white bg-main hover:bg-[#5b3e40] mx-[0.25rem] mb-[0.25rem] h-[2.5rem]"
+          className="text-white bg-main hover:bg-[#5b3e40] mx-1 mb-1 h-10"
         />
       )}
       {selectProductType && (

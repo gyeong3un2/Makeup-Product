@@ -12,7 +12,7 @@ function FilterChip({ labelType, selectFilterName, onDeleteChip }: IChipProps) {
       label={`${labelType}: ${selectFilterName}`}
       variant="outlined"
       onDelete={onDeleteChip}
-      className="text-main border-main mx-[0.25rem] mb-[0.25rem] h-[2.5rem]"
+      className="text-main border-main mx-1 mb-1 h-10"
     />
   );
 }
