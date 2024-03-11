@@ -94,6 +94,7 @@ function SideNavigationBar() {
   return (
     <Box>
       <Box
+        aria-label="open drawer"
         onClick={handleDrawerToggle}
         className="absolute top-[1rem] left-[1rem] block xl2:hidden hover:cursor-pointer"
       >
@@ -108,7 +109,7 @@ function SideNavigationBar() {
           ModalProps={{
             keepMounted: true,
           }}
-          className="hidden xl:block"
+          className="block xl:hidden"
           sx={{
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
