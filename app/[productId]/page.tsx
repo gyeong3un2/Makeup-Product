@@ -1,37 +1,21 @@
 'use client';
 
-import {
-  Box,
-  Button,
-  Container,
-  Divider,
-  Grid,
-  Typography,
-} from '@mui/material';
 import Image from 'next/image';
-import { Gruppo } from 'next/font/google';
-import clsx from 'clsx';
+import { Container, Divider, Grid } from '@mui/material';
 import { ProductColor } from '@/components/ui';
-import { useParams } from 'next/navigation';
-
-const gruppo = Gruppo({
-  subsets: ['latin'],
-  weight: '400',
-});
+import ProductContents from './_components/ProductContents';
+import { GetProductListResponse } from '@/types';
+import ProductOverview from './_components/ProductOverview';
 
 function ProductPage() {
-  const { productId: productId } = useParams();
   const product =
     typeof window !== 'undefined'
       ? sessionStorage.getItem('productInfo')
       : undefined;
-  const productInfo = product && JSON.parse(product);
-
-  console.log('productId:', productId);
-  console.log('productInfo:', productInfo);
+  const productInfo: GetProductListResponse = product && JSON.parse(product);
 
   return (
-    <main className="flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <Container className="max-w-xl">
         <Divider />
 
@@ -53,33 +37,10 @@ function ProductPage() {
           </Grid>
 
           <Grid item xs={12} sm={7} md={7}>
-            <Typography className={clsx(gruppo.className, 'text-3xl mb-5')}>
-              {productInfo.name}
-            </Typography>
-            <Typography className={clsx(gruppo.className, 'text-xl')}>
-              Brand: {productInfo.brand}
-            </Typography>
-            <Typography className={clsx(gruppo.className, 'text-xl')}>
-              Price: {productInfo.price_sign}
-              {productInfo.price}
-            </Typography>
-            <Typography className={clsx(gruppo.className, 'text-xl')}>
-              Star rating:{' '}
-              {(productInfo.rating && `★ ${productInfo.rating}`) || 'unrated'}
-            </Typography>
-
-            <Button
-              variant="contained"
-              href={productInfo.product_link}
-              className={clsx(
-                gruppo.className,
-                'mt-5  bg-main hover:bg-[#654548]',
-              )}
-            >
-              Buy Now
-            </Button>
+            <ProductOverview productInfo={productInfo} />
           </Grid>
         </Grid>
+
         <Divider />
 
         <ProductColor
@@ -88,24 +49,9 @@ function ProductPage() {
         />
         <Divider />
 
-        <Box>
-          <div className={clsx(gruppo.className, 'm-2')}>
-            <span className="font-bold text-lg">Description:</span> <br />{' '}
-            {productInfo.description}
-          </div>
-
-          <div className={clsx(gruppo.className, 'm-2 mt-5')}>
-            <span className="font-bold text-lg">Tags:</span> <br />{' '}
-            {productInfo.tag_list &&
-              productInfo.tag_list.map((tag: string) => (
-                <li key={tag} className="mx-2">
-                  {tag}
-                </li>
-              ))}
-          </div>
-        </Box>
+        <ProductContents productInfo={productInfo} />
       </Container>
-    </main>
+    </div>
   );
 }
 
