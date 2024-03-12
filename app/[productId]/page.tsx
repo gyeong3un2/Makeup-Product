@@ -2,17 +2,13 @@
 
 import Image from 'next/image';
 import { Container, Divider, Grid } from '@mui/material';
+import { defaultImage } from '@/data/product';
 import { ProductColor } from '@/components/ui';
-import ProductContents from './_components/ProductContents';
-import { GetProductListResponse } from '@/types';
-import ProductOverview from './_components/ProductOverview';
+import { IProductState, productStore } from '@/store/productStore';
+import { ProductContents, ProductOverview } from './_components';
 
 function ProductPage() {
-  const product =
-    typeof window !== 'undefined'
-      ? sessionStorage.getItem('productInfo')
-      : undefined;
-  const productInfo: GetProductListResponse = product && JSON.parse(product);
+  const product = productStore<IProductState>((state) => state);
 
   return (
     <div className="flex flex-col items-center">
@@ -29,27 +25,31 @@ function ProductPage() {
             <Image
               className="w-36 my-3 m-auto"
               draggable={false}
-              src={`http:${productInfo.api_featured_image}`}
-              alt={productInfo.name}
+              src={
+                product.productInfo?.api_featured_image
+                  ? `http:${product.productInfo?.api_featured_image}`
+                  : defaultImage
+              }
+              alt="image"
               width={32}
               height={32}
             />
           </Grid>
 
           <Grid item xs={12} sm={7} md={7}>
-            <ProductOverview productInfo={productInfo} />
+            <ProductOverview productInfo={product.productInfo} />
           </Grid>
         </Grid>
 
         <Divider />
 
         <ProductColor
-          productColors={productInfo.product_colors}
+          productColors={product.productInfo?.product_colors}
           type="detail"
         />
         <Divider />
 
-        <ProductContents productInfo={productInfo} />
+        <ProductContents productInfo={product.productInfo} />
       </Container>
     </div>
   );

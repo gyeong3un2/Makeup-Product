@@ -16,9 +16,6 @@ export interface IProductState {
 
   productInfo: GetProductListResponse;
   setProductInfo: (product: GetProductListResponse) => void;
-
-  saveProductInfo: () => void;
-  loadProductInfo: () => void;
 }
 
 export const productStore = create<IProductState>((set, get) => ({
@@ -38,16 +35,4 @@ export const productStore = create<IProductState>((set, get) => ({
 
   productInfo: {} as GetProductListResponse,
   setProductInfo: (productInfo: GetProductListResponse) => set({ productInfo }),
-
-  saveProductInfo: () => {
-    const { productInfo } = get();
-    sessionStorage.setItem('productInfo', JSON.stringify(productInfo));
-  },
-
-  loadProductInfo: () => {
-    const productInfo = sessionStorage.getItem('productInfo');
-    if (productInfo) {
-      set({ productInfo: JSON.parse(productInfo) });
-    }
-  },
 }));

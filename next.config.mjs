@@ -12,7 +12,8 @@ const nextConfig = {
         hostname: 'images',
       },
       {
-        hostname: 'undefined',
+        protocol: 'https',
+        hostname: 'montevista.greatheartsamerica.org',
       },
     ],
   },
