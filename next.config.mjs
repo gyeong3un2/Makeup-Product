@@ -5,12 +5,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'http',
-        hostname: 's3.amazonaws.com'
+        hostname: 's3.amazonaws.com',
       },
       {
         protocol: 'http',
-        hostname: 'images'
-      }
+        hostname: 'images',
+      },
     ],
   },
   async headers() {
@@ -34,14 +34,14 @@ const nextConfig = {
       },
     ];
   },
-  async rewrites() {
-    return [
-      {
-        source: '/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API}/:path*`,
-      },
-    ];
-  },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: '/:path*',
+  //       destination: `${process.env.NEXT_PUBLIC_API}/:path*`,
+  //     },
+  //   ];
+  // },
 };
 
 export default nextConfig;
