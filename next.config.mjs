@@ -11,6 +11,9 @@ const nextConfig = {
         protocol: 'http',
         hostname: 'images',
       },
+      {
+        hostname: 'undefined',
+      },
     ],
   },
   async headers() {

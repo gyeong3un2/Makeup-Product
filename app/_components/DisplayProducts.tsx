@@ -5,7 +5,6 @@ import { Card, CardContent, Grid } from '@mui/material';
 import { GetProductListResponse } from '@/types/index';
 import { skeletonCounts } from '@/data/product';
 import { ProductInfo, ProductColor, SkeletonUI } from '@/components/ui';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
 import { IProductState, productStore } from '@/store/productStore';
@@ -17,11 +16,14 @@ interface IProductListProps {
 
 function DisplayProducts({ productList, fetchStatus }: IProductListProps) {
   const router = useRouter();
-  const { setProductInfo } = productStore<IProductState>((state) => state);
+  const { setProductInfo, saveProductInfo } = productStore<IProductState>(
+    (state) => state,
+  );
 
   const handleClick = useCallback(
     (value: GetProductListResponse) => {
       setProductInfo(value);
+      saveProductInfo();
       router.push(`/${value.id}`);
     },
     [router],

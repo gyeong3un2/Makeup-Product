@@ -13,7 +13,6 @@ import { Gruppo } from 'next/font/google';
 import clsx from 'clsx';
 import { ProductColor } from '@/components/ui';
 import { useParams } from 'next/navigation';
-import { IProductState, productStore } from '@/store/productStore';
 
 const gruppo = Gruppo({
   subsets: ['latin'],
@@ -22,7 +21,11 @@ const gruppo = Gruppo({
 
 function ProductPage() {
   const { productId: productId } = useParams();
-  const { productInfo } = productStore<IProductState>((state) => state);
+  const product =
+    typeof window !== 'undefined'
+      ? sessionStorage.getItem('productInfo')
+      : undefined;
+  const productInfo = product && JSON.parse(product);
 
   console.log('productId:', productId);
   console.log('productInfo:', productInfo);
@@ -94,7 +97,7 @@ function ProductPage() {
           <div className={clsx(gruppo.className, 'm-2 mt-5')}>
             <span className="font-bold text-lg">Tags:</span> <br />{' '}
             {productInfo.tag_list &&
-              productInfo.tag_list.map((tag) => (
+              productInfo.tag_list.map((tag: string) => (
                 <li key={tag} className="mx-2">
                   {tag}
                 </li>

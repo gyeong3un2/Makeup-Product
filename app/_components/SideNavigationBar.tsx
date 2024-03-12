@@ -114,7 +114,7 @@ function SideNavigationBar() {
         </Drawer>
 
         <Box
-          className="absolute hidden mt-36 xl2:block xl2:-ml-50 ease-in-out transition-all"
+          className="absolute hidden mt-2 xl2:block xl2:-ml-50 ease-in-out transition-all"
           sx={{
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
