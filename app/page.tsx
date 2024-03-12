@@ -2,7 +2,6 @@
 
 import { Container } from '@mui/material';
 import {
-  Header,
   DisplayProducts,
   GlobalNavigationBar,
   SideNavigationBar,
@@ -29,8 +28,6 @@ function Home() {
       <FloatingUpButton />
 
       <Container className="max-w-xl">
-        <Header />
-
         <GlobalNavigationBar />
 
         <FilterChipsBox />

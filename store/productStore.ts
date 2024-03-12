@@ -1,4 +1,6 @@
 import { create } from 'zustand';
+import { GetProductListResponse } from '@/types';
+import { persist } from 'zustand/middleware';
 
 export interface IProductState {
   selectProductType: string;

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Provider from '@/provider/Provider';
 import './globals.css';
+import Header from '@/components/ui/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,7 +23,10 @@ function RootLayout({
         content="upgrade-insecure-requests"
       />
       <body className={inter.className}>
-        <Provider>{children}</Provider>
+        <Provider>
+          <Header />
+          {children}
+        </Provider>
       </body>
     </html>
   );
