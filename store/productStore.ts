@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { GetProductListResponse } from '@/types';
-import { persist } from 'zustand/middleware';
 
 export interface IProductState {
   selectProductType: string;
@@ -14,6 +13,9 @@ export interface IProductState {
   selectProductTag: string;
   setSelectProductTag: (selectProductTag: string) => void;
   removeSelectProductTag: () => void;
+
+  productInfo: GetProductListResponse;
+  setProductInfo: (product: GetProductListResponse) => void;
 }
 
 export const productStore = create<IProductState>((set) => ({
@@ -30,4 +32,7 @@ export const productStore = create<IProductState>((set) => ({
   selectProductTag: '',
   setSelectProductTag: (selectProductTag: string) => set({ selectProductTag }),
   removeSelectProductTag: () => set({ selectProductTag: '' }),
+
+  productInfo: {} as GetProductListResponse,
+  setProductInfo: (productInfo: GetProductListResponse) => set({ productInfo }),
 }));

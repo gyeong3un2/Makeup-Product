@@ -8,29 +8,24 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import { product } from '@/data/product';
 import Image from 'next/image';
 import { Gruppo } from 'next/font/google';
 import clsx from 'clsx';
 import { ProductColor } from '@/components/ui';
 import { useParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { IProductState, productStore } from '@/store/productStore';
 
 const gruppo = Gruppo({
   subsets: ['latin'],
   weight: '400',
 });
 
-function ProductPage({
-  params: { productId },
-}: {
-  params: { productId: number };
-}) {
-  // const { id: productId } = useParams();
+function ProductPage() {
+  const { productId: productId } = useParams();
+  const { productInfo } = productStore<IProductState>((state) => state);
 
-  useEffect(() => {
-    console.log('productId:', productId);
-  }, [productId]);
+  console.log('productId:', productId);
+  console.log('productInfo:', productInfo);
 
   return (
     <main className="flex flex-col items-center">
@@ -47,8 +42,8 @@ function ProductPage({
             <Image
               className="w-36 my-3 m-auto"
               draggable={false}
-              src={`http:${product.api_featured_image}`}
-              alt={product.name}
+              src={`http:${productInfo.api_featured_image}`}
+              alt={productInfo.name}
               width={32}
               height={32}
             />
@@ -56,23 +51,23 @@ function ProductPage({
 
           <Grid item xs={12} sm={7} md={7}>
             <Typography className={clsx(gruppo.className, 'text-3xl mb-5')}>
-              {product.name}
+              {productInfo.name}
             </Typography>
             <Typography className={clsx(gruppo.className, 'text-xl')}>
-              Brand: {product.brand}
+              Brand: {productInfo.brand}
             </Typography>
             <Typography className={clsx(gruppo.className, 'text-xl')}>
-              Price: {product.price_sign}
-              {product.price}
+              Price: {productInfo.price_sign}
+              {productInfo.price}
             </Typography>
             <Typography className={clsx(gruppo.className, 'text-xl')}>
               Star rating:{' '}
-              {(product.rating && `★ ${product.rating}`) || 'unrated'}
+              {(productInfo.rating && `★ ${productInfo.rating}`) || 'unrated'}
             </Typography>
 
             <Button
               variant="contained"
-              href={product.product_link}
+              href={productInfo.product_link}
               className={clsx(
                 gruppo.className,
                 'mt-5  bg-main hover:bg-[#654548]',
@@ -84,22 +79,26 @@ function ProductPage({
         </Grid>
         <Divider />
 
-        <ProductColor productColors={product.product_colors} type="detail" />
+        <ProductColor
+          productColors={productInfo.product_colors}
+          type="detail"
+        />
         <Divider />
 
         <Box>
           <div className={clsx(gruppo.className, 'm-2')}>
             <span className="font-bold text-lg">Description:</span> <br />{' '}
-            {product.description}
+            {productInfo.description}
           </div>
 
           <div className={clsx(gruppo.className, 'm-2 mt-5')}>
             <span className="font-bold text-lg">Tags:</span> <br />{' '}
-            {product.tag_list.map((tag) => (
-              <li key={tag} className="mx-2">
-                {tag}
-              </li>
-            ))}
+            {productInfo.tag_list &&
+              productInfo.tag_list.map((tag) => (
+                <li key={tag} className="mx-2">
+                  {tag}
+                </li>
+              ))}
           </div>
         </Box>
       </Container>
