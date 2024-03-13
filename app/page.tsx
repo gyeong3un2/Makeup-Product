@@ -11,6 +11,37 @@ import {
 import { useGetProductList } from '@/api/product';
 import { productStore, IProductState } from '@/store/productStore';
 
+// export async function getStaticPaths() {
+//   let { data: productList } = useGetProductList({
+//     selectProductType,
+//     selectProductCategory,
+//     selectProductTag,
+//   });
+
+//   const paths =
+//     productList &&
+//     productList.map((product) => ({
+//       params: { productId: product.id },
+//     }));
+
+//   return { paths, fallback: 'false' };
+// }
+
+// export async function getStaticProps() {
+//   let { data: productList } = useGetProductList({
+//     selectProductType,
+//     selectProductCategory,
+//     selectProductTag,
+//   });
+
+// }
+
+// return {
+//   props: {
+//     title: 'Home',
+//   },
+// };
+
 function Home() {
   const { selectProductType, selectProductCategory, selectProductTag } =
     productStore<IProductState>((state) => state);
