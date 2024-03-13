@@ -2,13 +2,21 @@
 
 import Image from 'next/image';
 import { Container, Divider, Grid } from '@mui/material';
-import { defaultImage } from '@/data/product';
-import { ProductColor } from '@/components/ui';
-import { IProductState, productStore } from '@/store/productStore';
+import { defaultImage } from '@/app/data/product';
+import { ProductColor } from '@/app/ui';
 import { ProductContents, ProductOverview } from './_components';
+import { useParams } from 'next/navigation';
+import { useGetProductInfo } from '../api/product';
 
+/**
+ * 상품 상세 페이지
+ */
 function ProductPage() {
-  const product = productStore<IProductState>((state) => state);
+  const { productId: productId } = useParams() as { productId: string };
+  const { fetchStatus, data: productInfo } = useGetProductInfo({ productId });
+
+  console.log('productId: ', productId);
+  console.log('productInfo: ', productInfo);
 
   return (
     <div className="flex flex-col items-center">
@@ -17,39 +25,39 @@ function ProductPage() {
 
         <Grid
           container
-          rowSpacing={2}
           gridAutoRows={1}
           className="h-full shadow-none m-auto items-center p-2"
         >
           <Grid item xs={12} sm={5} md={5}>
             <Image
-              className="w-36 my-3 m-auto"
+              className="w-52 my-3 m-auto"
               draggable={false}
+              priority
               src={
-                product.productInfo?.api_featured_image
-                  ? `http:${product.productInfo?.api_featured_image}`
+                productInfo?.api_featured_image
+                  ? `http:${productInfo?.api_featured_image}`
                   : defaultImage
               }
               alt="image"
-              width={32}
-              height={32}
+              width={40}
+              height={40}
             />
           </Grid>
 
           <Grid item xs={12} sm={7} md={7}>
-            <ProductOverview productInfo={product.productInfo} />
+            <ProductOverview productInfo={productInfo} />
           </Grid>
         </Grid>
 
         <Divider />
 
         <ProductColor
-          productColors={product.productInfo?.product_colors}
+          productColors={productInfo?.product_colors}
           type="detail"
         />
         <Divider />
 
-        <ProductContents productInfo={product.productInfo} />
+        <ProductContents productInfo={productInfo} />
       </Container>
     </div>
   );

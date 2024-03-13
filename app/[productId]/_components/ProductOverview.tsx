@@ -9,9 +9,12 @@ const gruppo = Gruppo({
 });
 
 interface IProductContentsProps {
-  productInfo: GetProductListResponse;
+  productInfo: GetProductListResponse | undefined;
 }
 
+/**
+ * 상품 상세 페이지 > 상품 개요 컴포넌트
+ */
 function ProductOverview({ productInfo }: IProductContentsProps) {
   return (
     <>

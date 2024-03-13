@@ -3,7 +3,7 @@ import { GetProductListResponse } from '@/app/types';
 import clsx from 'clsx';
 
 interface IProductInfoProps {
-  productColors: GetProductListResponse['product_colors'];
+  productColors: GetProductListResponse['product_colors'] | undefined;
   type?: string;
 }
 function ProductColor({ productColors, type }: IProductInfoProps) {
