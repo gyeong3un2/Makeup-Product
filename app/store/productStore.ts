@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { GetProductListResponse } from '@/types';
+import { GetProductListResponse } from '@/app/types';
 
 export interface IProductState {
   selectProductType: string;
@@ -18,7 +18,7 @@ export interface IProductState {
   setProductInfo: (product: GetProductListResponse) => void;
 }
 
-export const productStore = create<IProductState>((set, get) => ({
+export const productStore = create<IProductState>((set) => ({
   selectProductType: '',
   setSelectProductType: (selectProductType: string) =>
     set({ selectProductType }),

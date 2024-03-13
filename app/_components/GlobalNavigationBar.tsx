@@ -1,6 +1,6 @@
 import { Box, Divider, Typography } from '@mui/material';
-import { PRODUCT_MENU } from '@/data/product';
-import { productStore, IProductState } from '@/store/productStore';
+import { PRODUCT_MENU } from '@/app/data/product';
+import { productStore, IProductState } from '@/app/store/productStore';
 import clsx from 'clsx';
 
 function GlobalNavigationBar() {

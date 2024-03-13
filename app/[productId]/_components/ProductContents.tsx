@@ -1,4 +1,4 @@
-import { GetProductListResponse } from '@/types';
+import { GetProductListResponse } from '@/app/types';
 import { Gruppo } from 'next/font/google';
 import { Box } from '@mui/material';
 import clsx from 'clsx';

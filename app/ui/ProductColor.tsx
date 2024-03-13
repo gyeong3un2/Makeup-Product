@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material';
-import { GetProductListResponse } from '@/types';
+import { GetProductListResponse } from '@/app/types';
 import clsx from 'clsx';
 
 interface IProductInfoProps {

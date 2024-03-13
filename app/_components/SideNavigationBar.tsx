@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Box, Divider, Drawer, Grid, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { PRODUCT_MENU } from '@/data/product';
-import { SNBFilterList } from '@/components/ui';
-import { productStore, IProductState } from '@/store/productStore';
+import { PRODUCT_MENU } from '@/app/data/product';
+import { SNBFilterList } from '@/app/ui';
+import { productStore, IProductState } from '@/app/store/productStore';
 
 const DRAWER_WIDTH = '80';
 

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { Abel } from 'next/font/google';
 import { Typography } from '@mui/material';
-import { GetProductListResponse } from '@/types';
+import { GetProductListResponse } from '@/app/types';
 
 const abel = Abel({
   subsets: ['latin'],

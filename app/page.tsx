@@ -8,39 +8,8 @@ import {
   FilterChipsBox,
   FloatingUpButton,
 } from './_components';
-import { useGetProductList } from '@/api/product';
-import { productStore, IProductState } from '@/store/productStore';
-
-// export async function getStaticPaths() {
-//   let { data: productList } = useGetProductList({
-//     selectProductType,
-//     selectProductCategory,
-//     selectProductTag,
-//   });
-
-//   const paths =
-//     productList &&
-//     productList.map((product) => ({
-//       params: { productId: product.id },
-//     }));
-
-//   return { paths, fallback: 'false' };
-// }
-
-// export async function getStaticProps() {
-//   let { data: productList } = useGetProductList({
-//     selectProductType,
-//     selectProductCategory,
-//     selectProductTag,
-//   });
-
-// }
-
-// return {
-//   props: {
-//     title: 'Home',
-//   },
-// };
+import { useGetProductList } from '@/app/api/product';
+import { productStore, IProductState } from '@/app/store/productStore';
 
 function Home() {
   const { selectProductType, selectProductCategory, selectProductTag } =
