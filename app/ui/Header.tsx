@@ -1,24 +1,13 @@
 'use client';
 
 import { Box, Typography } from '@mui/material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import clsx from 'clsx';
-import { Gruppo } from 'next/font/google';
-import { useRouter, usePathname } from 'next/navigation';
-import { IProductState, productStore } from '../store/productStore';
+import { gruppo } from '../utils/constants';
 
-const gruppo = Gruppo({
-  subsets: ['latin'],
-  weight: '400',
-});
-
+/**
+ * 레이아웃 > 헤더 컴포넌트
+ */
 function Header() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const { selectProductId, setSelectProductId } = productStore<IProductState>(
-    (state) => state,
-  );
-
   return (
     <>
       <Box className="text-center p-12">

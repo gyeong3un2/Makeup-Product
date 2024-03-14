@@ -1,17 +1,15 @@
 import clsx from 'clsx';
-import { Abel } from 'next/font/google';
+import { abel } from '@/app/utils/constants';
 import { Typography } from '@mui/material';
 import { GetProductListResponse } from '@/app/types';
-
-const abel = Abel({
-  subsets: ['latin'],
-  weight: '400',
-});
 
 interface IProductInfoProps {
   product: GetProductListResponse;
 }
 
+/**
+ * 메인 페이지 > 상품 리스트 > 상품 상세 정보 컴포넌트
+ */
 function ProductInfo({ product }: IProductInfoProps) {
   return (
     <>

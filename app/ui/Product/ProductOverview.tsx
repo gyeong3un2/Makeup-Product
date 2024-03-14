@@ -1,14 +1,8 @@
 import { GetProductListResponse } from '@/app/types';
+import { gruppo } from '@/app/utils/constants';
 import { Button, Typography } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import clsx from 'clsx';
-import { Gruppo } from 'next/font/google';
-
-const gruppo = Gruppo({
-  subsets: ['latin'],
-  weight: '400',
-});
-
 interface IProductContentsProps {
   productInfo: GetProductListResponse | undefined;
 }

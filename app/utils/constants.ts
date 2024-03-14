@@ -1,3 +1,21 @@
+import { Gruppo } from 'next/font/google';
+import { Abel } from 'next/font/google';
+
+/**
+ * 폰트 설정
+ */
+export const gruppo = Gruppo({
+  subsets: ['latin'],
+  weight: '400',
+});
+export const abel = Abel({
+  subsets: ['latin'],
+  weight: '400',
+});
+
+/**
+ * 상품 필터링 메뉴
+ */
 export const PRODUCT_MENU = {
   brands: [
     'almay',
@@ -116,9 +134,15 @@ export const PRODUCT_MENU = {
   ],
 };
 
+/**
+ * 스켈레톤 개수
+ */
 export const skeletonCounts = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
 ];
 
+/**
+ * 기본 이미지
+ */
 export const defaultImage =
   'https://montevista.greatheartsamerica.org/wp-content/uploads/sites/2/2016/11/default-placeholder.png';

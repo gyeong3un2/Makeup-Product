@@ -7,6 +7,9 @@ interface FilterListProps {
   onSelectFilter: (name: string) => void;
 }
 
+/**
+ * 사이드 네비게이션 바 > 필터 리스트 컴포넌트
+ */
 function SNBFilterList({
   data,
   selectFilter,

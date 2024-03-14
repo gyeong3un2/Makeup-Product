@@ -6,6 +6,9 @@ interface IChipProps {
   onDeleteChip: () => void;
 }
 
+/**
+ * 메인 페이지 > 필터링 컴포넌트 > 필터 컴포넌트
+ */
 function FilterChip({ labelType, selectFilterName, onDeleteChip }: IChipProps) {
   return (
     <Chip

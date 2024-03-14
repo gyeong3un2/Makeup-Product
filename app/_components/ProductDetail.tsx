@@ -1,13 +1,15 @@
 'use client';
 
-import { Button, Container, Divider, Grid } from '@mui/material';
-
 import Image from 'next/image';
-import { defaultImage } from '../data/product';
+import { Button, Container, Divider, Grid } from '@mui/material';
 import { ProductColor, ProductContents, ProductOverview } from '../ui';
 import { useGetProductInfo } from '../api/product';
 import { IProductState, productStore } from '../store/productStore';
+import { defaultImage } from '../utils/constants';
 
+/**
+ * 상품 상세 페이지
+ */
 function ProductDetail() {
   const { selectProductId, setSelectProductId } = productStore<IProductState>(
     (state) => state,

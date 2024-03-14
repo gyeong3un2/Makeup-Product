@@ -58,32 +58,3 @@ export const useGetProductInfo = <T extends GetProductListResponse>({
     staleTime: 1000 * 60 * 60, // 1시간
   });
 };
-
-export async function getStaticPaths() {
-  const res = await fetch(
-    'http://makeup-api.herokuapp.com/api/v1/products.json',
-  );
-  const data = await res.json();
-  return {
-    paths: data.slice(0, 10).map((item: GetProductListResponse) => ({
-      params: {
-        id: item.id.toString(),
-      },
-    })),
-
-    fallback: true,
-  };
-}
-
-export async function getStaticProps(context: any) {
-  const id = context.params.id;
-  const res = await fetch(
-    `http://makeup-api.herokuapp.com/api/v1/products/${id}.json?`,
-  );
-  const item = await res.json();
-  return {
-    props: {
-      item,
-    },
-  };
-}

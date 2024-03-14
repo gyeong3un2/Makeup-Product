@@ -1,6 +1,9 @@
 import { Fab } from '@mui/material';
 import UpIcon from '@mui/icons-material/KeyboardArrowUp';
 
+/**
+ * 메인 페이지 > 상단으로 이동 버튼 컴포넌트
+ */
 function FloatingUpButton() {
   return (
     <Fab

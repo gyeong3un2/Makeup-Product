@@ -1,8 +1,11 @@
 import { Box, Divider, Typography } from '@mui/material';
-import { PRODUCT_MENU } from '@/app/data/product';
+import { PRODUCT_MENU } from '@/app/utils/constants';
 import { productStore, IProductState } from '@/app/store/productStore';
 import clsx from 'clsx';
 
+/**
+ * 메인 페이지 > 상단 네비게이션 바 컴포넌트
+ */
 function GlobalNavigationBar() {
   const { selectProductType, setSelectProductType } =
     productStore<IProductState>((state) => state);

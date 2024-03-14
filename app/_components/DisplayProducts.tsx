@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Card, CardContent, Grid } from '@mui/material';
 import { GetProductListResponse } from '@/app/types/index';
-import { defaultImage, skeletonCounts } from '@/app/data/product';
+import { defaultImage, skeletonCounts } from '@/app/utils/constants';
 import { ProductInfo, ProductColor, SkeletonUI } from '@/app/ui';
 import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
@@ -14,6 +14,9 @@ interface IProductListProps {
   fetchStatus: string;
 }
 
+/**
+ * 메인 페이지 > 상품 리스트 컴포넌트
+ */
 function DisplayProducts({ productList, fetchStatus }: IProductListProps) {
   const router = useRouter();
   const { setSelectProductId } = productStore<IProductState>((state) => state);

@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { Box, Divider, Drawer, Grid, Typography } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { PRODUCT_MENU } from '@/app/data/product';
+import { PRODUCT_MENU } from '@/app/utils/constants';
 import { SNBFilterList } from '@/app/ui';
 import { productStore, IProductState } from '@/app/store/productStore';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const DRAWER_WIDTH = '80';
 
+/**
+ * 메인 페이지 > 사이드 네비게이션 바 컴포넌트
+ */
 function SideNavigationBar() {
   const {
     selectProductCategory,

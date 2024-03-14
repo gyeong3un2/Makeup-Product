@@ -6,6 +6,10 @@ interface IProductInfoProps {
   productColors: GetProductListResponse['product_colors'] | undefined;
   type?: string;
 }
+
+/**
+ * 메인 페이지 and 상품 상세 페이지 > 상품 색상 정보 컴포넌트
+ */
 function ProductColor({ productColors, type }: IProductInfoProps) {
   return (
     <Grid container spacing={0.7}>

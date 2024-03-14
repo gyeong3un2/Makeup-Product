@@ -3,6 +3,9 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { IProductState, productStore } from '@/app/store/productStore';
 import { FilterChip } from '@/app/ui';
 
+/**
+ * 메인 페이지 > 필터링 컴포넌트
+ */
 function FilterChipsBox() {
   const {
     selectProductType,

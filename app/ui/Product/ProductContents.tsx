@@ -1,12 +1,7 @@
 import { GetProductListResponse } from '@/app/types';
-import { Gruppo } from 'next/font/google';
+import { gruppo } from '@/app/utils/constants';
 import { Box } from '@mui/material';
 import clsx from 'clsx';
-
-const gruppo = Gruppo({
-  subsets: ['latin'],
-  weight: '400',
-});
 
 interface IProductContentsProps {
   productInfo: GetProductListResponse | undefined;

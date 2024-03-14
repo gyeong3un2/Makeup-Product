@@ -1,5 +1,8 @@
 import { Skeleton } from '@mui/material';
 
+/**
+ * 메인 페이지 > 스켈레톤 UI 컴포넌트
+ */
 function SkeletonUI() {
   return (
     <div className="h-96">

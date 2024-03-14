@@ -12,6 +12,9 @@ import {
 import { useGetProductList } from '@/app/api/product';
 import { productStore, IProductState } from '@/app/store/productStore';
 
+/**
+ * 메인 페이지
+ */
 function Home() {
   const {
     selectProductId,
