@@ -1,7 +1,7 @@
 import { Box, Chip } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import { IProductState, productStore } from '@/app/store/productStore';
-import { FilterChip } from '@/app/ui';
+import { IProductState, productStore } from '@/app/modules/store/productStore';
+import { FilterChip } from '..';
 
 /**
  * 메인 페이지 > 필터링 컴포넌트

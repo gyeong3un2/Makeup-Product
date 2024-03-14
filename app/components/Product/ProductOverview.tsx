@@ -1,8 +1,9 @@
-import { GetProductListResponse } from '@/app/types';
-import { gruppo } from '@/app/utils/constants';
+import { GetProductListResponse } from '@/app/modules/types';
+import { gruppo } from '@/app/modules/constants';
 import { Button, Typography } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import clsx from 'clsx';
+
 interface IProductContentsProps {
   productInfo: GetProductListResponse | undefined;
 }

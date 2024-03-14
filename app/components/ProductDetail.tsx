@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 import { Button, Container, Divider, Grid } from '@mui/material';
-import { ProductColor, ProductContents, ProductOverview } from '../ui';
 import { useGetProductInfo } from '../api/product';
-import { IProductState, productStore } from '../store/productStore';
-import { defaultImage } from '../utils/constants';
+import { IProductState, productStore } from '../modules/store/productStore';
+import { defaultImage } from '../modules/constants';
+import { ProductColor, ProductContents, ProductOverview } from '.';
 
 /**
  * 상품 상세 페이지

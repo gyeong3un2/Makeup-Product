@@ -1,9 +1,11 @@
+'use client';
+
 import { useState } from 'react';
 import { Box, Divider, Drawer, Grid, Typography } from '@mui/material';
-import { PRODUCT_MENU } from '@/app/utils/constants';
-import { SNBFilterList } from '@/app/ui';
-import { productStore, IProductState } from '@/app/store/productStore';
+import { PRODUCT_MENU } from '@/app/modules/constants';
+import { productStore, IProductState } from '@/app/modules/store/productStore';
 import MenuIcon from '@mui/icons-material/Menu';
+import SNBFilterList from './SideBarList';
 
 const DRAWER_WIDTH = '80';
 

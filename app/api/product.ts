@@ -1,5 +1,5 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { GetProductListResponse } from '@/app/types';
+import { GetProductListResponse } from '@/app/modules/types';
 
 interface IGetProductList {
   selectProductType: string;

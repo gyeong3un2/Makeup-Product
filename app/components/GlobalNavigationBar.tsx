@@ -1,6 +1,6 @@
 import { Box, Divider, Typography } from '@mui/material';
-import { PRODUCT_MENU } from '@/app/utils/constants';
-import { productStore, IProductState } from '@/app/store/productStore';
+import { PRODUCT_MENU } from '@/app/modules/constants';
+import { productStore, IProductState } from '@/app/modules/store/productStore';
 import clsx from 'clsx';
 
 /**

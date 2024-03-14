@@ -2,12 +2,13 @@
 
 import Image from 'next/image';
 import { Card, CardContent, Grid } from '@mui/material';
-import { GetProductListResponse } from '@/app/types/index';
-import { defaultImage, skeletonCounts } from '@/app/utils/constants';
-import { ProductInfo, ProductColor, SkeletonUI } from '@/app/ui';
+import { GetProductListResponse } from '@/app/modules/types/index';
+import { defaultImage, skeletonCounts } from '@/app/modules/constants';
+
 import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
-import { IProductState, productStore } from '@/app/store/productStore';
+import { IProductState, productStore } from '@/app/modules/store/productStore';
+import { ProductColor, ProductInfo, SkeletonUI } from '.';
 
 interface IProductListProps {
   productList: GetProductListResponse[] | undefined;

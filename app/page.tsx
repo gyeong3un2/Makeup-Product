@@ -1,16 +1,16 @@
 'use client';
 
 import { Container } from '@mui/material';
+import { useGetProductList } from '@/app/api/product';
+import { productStore, IProductState } from '@/app/modules/store/productStore';
 import {
   DisplayProducts,
-  GlobalNavigationBar,
-  SideNavigationBar,
   FilterChipsBox,
   FloatingUpButton,
+  GlobalNavigationBar,
   ProductDetail,
-} from './_components';
-import { useGetProductList } from '@/app/api/product';
-import { productStore, IProductState } from '@/app/store/productStore';
+  SideNavigationBar,
+} from './components';
 
 /**
  * 메인 페이지
