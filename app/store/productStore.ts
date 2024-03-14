@@ -1,7 +1,9 @@
 import { create } from 'zustand';
-import { GetProductListResponse } from '@/app/types';
 
 export interface IProductState {
+  selectProductId: number;
+  setSelectProductId: (selectProductId: number) => void;
+
   selectProductType: string;
   setSelectProductType: (selectProductType: string) => void;
   removeSelectProductType: () => void;
@@ -13,12 +15,12 @@ export interface IProductState {
   selectProductTag: string;
   setSelectProductTag: (selectProductTag: string) => void;
   removeSelectProductTag: () => void;
-
-  productInfo: GetProductListResponse;
-  setProductInfo: (product: GetProductListResponse) => void;
 }
 
 export const productStore = create<IProductState>((set) => ({
+  selectProductId: 0,
+  setSelectProductId: (selectProductId: number) => set({ selectProductId }),
+
   selectProductType: '',
   setSelectProductType: (selectProductType: string) =>
     set({ selectProductType }),
@@ -32,7 +34,4 @@ export const productStore = create<IProductState>((set) => ({
   selectProductTag: '',
   setSelectProductTag: (selectProductTag: string) => set({ selectProductTag }),
   removeSelectProductTag: () => set({ selectProductTag: '' }),
-
-  productInfo: {} as GetProductListResponse,
-  setProductInfo: (productInfo: GetProductListResponse) => set({ productInfo }),
 }));

@@ -5,6 +5,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import clsx from 'clsx';
 import { Gruppo } from 'next/font/google';
 import { useRouter, usePathname } from 'next/navigation';
+import { IProductState, productStore } from '../store/productStore';
 
 const gruppo = Gruppo({
   subsets: ['latin'],
@@ -14,14 +15,17 @@ const gruppo = Gruppo({
 function Header() {
   const router = useRouter();
   const pathname = usePathname();
+  const { selectProductId, setSelectProductId } = productStore<IProductState>(
+    (state) => state,
+  );
 
   return (
     <>
       <Box className="text-center p-12">
-        {pathname !== '/' && (
+        {selectProductId !== 0 && (
           <div
             className="hover:cursor-pointer w-fit ml-52"
-            onClick={router.back}
+            onClick={() => setSelectProductId(0)}
           >
             <ArrowBackIcon />
           </div>

@@ -36,15 +36,27 @@ export const useGetProductList = <T extends GetProductListResponse[]>({
   });
 };
 
+interface IGetProductInfoProps {
+  productId: number;
+}
+
 /**
  * 상품 상세 조회 API
  */
-export const getProductInfo = async (productId: string) => {
-  const response = fetch(
-    `http://makeup-api.herokuapp.com/api/v1/products/${productId}.json`,
-  );
+export const useGetProductInfo = <T extends GetProductListResponse>({
+  productId,
+}: IGetProductInfoProps): UseQueryResult<T> => {
+  return useQuery({
+    queryKey: [productId],
+    queryFn: async () => {
+      const response = await fetch(
+        `http://makeup-api.herokuapp.com/api/v1/products/${productId}.json`,
+      );
 
-  return (await response).json();
+      return await response.json();
+    },
+    staleTime: 1000 * 60 * 60, // 1시간
+  });
 };
 
 export async function getStaticPaths() {

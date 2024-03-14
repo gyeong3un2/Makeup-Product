@@ -7,13 +7,18 @@ import {
   SideNavigationBar,
   FilterChipsBox,
   FloatingUpButton,
+  ProductDetail,
 } from './_components';
 import { useGetProductList } from '@/app/api/product';
 import { productStore, IProductState } from '@/app/store/productStore';
 
 function Home() {
-  const { selectProductType, selectProductCategory, selectProductTag } =
-    productStore<IProductState>((state) => state);
+  const {
+    selectProductId,
+    selectProductType,
+    selectProductCategory,
+    selectProductTag,
+  } = productStore<IProductState>((state) => state);
 
   const { fetchStatus, data: productList } = useGetProductList({
     selectProductType,
@@ -22,18 +27,27 @@ function Home() {
   });
 
   return (
-    <main className="flex min-h-screen flex-col items-center">
-      <SideNavigationBar />
+    <main className="flex flex-col items-center">
+      {selectProductId !== 0 ? (
+        <ProductDetail />
+      ) : (
+        <>
+          <SideNavigationBar />
 
-      <FloatingUpButton />
+          <FloatingUpButton />
 
-      <Container className="max-w-xl">
-        <GlobalNavigationBar />
+          <Container className="max-w-xl">
+            <GlobalNavigationBar />
 
-        <FilterChipsBox />
+            <FilterChipsBox />
 
-        <DisplayProducts productList={productList} fetchStatus={fetchStatus} />
-      </Container>
+            <DisplayProducts
+              productList={productList}
+              fetchStatus={fetchStatus}
+            />
+          </Container>
+        </>
+      )}
     </main>
   );
 }

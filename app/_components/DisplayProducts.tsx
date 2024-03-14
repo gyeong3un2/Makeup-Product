@@ -16,12 +16,11 @@ interface IProductListProps {
 
 function DisplayProducts({ productList, fetchStatus }: IProductListProps) {
   const router = useRouter();
-  const { setProductInfo } = productStore<IProductState>((state) => state);
+  const { setSelectProductId } = productStore<IProductState>((state) => state);
 
   const handleClick = useCallback(
     (value: GetProductListResponse) => {
-      setProductInfo(value);
-      router.push(`/${value.id}`);
+      setSelectProductId(value.id);
     },
     [router],
   );
