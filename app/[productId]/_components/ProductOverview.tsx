@@ -35,7 +35,7 @@ function ProductOverview({ productInfo }: IProductContentsProps) {
 
       <Button
         variant="contained"
-        onClick={() => window.open(productInfo?.product_link)}
+        href={productInfo?.product_link}
         className={clsx(gruppo.className, 'mt-5  bg-main hover:bg-[#654548]')}
       >
         Buy Now

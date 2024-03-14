@@ -1,8 +1,5 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { GetProductListResponse } from '@/app/types';
-import { IProductState, productStore } from '../store/productStore';
-import { GetStaticPropsContext } from 'next';
-import { generateStaticParams } from '../[productId]/page';
 
 interface IGetProductList {
   selectProductType: string;
@@ -39,25 +36,42 @@ export const useGetProductList = <T extends GetProductListResponse[]>({
   });
 };
 
-interface IGetProductInfoProps {
-  productId: string;
-}
-
 /**
  * 상품 상세 조회 API
  */
-export const useGetProductInfo = <T extends GetProductListResponse>({
-  productId,
-}: IGetProductInfoProps): UseQueryResult<T> => {
-  return useQuery({
-    queryKey: [productId],
-    queryFn: async () => {
-      const response = await fetch(
-        `http://makeup-api.herokuapp.com/api/v1/products/${productId}.json`,
-      );
+export const getProductInfo = async (productId: string) => {
+  const response = fetch(
+    `http://makeup-api.herokuapp.com/api/v1/products/${productId}.json`,
+  );
 
-      return await response.json();
-    },
-    staleTime: 1000 * 60 * 60, // 1시간
-  });
+  return (await response).json();
 };
+
+export async function getStaticPaths() {
+  const res = await fetch(
+    'http://makeup-api.herokuapp.com/api/v1/products.json',
+  );
+  const data = await res.json();
+  return {
+    paths: data.slice(0, 10).map((item: GetProductListResponse) => ({
+      params: {
+        id: item.id.toString(),
+      },
+    })),
+
+    fallback: true,
+  };
+}
+
+export async function getStaticProps(context: any) {
+  const id = context.params.id;
+  const res = await fetch(
+    `http://makeup-api.herokuapp.com/api/v1/products/${id}.json?`,
+  );
+  const item = await res.json();
+  return {
+    props: {
+      item,
+    },
+  };
+}

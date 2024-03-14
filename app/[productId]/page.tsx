@@ -3,15 +3,16 @@ import { Container, Divider, Grid } from '@mui/material';
 import { defaultImage } from '@/app/data/product';
 import { ProductColor } from '@/app/ui';
 import { ProductContents, ProductOverview } from './_components';
-import { useGetProductInfo } from '../api/product';
+import { getProductInfo } from '../api/product';
 import { GetProductListResponse } from '../types';
 
 export async function generateStaticParams() {
-  const products = await fetch(
+  const getProducts: GetProductListResponse[] = await fetch(
     'http://makeup-api.herokuapp.com/api/v1/products.json',
+    { cache: 'no-cache' },
   ).then((res) => res.json());
 
-  return products.map((product: GetProductListResponse) => ({
+  return getProducts.map((product: GetProductListResponse) => ({
     productId: product.id.toString(),
   }));
 }
@@ -22,17 +23,12 @@ interface IProductPageProps {
 /**
  * 상품 상세 페이지
  */
-function ProductPage({ params: { productId } }: IProductPageProps) {
-  // const productInfo = useGetProductInfo({
-  //   productId: productId,
-  // });
-
-  // console.log('productId: ', productId);
-  // console.log('productInfo: ', productInfo);
+async function ProductPage({ params: { productId } }: IProductPageProps) {
+  const productInfo: GetProductListResponse = await getProductInfo(productId);
 
   return (
     <div className="flex flex-col items-center">
-      {/* <Container className="max-w-xl">
+      <Container className="max-w-xl">
         <Divider />
 
         <Grid
@@ -46,8 +42,8 @@ function ProductPage({ params: { productId } }: IProductPageProps) {
               draggable={false}
               priority
               src={
-                productInfo.data?.api_featured_image
-                  ? `http:${productInfo.data?.api_featured_image}`
+                productInfo?.api_featured_image
+                  ? `http:${productInfo?.api_featured_image}`
                   : defaultImage
               }
               alt="image"
@@ -57,20 +53,20 @@ function ProductPage({ params: { productId } }: IProductPageProps) {
           </Grid>
 
           <Grid item xs={12} sm={7} md={7}>
-            <ProductOverview productInfo={productInfo.data} />
+            <ProductOverview productInfo={productInfo} />
           </Grid>
         </Grid>
 
         <Divider />
 
         <ProductColor
-          productColors={productInfo.data?.product_colors}
+          productColors={productInfo?.product_colors}
           type="detail"
         />
         <Divider />
 
-        <ProductContents productInfo={productInfo.data} />
-      </Container> */}
+        <ProductContents productInfo={productInfo} />
+      </Container>
     </div>
   );
 }
