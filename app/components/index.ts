@@ -14,5 +14,5 @@ export { default as SideNavigationBarList } from './SideNavigationBar/SideBarLis
 export { default as SideNavigationBar } from './SideNavigationBar/SideNavigationBar';
 
 export { default as DisplayProducts } from './DisplayProducts';
-export { default as GlobalNavigationBar } from './GlobalNavigationBar';
+export { default as GlobalNavigationBar } from './common/GlobalNavigationBar';
 export { default as ProductDetail } from './ProductDetail';

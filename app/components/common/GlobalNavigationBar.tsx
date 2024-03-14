@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Divider, Typography } from '@mui/material';
 import { PRODUCT_MENU } from '@/app/modules/constants';
 import { productStore, IProductState } from '@/app/modules/store/productStore';

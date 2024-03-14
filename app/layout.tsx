@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Header } from './components';
+import { GlobalNavigationBar, Header } from './components';
 import { Provider } from './modules/provider';
 import './globals.css';
 
@@ -22,6 +22,7 @@ function RootLayout({
       <body>
         <Provider>
           <Header />
+          <GlobalNavigationBar />
 
           {children}
         </Provider>

@@ -40,7 +40,7 @@ function Home() {
           <FloatingUpButton />
 
           <Container className="max-w-xl">
-            <GlobalNavigationBar />
+            {/* <GlobalNavigationBar /> */}
 
             <FilterChipsBox />
 
