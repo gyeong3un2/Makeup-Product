@@ -1,5 +1,6 @@
 import { GetProductListResponse } from '@/app/types';
 import { Button, Typography } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import clsx from 'clsx';
 import { Gruppo } from 'next/font/google';
 
@@ -35,9 +36,13 @@ function ProductOverview({ productInfo }: IProductContentsProps) {
 
       <Button
         variant="contained"
-        href={productInfo?.product_link}
-        className={clsx(gruppo.className, 'mt-5  bg-main hover:bg-[#654548]')}
+        onClick={() => window.open(productInfo?.product_link)}
+        className={clsx(
+          gruppo.className,
+          'mt-5  bg-[#bb9da0] hover:bg-[#9b8184]',
+        )}
       >
+        <ShoppingCartIcon className="h-5 mr-3" />
         Buy Now
       </Button>
     </>

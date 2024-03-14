@@ -22,15 +22,6 @@ function Header() {
   return (
     <>
       <Box className="text-center p-12">
-        {selectProductId !== 0 && (
-          <div
-            className="hover:cursor-pointer w-fit ml-52"
-            onClick={() => setSelectProductId(0)}
-          >
-            <ArrowBackIcon />
-          </div>
-        )}
-
         <Typography
           className={clsx(
             gruppo.className,
