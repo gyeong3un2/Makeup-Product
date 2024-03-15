@@ -1,17 +1,17 @@
 import Image from 'next/image';
 import { Divider, Grid } from '@mui/material';
 import { GetProductListResponse } from '@/app/modules/types';
-import { getProductInfo } from '@/app/modules/hooks/productInfo';
 import { defaultImage } from '@/app/modules/constants';
 import { ProductColor } from '@/app/components';
 import { BackIconButton, ProductContents, ProductOverview } from './components';
+import { getProductInfo } from '@/app/modules/api/product-api';
 
 interface IProductPageProps {
   params: { id: string };
 }
 
 /**
- * 상품 Id별 상품 상세 페이지
+ * 상품 ID별 상품 상세 페이지
  */
 async function ProductPage({ params }: IProductPageProps) {
   const productInfo: GetProductListResponse = await getProductInfo(params.id);
