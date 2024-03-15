@@ -9,8 +9,8 @@ export { default as FloatingUpButton } from './layout/FloatingUpButton';
 export { default as GlobalNavigationBar } from './layout/GlobalNavigationBar';
 export { default as Header } from './layout/Header';
 
-export { default as ProductColor } from './product/ProductColor';
-export { default as ProductInfo } from './product/ProductInfo';
+export { default as ProductColor } from './productInfo/ProductColor';
+export { default as ProductInfo } from './productInfo/ProductInfo';
 
 export { default as ProductListDisplay } from './ProductListDisplay';
 export { default as SkeletonUI } from './SkeletonUI';
