@@ -1,5 +1,5 @@
 import { UseQueryResult, useQuery } from '@tanstack/react-query';
-import { GetProductListResponse } from '@/app/modules/types';
+import { GetProductListResponse } from '../types';
 
 interface IGetProductList {
   selectProductType?: string;
@@ -29,26 +29,13 @@ export const useGetProductList = <T extends GetProductListResponse[]>({
         queryParams.append('product_tags', selectProductTag);
       }
 
-      const response = await fetch(
+      return fetch(
         `http://makeup-api.herokuapp.com/api/v1/products.json?${queryParams.toString()}`,
         {
           method: 'GET',
         },
-      );
-
-      return await response.json();
+      ).then((res) => res.json());
     },
     staleTime: 1000 * 60 * 60, // 1시간
   });
-};
-
-/**
- * 상품 상세 조회 API
- */
-export const getProductInfo = async (productId: string) => {
-  const response = fetch(
-    `http://makeup-api.herokuapp.com/api/v1/products/${productId}.json`,
-  );
-
-  return (await response).json();
 };

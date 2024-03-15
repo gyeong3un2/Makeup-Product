@@ -7,7 +7,7 @@ import { Card, CardContent, Grid } from '@mui/material';
 import { GetProductListResponse } from '@/app/modules/types/index';
 import { defaultImage, skeletonCounts } from '@/app/modules/constants';
 import { IProductState, productStore } from '@/app/modules/store/productStore';
-import { useGetProductList } from '@/app/modules/api/product';
+import { useGetProductList } from '../modules/hooks/useGetProductList';
 import { ProductColor, ProductInfo, SkeletonUI } from '.';
 
 /**

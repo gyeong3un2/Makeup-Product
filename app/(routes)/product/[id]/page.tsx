@@ -1,20 +1,10 @@
 import Image from 'next/image';
 import { Container, Divider, Grid } from '@mui/material';
 import { GetProductListResponse } from '@/app/modules/types';
-import { getProductInfo } from '@/app/modules/api/product';
+import { getProductInfo } from '@/app/modules/hooks/productInfo';
 import { defaultImage } from '@/app/modules/constants';
 import { ProductColor } from '@/app/components';
 import { BackIconButton, ProductContents, ProductOverview } from './components';
-
-export async function generateStaticParams() {
-  const getProducts: GetProductListResponse[] = await fetch(
-    'http://makeup-api.herokuapp.com/api/v1/products.json',
-  ).then((res) => res.json());
-
-  return getProducts.map((product: GetProductListResponse) => ({
-    id: product.id.toString(),
-  }));
-}
 
 interface IProductPageProps {
   params: { id: string };
