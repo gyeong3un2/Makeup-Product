@@ -1,10 +1,10 @@
-import { DisplayProducts } from './components';
+import { ProductListDisplay } from './components';
 
 /**
  * 메인 페이지
  */
 function Home() {
-  return <DisplayProducts />;
+  return <ProductListDisplay />;
 }
 
 export default Home;

@@ -13,7 +13,7 @@ import { ProductColor, ProductInfo, SkeletonUI } from '.';
 /**
  * 메인 페이지 > 상품 리스트 컴포넌트
  */
-function DisplayProducts() {
+function ProductListDisplay() {
   const router = useRouter();
   const {
     selectProductCategory,
@@ -75,4 +75,4 @@ function DisplayProducts() {
   );
 }
 
-export default DisplayProducts;
+export default ProductListDisplay;

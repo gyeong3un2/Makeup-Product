@@ -1,4 +1,4 @@
-import { DisplayProducts } from '@/app/components';
+import { ProductListDisplay } from '@/app/components';
 import { PRODUCT_MENU } from '@/app/modules/constants';
 
 export function generateStaticParams() {
@@ -11,7 +11,7 @@ export function generateStaticParams() {
 async function ProductTypePage() {
   return (
     <>
-      <DisplayProducts />
+      <ProductListDisplay />
     </>
   );
 }
