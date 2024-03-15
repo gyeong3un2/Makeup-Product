@@ -28,11 +28,9 @@ Package Manager: `Yarn`
 - **헤더**
 
 - **GNB (Global Navigation Bar)**
-
   - 상품 타입
 
 - **SNB (Side Navigation Bar)**
-
   - 상품 필터 ( 카테고리, 태그 )
 
 - **본문**
@@ -43,12 +41,10 @@ Package Manager: `Yarn`
 ### 2단계: API 연동 및 데이터 표시
 
 - **조회 API 연동**
-
   - 전체 상품 리스트
   - 상품 필터링된 리스트 ( 타입별, 카테고리별, 태그별 )
 
 - **Skeleton UI 추가**
-
   - 상품이 많아 렌더링되는데 시간이 오래걸리는 문제가 발생하여 사용자 경험 향상을 위해 적용
 
 - **Floating Up Button 추가**
@@ -60,13 +56,22 @@ Package Manager: `Yarn`
 ### 3단계: 반응형 디자인 구현
 
 - 반응형 디자인 구현
-
   - 헤더
   - GNB
   - SNB
   - 본문
 
 - px를 없애고, media query 적용
+
+<br>
+
+### 4단계: 상세 페이지 및 정적 생성
+
+- **Dynamic Route 사용**
+  - Id별 상품 상세 페이지 구현
+  - Type별 상품 필터링 페이지 구현
+
+- **Next.js의 정적 생성 기능 사용**
 
 <br>
 
