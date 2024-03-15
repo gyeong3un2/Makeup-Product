@@ -7,7 +7,9 @@ export const getProductList = async ({
   params: URLSearchParams;
 }) => {
   return await fetch(
-    `http://makeup-api.herokuapp.com/api/v1/products.json?${params.toString()}`,
+    `${
+      process.env.NEXT_PUBLIC_BASE_URL
+    }/api/v1/products.json?${params.toString()}`,
     {
       method: 'GET',
     },
