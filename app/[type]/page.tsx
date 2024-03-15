@@ -1,14 +1,17 @@
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 import { PRODUCT_MENU } from '../modules/constants';
 import { GetProductListResponse } from '../modules/types';
-import { DisplayProducts, SideNavigationBar } from '../components';
+import { DisplayProducts } from '../components';
 import { Container } from '@mui/material';
 
 export function generateStaticParams() {
   return PRODUCT_MENU.productType.map((type) => ({ type: type.toString() }));
 }
 
-async function ProductTypePage({ params }: Params) {
+interface IProductTypePageProps {
+  params: { type: string };
+}
+
+async function ProductTypePage({ params }: IProductTypePageProps) {
   async function useTypeGetProductList(): Promise<GetProductListResponse[]> {
     const data = await fetch(
       `http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${params.type}`,
@@ -23,7 +26,7 @@ async function ProductTypePage({ params }: Params) {
   return (
     <main className="flex flex-col items-center">
       <Container className="max-w-xl">
-        <DisplayProducts productList={productList} />
+        <DisplayProducts />
       </Container>
     </main>
   );

@@ -29,7 +29,7 @@ function FilterChipsBox() {
   };
 
   useEffect(() => {
-    if (!selectProductType && !selectProductCategory && !selectProductTag) {
+    if (!selectProductType) {
       router.push('/');
     }
   }, [selectProductType, selectProductCategory, selectProductTag]);

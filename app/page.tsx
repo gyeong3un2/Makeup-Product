@@ -1,7 +1,6 @@
 'use client';
 
 import { Container } from '@mui/material';
-import { useGetProductList } from '@/app/api/product';
 import { productStore, IProductState } from '@/app/modules/store/productStore';
 import { DisplayProducts, ProductDetail } from './components';
 
@@ -9,18 +8,7 @@ import { DisplayProducts, ProductDetail } from './components';
  * 메인 페이지
  */
 function Home() {
-  const {
-    selectProductId,
-    selectProductType,
-    selectProductCategory,
-    selectProductTag,
-  } = productStore<IProductState>((state) => state);
-
-  const { fetchStatus, data: productList } = useGetProductList({
-    selectProductType,
-    selectProductCategory,
-    selectProductTag,
-  });
+  const { selectProductId } = productStore<IProductState>((state) => state);
 
   return (
     <main className="flex flex-col items-center">
@@ -28,10 +16,7 @@ function Home() {
         <ProductDetail />
       ) : (
         <Container className="max-w-xl">
-          <DisplayProducts
-            productList={productList}
-            fetchStatus={fetchStatus}
-          />
+          <DisplayProducts />
         </Container>
       )}
     </main>

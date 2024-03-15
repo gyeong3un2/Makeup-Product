@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
 import { IProductState, productStore } from '@/app/modules/store/productStore';
 import { ProductColor, ProductInfo, SkeletonUI } from '..';
+import { useGetProductList } from '@/app/api/product';
 
 interface IProductListProps {
   productList: GetProductListResponse[] | undefined;
@@ -18,9 +19,14 @@ interface IProductListProps {
 /**
  * 메인 페이지 > 상품 리스트 컴포넌트
  */
-function DisplayProducts({ productList, fetchStatus }: IProductListProps) {
+function DisplayProducts() {
   const router = useRouter();
-  const { setSelectProductId } = productStore<IProductState>((state) => state);
+  const {
+    selectProductCategory,
+    selectProductTag,
+    selectProductType,
+    setSelectProductId,
+  } = productStore<IProductState>((state) => state);
 
   const handleClick = useCallback(
     (value: GetProductListResponse) => {
@@ -29,9 +35,15 @@ function DisplayProducts({ productList, fetchStatus }: IProductListProps) {
     [router],
   );
 
+  const { fetchStatus, data: productList } = useGetProductList({
+    selectProductType,
+    selectProductCategory,
+    selectProductTag,
+  });
+
   return (
     <Grid container rowSpacing={2} gridAutoRows={1}>
-      {productList
+      {productList && fetchStatus === 'idle'
         ? productList.map((product: GetProductListResponse) => (
             <Grid item xs={12} sm={6} md={3} key={product?.id}>
               <Card

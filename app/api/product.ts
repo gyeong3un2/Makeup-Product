@@ -36,8 +36,6 @@ export const useGetProductList = <T extends GetProductListResponse[]>({
         },
       );
 
-      console.log('response', response.json());
-
       return await response.json();
     },
     staleTime: 1000 * 60 * 60, // 1시간
