@@ -8,11 +8,11 @@ import { defaultImage, skeletonCounts } from '@/app/modules/constants';
 import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
 import { IProductState, productStore } from '@/app/modules/store/productStore';
-import { ProductColor, ProductInfo, SkeletonUI } from '.';
+import { ProductColor, ProductInfo, SkeletonUI } from '..';
 
 interface IProductListProps {
   productList: GetProductListResponse[] | undefined;
-  fetchStatus: string;
+  fetchStatus?: string;
 }
 
 /**
@@ -31,7 +31,7 @@ function DisplayProducts({ productList, fetchStatus }: IProductListProps) {
 
   return (
     <Grid container rowSpacing={2} gridAutoRows={1}>
-      {productList && fetchStatus === 'idle'
+      {productList
         ? productList.map((product: GetProductListResponse) => (
             <Grid item xs={12} sm={6} md={3} key={product?.id}>
               <Card

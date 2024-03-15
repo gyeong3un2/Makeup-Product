@@ -1,12 +1,18 @@
+'use client';
+
 import { Box, Chip } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { IProductState, productStore } from '@/app/modules/store/productStore';
 import { FilterChip } from '..';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 /**
  * 메인 페이지 > 필터링 컴포넌트
  */
 function FilterChipsBox() {
+  const router = useRouter();
+
   const {
     selectProductType,
     selectProductCategory,
@@ -22,6 +28,12 @@ function FilterChipsBox() {
     removeSelectProductTag();
   };
 
+  useEffect(() => {
+    if (!selectProductType && !selectProductCategory && !selectProductTag) {
+      router.push('/');
+    }
+  }, [selectProductType, selectProductCategory, selectProductTag]);
+
   return (
     <Box className="min-h-10">
       {(selectProductType || selectProductCategory || selectProductTag) && (
@@ -35,7 +47,7 @@ function FilterChipsBox() {
       {selectProductType && (
         <FilterChip
           labelType="Type"
-          selectFilterName={selectProductType}
+          selectFilterName={selectProductType.replace('%20', ' ')}
           onDeleteChip={removeSelectProductType}
         />
       )}

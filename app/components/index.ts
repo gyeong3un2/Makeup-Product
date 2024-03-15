@@ -13,6 +13,6 @@ export { default as ProductOverview } from './Product/ProductOverview';
 export { default as SideNavigationBarList } from './SideNavigationBar/SideBarList';
 export { default as SideNavigationBar } from './SideNavigationBar/SideNavigationBar';
 
-export { default as DisplayProducts } from './DisplayProducts';
+export { default as DisplayProducts } from './common/DisplayProducts';
 export { default as GlobalNavigationBar } from './common/GlobalNavigationBar';
 export { default as ProductDetail } from './ProductDetail';

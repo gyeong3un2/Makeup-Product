@@ -3,14 +3,7 @@
 import { Container } from '@mui/material';
 import { useGetProductList } from '@/app/api/product';
 import { productStore, IProductState } from '@/app/modules/store/productStore';
-import {
-  DisplayProducts,
-  FilterChipsBox,
-  FloatingUpButton,
-  GlobalNavigationBar,
-  ProductDetail,
-  SideNavigationBar,
-} from './components';
+import { DisplayProducts, ProductDetail } from './components';
 
 /**
  * 메인 페이지
@@ -34,22 +27,12 @@ function Home() {
       {selectProductId !== 0 ? (
         <ProductDetail />
       ) : (
-        <>
-          <SideNavigationBar />
-
-          <FloatingUpButton />
-
-          <Container className="max-w-xl">
-            {/* <GlobalNavigationBar /> */}
-
-            <FilterChipsBox />
-
-            <DisplayProducts
-              productList={productList}
-              fetchStatus={fetchStatus}
-            />
-          </Container>
-        </>
+        <Container className="max-w-xl">
+          <DisplayProducts
+            productList={productList}
+            fetchStatus={fetchStatus}
+          />
+        </Container>
       )}
     </main>
   );

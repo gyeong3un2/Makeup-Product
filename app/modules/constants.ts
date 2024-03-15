@@ -83,10 +83,10 @@ export const PRODUCT_MENU = {
     'Eyeliner',
     'EyeShadow',
     'Foundation',
-    'Lip liner',
+    'Lip%20liner',
     'Lipstick',
     'Mascara',
-    'Nail polish',
+    'Nail%20polish',
   ],
   categoryLeft: [
     'Powder',

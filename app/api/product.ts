@@ -2,9 +2,9 @@ import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { GetProductListResponse } from '@/app/modules/types';
 
 interface IGetProductList {
-  selectProductType: string;
-  selectProductCategory: string;
-  selectProductTag: string;
+  selectProductType?: string;
+  selectProductCategory?: string;
+  selectProductTag?: string;
 }
 
 /**
@@ -18,17 +18,25 @@ export const useGetProductList = <T extends GetProductListResponse[]>({
   return useQuery({
     queryKey: [selectProductType, selectProductCategory, selectProductTag],
     queryFn: async () => {
+      const queryParams = new URLSearchParams();
+      if (selectProductType) {
+        queryParams.append('product_type', selectProductType);
+      }
+      if (selectProductCategory) {
+        queryParams.append('product_category', selectProductCategory);
+      }
+      if (selectProductTag) {
+        queryParams.append('product_tags', selectProductTag);
+      }
+
       const response = await fetch(
-        'http://makeup-api.herokuapp.com/api/v1/products.json?' +
-          new URLSearchParams({
-            product_type: selectProductType,
-            product_category: selectProductCategory,
-            product_tags: selectProductTag,
-          }),
+        `http://makeup-api.herokuapp.com/api/v1/products.json?${queryParams.toString()}`,
         {
           method: 'GET',
         },
       );
+
+      console.log('response', response.json());
 
       return await response.json();
     },
