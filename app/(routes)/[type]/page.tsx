@@ -1,4 +1,3 @@
-import { Container } from '@mui/material';
 import { DisplayProducts } from '@/app/components';
 import { PRODUCT_MENU } from '@/app/modules/constants';
 

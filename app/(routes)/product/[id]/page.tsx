@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Container, Divider, Grid } from '@mui/material';
+import { Divider, Grid } from '@mui/material';
 import { GetProductListResponse } from '@/app/modules/types';
 import { getProductInfo } from '@/app/modules/hooks/productInfo';
 import { defaultImage } from '@/app/modules/constants';
