@@ -1,6 +1,7 @@
 export { default as FloatingUpButton } from './common/FloatingUpButton';
 export { default as Header } from './common/Header';
 export { default as SkeletonUI } from './common/SkeletonUI';
+export { default as BackIconButton } from './common/BackIconButton';
 
 export { default as FilterChip } from './FilterChip/FilterChip';
 export { default as FilterChipsBox } from './FilterChip/FilterChipsBox';
@@ -15,4 +16,3 @@ export { default as SideNavigationBar } from './SideNavigationBar/SideNavigation
 
 export { default as DisplayProducts } from './common/DisplayProducts';
 export { default as GlobalNavigationBar } from './common/GlobalNavigationBar';
-export { default as ProductDetail } from './ProductDetail';

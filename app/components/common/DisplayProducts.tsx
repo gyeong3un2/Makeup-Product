@@ -11,11 +11,6 @@ import { IProductState, productStore } from '@/app/modules/store/productStore';
 import { ProductColor, ProductInfo, SkeletonUI } from '..';
 import { useGetProductList } from '@/app/api/product';
 
-interface IProductListProps {
-  productList: GetProductListResponse[] | undefined;
-  fetchStatus?: string;
-}
-
 /**
  * 메인 페이지 > 상품 리스트 컴포넌트
  */
@@ -31,6 +26,7 @@ function DisplayProducts() {
   const handleClick = useCallback(
     (value: GetProductListResponse) => {
       setSelectProductId(value.id);
+      router.push(`/product/${value.id}`);
     },
     [router],
   );

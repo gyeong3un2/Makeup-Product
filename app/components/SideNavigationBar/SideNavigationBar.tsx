@@ -10,7 +10,7 @@ import SNBFilterList from './SideBarList';
 const DRAWER_WIDTH = '80';
 
 /**
- * 메인 페이지 > 사이드 네비게이션 바 컴포넌트
+ * 레이아웃 > 사이드 네비게이션 바 컴포넌트
  */
 function SideNavigationBar() {
   const {

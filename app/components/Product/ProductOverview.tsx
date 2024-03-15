@@ -1,3 +1,5 @@
+'use client';
+
 import { GetProductListResponse } from '@/app/modules/types';
 import { gruppo } from '@/app/modules/constants';
 import { Button, Typography } from '@mui/material';

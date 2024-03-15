@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 /**
- * 메인 페이지 > 필터링 컴포넌트
+ * 레이아웃 > 필터링 컴포넌트
  */
 function FilterChipsBox() {
   const router = useRouter();

@@ -1,27 +1,40 @@
-'use client';
-
 import Image from 'next/image';
-import { Button, Container, Divider, Grid } from '@mui/material';
-import { useGetProductInfo } from '../api/product';
-import { IProductState, productStore } from '../modules/store/productStore';
-import { defaultImage } from '../modules/constants';
-import { ProductColor, ProductContents, ProductOverview } from '.';
+import { Container, Divider, Grid } from '@mui/material';
+import { GetProductListResponse } from '../../../modules/types';
+import { defaultImage } from '../../../modules/constants';
+import {
+  BackIconButton,
+  ProductColor,
+  ProductContents,
+  ProductOverview,
+} from '../../../components';
+import { getProductInfo } from '../../../api/product';
+
+export async function generateStaticParams() {
+  const getProducts: GetProductListResponse[] = await fetch(
+    'http://makeup-api.herokuapp.com/api/v1/products.json',
+  ).then((res) => res.json());
+
+  return getProducts.map((product: GetProductListResponse) => ({
+    id: product.id.toString(),
+  }));
+}
+
+interface IProductPageProps {
+  params: { id: string };
+}
 
 /**
  * 상품 상세 페이지
  */
-function ProductDetail() {
-  const { selectProductId, setSelectProductId } = productStore<IProductState>(
-    (state) => state,
-  );
-  const { data: productInfo } = useGetProductInfo({
-    productId: selectProductId,
-  });
+async function ProductPage({ params }: IProductPageProps) {
+  const productInfo: GetProductListResponse = await getProductInfo(params.id);
 
   return (
     <div className="flex flex-col items-center">
-      <Container className="w-xl">
-        <Divider />
+      <Container className="max-w-xl">
+        <Divider className="mt-2" />
+        <BackIconButton />
 
         <Grid
           container
@@ -58,19 +71,9 @@ function ProductDetail() {
         <Divider />
 
         <ProductContents productInfo={productInfo} />
-
-        <Grid container justifyContent="center">
-          <Button
-            variant="contained"
-            onClick={() => setSelectProductId(0)}
-            className="px-10 py-2 bg-main hover:bg-[#654548]"
-          >
-            Close
-          </Button>
-        </Grid>
       </Container>
     </div>
   );
 }
 
-export default ProductDetail;
+export default ProductPage;
