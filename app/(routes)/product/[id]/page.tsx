@@ -25,7 +25,7 @@ interface IProductPageProps {
 }
 
 /**
- * 상품 상세 페이지
+ * 상품 Id별 상품 상세 페이지
  */
 async function ProductPage({ params }: IProductPageProps) {
   const productInfo: GetProductListResponse = await getProductInfo(params.id);
