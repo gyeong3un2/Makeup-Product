@@ -6,6 +6,9 @@ export function generateStaticParams() {
   return PRODUCT_MENU.productType.map((type) => ({ type: type.toString() }));
 }
 
+/**
+ * 상품 타입별 페이지
+ */
 async function ProductTypePage() {
   return (
     <main className="flex flex-col items-center">
