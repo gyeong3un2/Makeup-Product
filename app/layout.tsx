@@ -31,17 +31,17 @@ function RootLayout({
           <Header />
           <GlobalNavigationBar />
 
-          <Container className="max-w-xl">
-            <FilterChipsBox />
-          </Container>
-
           <main className="flex flex-col items-center">
             <SideNavigationBar />
           </main>
 
-          <FloatingUpButton />
+          <Container className="max-w-xl">
+            <FilterChipsBox />
 
-          {children}
+            {children}
+          </Container>
+
+          <FloatingUpButton />
         </Provider>
       </body>
     </html>

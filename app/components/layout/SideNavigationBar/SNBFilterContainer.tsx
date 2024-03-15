@@ -25,7 +25,7 @@ function SNBFilterContainer({ onClose }: IProductFilterContainerProps) {
   };
 
   return (
-    <div className="border rounded-lg -mt-12 p-2">
+    <div className="border rounded-lg -mt-2 p-2">
       <Box className="mb-5">
         <Typography className="p-2 text-xs text-gray-500">
           By Categorys

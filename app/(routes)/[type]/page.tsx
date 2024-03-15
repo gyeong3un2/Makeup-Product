@@ -11,11 +11,9 @@ export function generateStaticParams() {
  */
 async function ProductTypePage() {
   return (
-    <main className="flex flex-col items-center">
-      <Container className="max-w-xl">
-        <DisplayProducts />
-      </Container>
-    </main>
+    <>
+      <DisplayProducts />
+    </>
   );
 }
 
