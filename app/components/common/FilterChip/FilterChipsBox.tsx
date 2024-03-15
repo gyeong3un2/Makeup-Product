@@ -1,11 +1,11 @@
 'use client';
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Box, Chip } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { IProductState, productStore } from '@/app/modules/store/productStore';
-import { FilterChip } from '..';
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import FilterChip from './FilterChip';
 
 /**
  * 레이아웃 > 필터링 컴포넌트

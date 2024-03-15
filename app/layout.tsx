@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Container } from '@mui/material';
 import {
   FilterChipsBox,
   FloatingUpButton,
@@ -8,7 +9,6 @@ import {
 } from './components';
 import { Provider } from './modules/provider';
 import './globals.css';
-import { Container } from '@mui/material';
 
 export const metadata: Metadata = {
   title: 'Makeup API',
@@ -31,15 +31,15 @@ function RootLayout({
           <Header />
           <GlobalNavigationBar />
 
-          <FloatingUpButton />
+          <Container className="max-w-xl">
+            <FilterChipsBox />
+          </Container>
 
           <main className="flex flex-col items-center">
             <SideNavigationBar />
           </main>
 
-          <Container className="max-w-xl">
-            <FilterChipsBox />
-          </Container>
+          <FloatingUpButton />
 
           {children}
         </Provider>

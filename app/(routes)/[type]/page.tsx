@@ -1,6 +1,6 @@
-import { PRODUCT_MENU } from '../../modules/constants';
-import { DisplayProducts } from '../../components';
 import { Container } from '@mui/material';
+import { DisplayProducts } from '@/app/components';
+import { PRODUCT_MENU } from '@/app/modules/constants';
 
 export function generateStaticParams() {
   return PRODUCT_MENU.productType.map((type) => ({ type: type.toString() }));

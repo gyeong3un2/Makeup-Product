@@ -1,14 +1,10 @@
 import Image from 'next/image';
 import { Container, Divider, Grid } from '@mui/material';
-import { GetProductListResponse } from '../../../modules/types';
-import { defaultImage } from '../../../modules/constants';
-import {
-  BackIconButton,
-  ProductColor,
-  ProductContents,
-  ProductOverview,
-} from '../../../components';
-import { getProductInfo } from '../../../api/product';
+import { GetProductListResponse } from '@/app/modules/types';
+import { getProductInfo } from '@/app/modules/api/product';
+import { defaultImage } from '@/app/modules/constants';
+import { ProductColor } from '@/app/components';
+import { BackIconButton, ProductContents, ProductOverview } from './components';
 
 export async function generateStaticParams() {
   const getProducts: GetProductListResponse[] = await fetch(

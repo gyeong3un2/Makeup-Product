@@ -1,15 +1,14 @@
 'use client';
 
 import Image from 'next/image';
+import { useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 import { Card, CardContent, Grid } from '@mui/material';
 import { GetProductListResponse } from '@/app/modules/types/index';
 import { defaultImage, skeletonCounts } from '@/app/modules/constants';
-
-import { useRouter } from 'next/navigation';
-import { useCallback } from 'react';
 import { IProductState, productStore } from '@/app/modules/store/productStore';
-import { ProductColor, ProductInfo, SkeletonUI } from '..';
-import { useGetProductList } from '@/app/api/product';
+import { useGetProductList } from '@/app/modules/api/product';
+import { ProductColor, ProductInfo, SkeletonUI } from '.';
 
 /**
  * 메인 페이지 > 상품 리스트 컴포넌트
