@@ -72,7 +72,7 @@ export const PRODUCT_MENU = {
 };
 
 /**
- * 스켈레톤 개수
+ * 스켈레톤 UI 개수
  */
 export const skeletonCounts = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,

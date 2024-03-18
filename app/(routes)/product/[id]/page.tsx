@@ -2,9 +2,13 @@ import Image from 'next/image';
 import { Divider, Grid } from '@mui/material';
 import { GetProductListResponse } from '@/app/modules/types';
 import { defaultImage } from '@/app/modules/constants';
-import { ProductColor } from '@/app/components';
-import { BackIconButton, ProductContents, ProductOverview } from './components';
+import { ProductColor } from '@/app/_components';
 import { getProductInfo } from '@/app/modules/api/product-api';
+import {
+  BackIconButton,
+  ProductContents,
+  ProductOverview,
+} from './_components';
 
 interface IProductPageProps {
   params: { id: string };

@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 import { Container } from '@mui/material';
+import Provider from './modules/Provider';
 import {
   FilterChipsBox,
   FloatingUpButton,
   GlobalNavigationBar,
   Header,
   SideNavigationBar,
-} from './components';
+} from './_components';
 import './globals.css';
-import Provider from './modules/Provider';
 
 export const metadata: Metadata = {
   title: 'Makeup API',
@@ -22,18 +22,13 @@ function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <meta
-        httpEquiv="Content-Security-Policy"
-        content="upgrade-insecure-requests"
-      />
       <body>
         <Provider>
           <Header />
+
           <GlobalNavigationBar />
 
-          <main className="flex flex-col items-center">
-            <SideNavigationBar />
-          </main>
+          <SideNavigationBar />
 
           <FloatingUpButton />
 

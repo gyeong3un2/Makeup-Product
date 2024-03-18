@@ -1,4 +1,4 @@
-import { ProductListDisplay } from './components';
+import { ProductListDisplay } from './_components';
 
 /**
  * 메인 페이지

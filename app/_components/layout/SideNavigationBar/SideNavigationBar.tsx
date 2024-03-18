@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Box, Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import SNBFilterContainer from './SNBFilterContainer';
+import SNBContainer from './SNBContainer';
 
 const DRAWER_WIDTH = '80';
 
@@ -30,7 +30,7 @@ function SideNavigationBar() {
   };
 
   return (
-    <Box>
+    <main className="flex flex-col items-center">
       {/* 작은 화면에서만 보이는 Drawer를 열기 위한 버튼 */}
       <Box
         aria-label="open drawer"
@@ -58,7 +58,7 @@ function SideNavigationBar() {
             },
           }}
         >
-          <SNBFilterContainer onClose={handleDrawerClose} />
+          <SNBContainer onClose={handleDrawerClose} />
         </Drawer>
 
         {/* 큰 화면에서만 보이는 Box */}
@@ -71,10 +71,10 @@ function SideNavigationBar() {
             },
           }}
         >
-          <SNBFilterContainer onClose={handleDrawerClose} />
+          <SNBContainer onClose={handleDrawerClose} />
         </Box>
       </Box>
-    </Box>
+    </main>
   );
 }
 

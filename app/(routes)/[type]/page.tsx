@@ -1,4 +1,4 @@
-import { ProductListDisplay } from '@/app/components';
+import { ProductListDisplay } from '@/app/_components';
 import { PRODUCT_MENU } from '@/app/modules/constants';
 
 export function generateStaticParams() {
@@ -11,11 +11,7 @@ export function generateStaticParams() {
  * 상품 타입별 페이지
  */
 async function ProductTypePage() {
-  return (
-    <>
-      <ProductListDisplay />
-    </>
-  );
+  return <ProductListDisplay />;
 }
 
 export default ProductTypePage;

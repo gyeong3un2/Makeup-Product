@@ -1,13 +1,13 @@
 import { Box, Divider, Typography } from '@mui/material';
 import { PRODUCT_MENU } from '@/app/modules/constants';
 import { IProductState, productStore } from '@/app/modules/store/productStore';
-import SNBFilterList from './SNBFilterList';
+import SNBList from './SNBList';
 
-interface IProductFilterContainerProps {
+interface ISNBContainerProps {
   onClose: () => void;
 }
 
-function SNBFilterContainer({ onClose }: IProductFilterContainerProps) {
+function SNBContainer({ onClose }: ISNBContainerProps) {
   const {
     selectProductCategory,
     selectProductTag,
@@ -32,7 +32,7 @@ function SNBFilterContainer({ onClose }: IProductFilterContainerProps) {
         </Typography>
         <Divider />
 
-        <SNBFilterList
+        <SNBList
           data={PRODUCT_MENU.category}
           selectFilter={selectProductCategory}
           onSelectFilter={handleSelectCategory}
@@ -43,7 +43,7 @@ function SNBFilterContainer({ onClose }: IProductFilterContainerProps) {
         <Typography className="p-2 text-xs text-gray-500">By Tags</Typography>
         <Divider />
 
-        <SNBFilterList
+        <SNBList
           data={PRODUCT_MENU.tag}
           selectFilter={selectProductTag}
           onSelectFilter={handleSelectTag}
@@ -53,4 +53,4 @@ function SNBFilterContainer({ onClose }: IProductFilterContainerProps) {
   );
 }
 
-export default SNBFilterContainer;
+export default SNBContainer;
