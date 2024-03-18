@@ -77,12 +77,18 @@ Package Manager: `Yarn`
 
 ## 프로젝트 실행 방법
 
-1. 프로젝트 실행
+1. Env 세팅
+root directory
+```shell
+NEXT_PUBLIC_BASE_URL = 
+```
 
+<br>
+
+2. 프로젝트 실행
 ```shell
 # 필요한 모듈 설치
 yarn
 
 # 프로젝트 실행
 yarn dev
-```
