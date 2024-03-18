@@ -7,9 +7,10 @@ export const getProductList = async ({
   params: URLSearchParams;
 }) => {
   return await fetch(
-    `${
-      process.env.NEXT_PUBLIC_BASE_URL
-    }/api/v1/products.json?${params.toString()}`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/products.json?${params
+      .toString()
+      .toLowerCase()
+      .replace('%2520', '_')}`,
     {
       method: 'GET',
     },
