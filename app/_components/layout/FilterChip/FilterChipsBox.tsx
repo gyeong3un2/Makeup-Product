@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Box, Chip } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
@@ -23,16 +22,12 @@ function FilterChipsBox() {
   } = productStore<IProductState>((state) => state);
 
   const handleFilterReset = () => {
+    router.push('/');
+
     removeSelectProductType();
     removeSelectProductCategory();
     removeSelectProductTag();
   };
-
-  useEffect(() => {
-    if (!selectProductType) {
-      router.push('/');
-    }
-  }, [selectProductType]);
 
   return (
     <Box className="min-h-10">
