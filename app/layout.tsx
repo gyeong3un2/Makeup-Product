@@ -7,8 +7,8 @@ import {
   Header,
   SideNavigationBar,
 } from './components';
-import { Provider } from './modules/provider';
 import './globals.css';
+import Provider from './modules/Provider';
 
 export const metadata: Metadata = {
   title: 'Makeup API',
