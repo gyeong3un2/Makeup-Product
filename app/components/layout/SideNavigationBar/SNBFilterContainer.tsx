@@ -1,7 +1,7 @@
-import { Box, Divider, Grid, Typography } from '@mui/material';
-import SNBFilterList from './SNBFilterList';
+import { Box, Divider, Typography } from '@mui/material';
 import { PRODUCT_MENU } from '@/app/modules/constants';
 import { IProductState, productStore } from '@/app/modules/store/productStore';
+import SNBFilterList from './SNBFilterList';
 
 interface IProductFilterContainerProps {
   onClose: () => void;
@@ -32,36 +32,22 @@ function SNBFilterContainer({ onClose }: IProductFilterContainerProps) {
         </Typography>
         <Divider />
 
-        <Grid container className="flex-col">
-          <SNBFilterList
-            data={PRODUCT_MENU.categoryLeft}
-            selectFilter={selectProductCategory}
-            onSelectFilter={handleSelectCategory}
-          />
-          <SNBFilterList
-            data={PRODUCT_MENU.categoryRight}
-            selectFilter={selectProductCategory}
-            onSelectFilter={handleSelectCategory}
-          />
-        </Grid>
+        <SNBFilterList
+          data={PRODUCT_MENU.category}
+          selectFilter={selectProductCategory}
+          onSelectFilter={handleSelectCategory}
+        />
       </Box>
 
       <Box>
         <Typography className="p-2 text-xs text-gray-500">By Tags</Typography>
         <Divider />
 
-        <Grid container className="flex-col">
-          <SNBFilterList
-            data={PRODUCT_MENU.tagLeft}
-            selectFilter={selectProductTag}
-            onSelectFilter={handleSelectTag}
-          />
-          <SNBFilterList
-            data={PRODUCT_MENU.tagRight}
-            selectFilter={selectProductTag}
-            onSelectFilter={handleSelectTag}
-          />
-        </Grid>
+        <SNBFilterList
+          data={PRODUCT_MENU.tag}
+          selectFilter={selectProductTag}
+          onSelectFilter={handleSelectTag}
+        />
       </Box>
     </div>
   );
