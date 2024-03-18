@@ -35,13 +35,13 @@ function RootLayout({
             <SideNavigationBar />
           </main>
 
+          <FloatingUpButton />
+
           <Container className="max-w-xl">
             <FilterChipsBox />
 
             {children}
           </Container>
-
-          <FloatingUpButton />
         </Provider>
       </body>
     </html>

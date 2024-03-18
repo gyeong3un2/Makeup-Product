@@ -15,16 +15,11 @@ import { ProductColor, ProductInfo, SkeletonUI } from '.';
  */
 function ProductListDisplay() {
   const router = useRouter();
-  const {
-    selectProductCategory,
-    selectProductTag,
-    selectProductType,
-    setSelectProductId,
-  } = productStore<IProductState>((state) => state);
+  const { selectProductCategory, selectProductTag, selectProductType } =
+    productStore<IProductState>((state) => state);
 
   const handleClick = useCallback(
     (value: GetProductListResponse) => {
-      setSelectProductId(value.id);
       router.push(`/product/${value.id}`);
     },
     [router],

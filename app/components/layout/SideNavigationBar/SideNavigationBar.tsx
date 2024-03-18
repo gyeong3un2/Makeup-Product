@@ -31,6 +31,7 @@ function SideNavigationBar() {
 
   return (
     <Box>
+      {/* 작은 화면에서만 보이는 Drawer를 열기 위한 버튼 */}
       <Box
         aria-label="open drawer"
         onClick={handleDrawerToggle}
@@ -38,6 +39,8 @@ function SideNavigationBar() {
       >
         <MenuIcon />
       </Box>
+
+      {/* 작은 화면에서만 보이는 Drawer */}
       <Box component="nav" className={`w-sm-${DRAWER_WIDTH}`}>
         <Drawer
           variant="temporary"
@@ -58,6 +61,7 @@ function SideNavigationBar() {
           <SNBFilterContainer onClose={handleDrawerClose} />
         </Drawer>
 
+        {/* 큰 화면에서만 보이는 Box */}
         <Box
           className="absolute hidden mt-2 xl2:block xl2:-ml-50 ease-in-out transition-all"
           sx={{

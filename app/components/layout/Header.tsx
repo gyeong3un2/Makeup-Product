@@ -9,18 +9,16 @@ import { gruppo } from '@/app/modules/constants';
  */
 function Header() {
   return (
-    <>
-      <Box className="text-center p-12">
-        <Typography
-          className={clsx(
-            gruppo.className,
-            'text-3xl ease-in-out transition-all',
-          )}
-        >
-          Listing Products
-        </Typography>
-      </Box>
-    </>
+    <Box className="text-center p-12">
+      <Typography
+        className={clsx(
+          gruppo.className,
+          'text-3xl ease-in-out transition-all',
+        )}
+      >
+        Listing Products
+      </Typography>
+    </Box>
   );
 }
 

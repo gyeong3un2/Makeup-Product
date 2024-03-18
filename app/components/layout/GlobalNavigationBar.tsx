@@ -16,7 +16,7 @@ function GlobalNavigationBar() {
 
   function handleTypeClick(type: string) {
     setSelectProductType(type);
-    router.push(`/${type}/`);
+    router.push(`/${type}`);
   }
 
   return (

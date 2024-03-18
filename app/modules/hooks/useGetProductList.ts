@@ -1,4 +1,7 @@
-import { UseQueryResult, useQuery } from '@tanstack/react-query';
+import {
+  useSuspenseQuery,
+  UseSuspenseQueryResult,
+} from '@tanstack/react-query';
 import { GetProductListResponse } from '../types';
 import { getProductList } from '../api/product-api';
 
@@ -15,8 +18,8 @@ export const useGetProductList = <T extends GetProductListResponse[]>({
   selectProductType,
   selectProductCategory,
   selectProductTag,
-}: IGetProductList): UseQueryResult<T> => {
-  return useQuery({
+}: IGetProductList): UseSuspenseQueryResult<T, Error> => {
+  return useSuspenseQuery({
     queryKey: [selectProductType, selectProductCategory, selectProductTag],
     queryFn: async () => {
       const queryParams = new URLSearchParams();

@@ -32,7 +32,7 @@ function FilterChipsBox() {
     if (!selectProductType) {
       router.push('/');
     }
-  }, [selectProductType, selectProductCategory, selectProductTag]);
+  }, [selectProductType]);
 
   return (
     <Box className="min-h-10">
