@@ -17,19 +17,19 @@ export const abel = Abel({
  * 상품 필터링 메뉴
  */
 export const PRODUCT_MENU = {
-  productType: [
-    'Blush',
-    'Bronzer',
-    'Eyebrow',
-    'Eyeliner',
-    'EyeShadow',
-    'Foundation',
-    'Lip%20liner',
-    'Lipstick',
-    'Mascara',
-    'Nail%20polish',
+  TYPE: [
+    { name: 'Blush', url: 'blush' },
+    { name: 'Bronzer', url: 'bronzer' },
+    { name: 'Eyebrow', url: 'eyebrow' },
+    { name: 'Eyeliner', url: 'eyeliner' },
+    { name: 'EyeShadow', url: 'eyeShadow' },
+    { name: 'Foundation', url: 'foundation' },
+    { name: 'Lip liner', url: 'lip_liner' },
+    { name: 'Lipstick', url: 'lipstick' },
+    { name: 'Mascara', url: 'mascara' },
+    { name: 'Nail polish', url: 'nail_polish' },
   ],
-  category: [
+  CATEGORY: [
     'Powder',
     'Cream',
     'Pencil',
@@ -45,7 +45,7 @@ export const PRODUCT_MENU = {
     'Lip gloss',
     'Lip stain',
   ],
-  tag: [
+  TAG: [
     'Vegan',
     'Canadian',
     'Natural',

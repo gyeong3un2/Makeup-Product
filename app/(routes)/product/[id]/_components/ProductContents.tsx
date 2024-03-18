@@ -1,4 +1,4 @@
-import { GetProductListResponse } from '@/app/modules/types';
+import type { GetProductListResponse } from '@/app/modules/types';
 import { gruppo } from '@/app/modules/constants';
 import { Box } from '@mui/material';
 import clsx from 'clsx';

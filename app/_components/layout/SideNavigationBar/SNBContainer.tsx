@@ -33,7 +33,7 @@ function SNBContainer({ onClose }: ISNBContainerProps) {
         <Divider />
 
         <SNBList
-          data={PRODUCT_MENU.category}
+          data={PRODUCT_MENU.CATEGORY}
           selectFilter={selectProductCategory}
           onSelectFilter={handleSelectCategory}
         />
@@ -44,7 +44,7 @@ function SNBContainer({ onClose }: ISNBContainerProps) {
         <Divider />
 
         <SNBList
-          data={PRODUCT_MENU.tag}
+          data={PRODUCT_MENU.TAG}
           selectFilter={selectProductTag}
           onSelectFilter={handleSelectTag}
         />

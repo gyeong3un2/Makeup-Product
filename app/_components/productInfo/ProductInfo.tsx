@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { Typography } from '@mui/material';
 import { abel } from '@/app/modules/constants';
-import { GetProductListResponse } from '@/app/modules/types';
+import type { GetProductListResponse } from '@/app/modules/types';
 
 interface IProductInfoProps {
   product: GetProductListResponse;

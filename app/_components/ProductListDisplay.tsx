@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card, CardContent, Grid } from '@mui/material';
-import { GetProductListResponse } from '@/app/modules/types/index';
+import type { GetProductListResponse } from '@/app/modules/types';
+import { useGetProductList } from '@/app/modules/hooks/useGetProductList';
 import { defaultImage, skeletonCounts } from '@/app/modules/constants';
 import { IProductState, productStore } from '@/app/modules/store/productStore';
-import { useGetProductList } from '../modules/hooks/useGetProductList';
 import { ProductColor, ProductInfo, SkeletonUI } from '.';
 
 /**

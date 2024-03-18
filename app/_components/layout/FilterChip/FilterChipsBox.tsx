@@ -47,7 +47,7 @@ function FilterChipsBox() {
       {selectProductType && (
         <FilterChip
           labelType="Type"
-          selectFilterName={selectProductType.replace('%20', ' ')}
+          selectFilterName={selectProductType}
           onDeleteChip={removeSelectProductType}
         />
       )}

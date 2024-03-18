@@ -2,8 +2,8 @@ import { ProductListDisplay } from '@/app/_components';
 import { PRODUCT_MENU } from '@/app/modules/constants';
 
 export function generateStaticParams() {
-  return PRODUCT_MENU.productType.map((type) => ({
-    type: type.toString().toLowerCase(),
+  return PRODUCT_MENU.TYPE.map((type) => ({
+    type: type.url,
   }));
 }
 

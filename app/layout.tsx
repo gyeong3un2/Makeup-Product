@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import { Container } from '@mui/material';
 import Provider from './modules/Provider';
 import {
+  Header,
+  GlobalNavigationBar,
+  SideNavigationBar,
   FilterChipsBox,
   FloatingUpButton,
-  GlobalNavigationBar,
-  Header,
-  SideNavigationBar,
 } from './_components';
 import './globals.css';
 
