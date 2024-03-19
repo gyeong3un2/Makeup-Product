@@ -5,7 +5,6 @@
 <br>
 
 - 배포 url: https://makeup-product.vercel.app/
-  
 - 상품 타입, 카테고리, 태그 별로 상품을 찾아볼 수 있습니다.
 
 <br>
@@ -54,12 +53,34 @@ Package Manager: `Yarn`
 
 <br>
 
+### 3단계: 반응형 디자인 구현
+
+- 반응형 디자인 구현
+  - 헤더
+  - GNB
+  - SNB
+  - 본문
+
+- px를 없애고, media query 적용
+
+<br>
+
+### 4단계: 상세 페이지 및 정적 생성
+
+- **Dynamic Route 사용**
+  - Id별 상품 상세 페이지 구현
+  - Type별 상품 필터링 페이지 구현
+
+- **Next.js의 정적 생성 기능 사용**
+
+<br>
+
 ## 프로젝트 실행 방법
 
 1. Env 세팅
 root directory
 ```shell
-NEXT_PUBLIC_API = 
+NEXT_PUBLIC_BASE_URL = 
 ```
 
 <br>
@@ -71,4 +92,3 @@ yarn
 
 # 프로젝트 실행
 yarn dev
-```

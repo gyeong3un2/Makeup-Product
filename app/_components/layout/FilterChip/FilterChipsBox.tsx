@@ -1,9 +1,17 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
 import { Box, Chip } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import { IProductState, productStore } from '@/store/productStore';
-import { FilterChip } from '@/components/ui';
+import { IProductState, productStore } from '@/app/_modules/store/productStore';
+import FilterChip from './FilterChip';
 
+/**
+ * 레이아웃 > 필터링 컴포넌트
+ */
 function FilterChipsBox() {
+  const router = useRouter();
+
   const {
     selectProductType,
     selectProductCategory,
@@ -14,6 +22,8 @@ function FilterChipsBox() {
   } = productStore<IProductState>((state) => state);
 
   const handleFilterReset = () => {
+    router.push('/');
+
     removeSelectProductType();
     removeSelectProductCategory();
     removeSelectProductTag();

@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import Provider from '@/provider/Provider';
+import Provider from './_modules/Provider';
+import { Header } from './_components';
 import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Makeup API',
@@ -17,12 +15,12 @@ function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <meta
-        httpEquiv="Content-Security-Policy"
-        content="upgrade-insecure-requests"
-      />
-      <body className={inter.className}>
-        <Provider>{children}</Provider>
+      <body>
+        <Provider>
+          <Header />
+
+          {children}
+        </Provider>
       </body>
     </html>
   );

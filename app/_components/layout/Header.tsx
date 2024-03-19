@@ -1,12 +1,12 @@
-import { Box, Typography } from '@mui/material';
+'use client';
+
 import clsx from 'clsx';
-import { Gruppo } from 'next/font/google';
+import { Box, Typography } from '@mui/material';
+import { gruppo } from '@/app/_modules/constants';
 
-const gruppo = Gruppo({
-  subsets: ['latin'],
-  weight: '400',
-});
-
+/**
+ * 레이아웃 > 헤더 컴포넌트
+ */
 function Header() {
   return (
     <Box className="text-center p-12">

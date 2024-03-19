@@ -1,17 +1,16 @@
 import { Grid, ListItem, Typography } from '@mui/material';
 import clsx from 'clsx';
 
-interface FilterListProps {
+interface ISNBListProps {
   data: string[];
   selectFilter: string;
   onSelectFilter: (name: string) => void;
 }
 
-function SNBFilterList({
-  data,
-  selectFilter,
-  onSelectFilter,
-}: FilterListProps) {
+/**
+ * 사이드 네비게이션 바 > 필터 리스트 컴포넌트
+ */
+function SNBList({ data, selectFilter, onSelectFilter }: ISNBListProps) {
   return (
     <Grid item xs={6}>
       {data.map((name: string) => (
@@ -31,4 +30,4 @@ function SNBFilterList({
   );
 }
 
-export default SNBFilterList;
+export default SNBList;
