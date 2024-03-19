@@ -1,6 +1,6 @@
 import { ProductListDisplay } from '@/app/_components';
 import { PRODUCT_MENU } from '@/app/_modules/constants';
-import ProductLayout from '@/app/_components/productLayout';
+import ProductLayout from '@/app/_components/ProductLayout';
 
 export function generateStaticParams() {
   return PRODUCT_MENU.TYPE.map((type) => ({

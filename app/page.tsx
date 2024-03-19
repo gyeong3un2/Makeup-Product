@@ -1,5 +1,5 @@
 import { ProductListDisplay } from './_components';
-import ProductLayout from './_components/productLayout';
+import ProductLayout from './_components/ProductLayout';
 
 /**
  * 메인 페이지
