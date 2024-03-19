@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Container } from '@mui/material';
-import Provider from './modules/Provider';
+import Provider from './_modules/Provider';
 import {
   Header,
   GlobalNavigationBar,

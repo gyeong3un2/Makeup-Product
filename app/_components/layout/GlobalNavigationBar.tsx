@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
 import { Box, Divider, Typography } from '@mui/material';
-import { PRODUCT_MENU } from '@/app/modules/constants';
-import { productStore, IProductState } from '@/app/modules/store/productStore';
+import { PRODUCT_MENU } from '@/app/_modules/constants';
+import { productStore, IProductState } from '@/app/_modules/store/productStore';
 
 /**
  * 레이아웃 > 상단 네비게이션 바 컴포넌트

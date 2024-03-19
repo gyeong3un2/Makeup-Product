@@ -1,6 +1,6 @@
 import { Box, Divider, Typography } from '@mui/material';
-import { PRODUCT_MENU } from '@/app/modules/constants';
-import { IProductState, productStore } from '@/app/modules/store/productStore';
+import { PRODUCT_MENU } from '@/app/_modules/constants';
+import { IProductState, productStore } from '@/app/_modules/store/productStore';
 import SNBList from './SNBList';
 
 interface ISNBContainerProps {

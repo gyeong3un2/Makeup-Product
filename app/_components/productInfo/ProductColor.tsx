@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { Grid } from '@mui/material';
-import type { GetProductListResponse } from '@/app/modules/types';
+import type { GetProductListResponse } from '@/app/_modules/types';
 
 interface IProductInfoProps {
   productColors: GetProductListResponse['product_colors'] | undefined;

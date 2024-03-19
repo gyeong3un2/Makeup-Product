@@ -1,7 +1,7 @@
 'use client';
 
-import type { GetProductListResponse } from '@/app/modules/types';
-import { gruppo } from '@/app/modules/constants';
+import type { GetProductListResponse } from '@/app/_modules/types';
+import { gruppo } from '@/app/_modules/constants';
 import { Button, Typography } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import clsx from 'clsx';

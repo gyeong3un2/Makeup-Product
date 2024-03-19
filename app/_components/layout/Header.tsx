@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { Box, Typography } from '@mui/material';
-import { gruppo } from '@/app/modules/constants';
+import { gruppo } from '@/app/_modules/constants';
 
 /**
  * 레이아웃 > 헤더 컴포넌트

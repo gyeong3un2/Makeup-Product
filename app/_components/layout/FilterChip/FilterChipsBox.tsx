@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { Box, Chip } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import { IProductState, productStore } from '@/app/modules/store/productStore';
+import { IProductState, productStore } from '@/app/_modules/store/productStore';
 import FilterChip from './FilterChip';
 
 /**

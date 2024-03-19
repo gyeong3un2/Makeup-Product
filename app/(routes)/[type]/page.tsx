@@ -1,5 +1,5 @@
 import { ProductListDisplay } from '@/app/_components';
-import { PRODUCT_MENU } from '@/app/modules/constants';
+import { PRODUCT_MENU } from '@/app/_modules/constants';
 
 export function generateStaticParams() {
   return PRODUCT_MENU.TYPE.map((type) => ({

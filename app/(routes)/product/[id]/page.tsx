@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import type { GetProductListResponse } from '@/app/modules/types';
+import type { GetProductListResponse } from '@/app/_modules/types';
 import { Divider, Grid } from '@mui/material';
-import { defaultImage } from '@/app/modules/constants';
-import { getProductInfo } from '@/app/modules/api/product-api';
+import { defaultImage } from '@/app/_modules/constants';
+import { getProductInfo } from '@/app/_modules/api/product-api';
 import { ProductColor } from '@/app/_components';
 import {
   BackIconButton,

@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card, CardContent, Grid } from '@mui/material';
-import type { GetProductListResponse } from '@/app/modules/types';
-import { useGetProductList } from '@/app/modules/hooks/useGetProductList';
-import { defaultImage, skeletonCounts } from '@/app/modules/constants';
-import { IProductState, productStore } from '@/app/modules/store/productStore';
+import type { GetProductListResponse } from '@/app/_modules/types';
+import { useGetProductList } from '@/app/_modules/hooks/useGetProductList';
+import { defaultImage, skeletonCounts } from '@/app/_modules/constants';
+import { IProductState, productStore } from '@/app/_modules/store/productStore';
 import { ProductColor, ProductInfo, SkeletonUI } from '.';
 
 /**
@@ -18,18 +18,18 @@ function ProductListDisplay() {
   const { selectProductCategory, selectProductTag, selectProductType } =
     productStore<IProductState>((state) => state);
 
+  const { fetchStatus, data: productList } = useGetProductList({
+    selectProductType,
+    selectProductCategory,
+    selectProductTag,
+  });
+
   const handleClick = useCallback(
     (id: number) => {
       router.push(`/product/${id}`);
     },
     [router],
   );
-
-  const { fetchStatus, data: productList } = useGetProductList({
-    selectProductType,
-    selectProductCategory,
-    selectProductTag,
-  });
 
   return (
     <Grid container rowSpacing={2} gridAutoRows={1}>
