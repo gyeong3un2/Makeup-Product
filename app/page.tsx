@@ -1,14 +1,13 @@
-import { ProductListDisplay } from './_components';
-import ProductLayout from './_components/ProductLayout';
+import { ProductListLayout, ProductListDisplay } from './_components';
 
 /**
  * 메인 페이지
  */
 function Home() {
   return (
-    <ProductLayout>
+    <ProductListLayout>
       <ProductListDisplay />
-    </ProductLayout>
+    </ProductListLayout>
   );
 }
 

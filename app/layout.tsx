@@ -1,13 +1,6 @@
 import type { Metadata } from 'next';
-import { Container } from '@mui/material';
 import Provider from './_modules/Provider';
-import {
-  Header,
-  GlobalNavigationBar,
-  SideNavigationBar,
-  FilterChipsBox,
-  FloatingUpButton,
-} from './_components';
+import { Header } from './_components';
 import './globals.css';
 
 export const metadata: Metadata = {

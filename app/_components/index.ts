@@ -11,5 +11,6 @@ export { default as Header } from './layout/Header';
 export { default as ProductColor } from './productInfo/ProductColor';
 export { default as ProductInfo } from './productInfo/ProductInfo';
 
+export { default as ProductListLayout } from './ProductListLayout';
 export { default as ProductListDisplay } from './ProductListDisplay';
 export { default as SkeletonUI } from './SkeletonUI';

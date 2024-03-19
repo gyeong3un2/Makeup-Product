@@ -6,7 +6,7 @@ import {
   SideNavigationBar,
 } from '.';
 
-function ProductLayout({
+function ProductListLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -28,4 +28,4 @@ function ProductLayout({
   );
 }
 
-export default ProductLayout;
+export default ProductListLayout;
