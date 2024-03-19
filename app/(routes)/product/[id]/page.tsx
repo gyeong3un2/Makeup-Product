@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import type { GetProductListResponse } from '@/app/_modules/types';
-import { Divider, Grid } from '@mui/material';
+import { Container, Divider, Grid } from '@mui/material';
 import { defaultImage } from '@/app/_modules/constants';
 import { getProductInfo } from '@/app/_modules/api/product-api';
 import { ProductColor } from '@/app/_components';
@@ -21,7 +21,7 @@ async function ProductPage({ params }: IProductPageProps) {
   const productInfo: GetProductListResponse = await getProductInfo(params.id);
 
   return (
-    <>
+    <Container className="max-w-xl">
       <Divider className="mt-2" />
       <BackIconButton />
 
@@ -57,7 +57,7 @@ async function ProductPage({ params }: IProductPageProps) {
       <Divider />
 
       <ProductContents productInfo={productInfo} />
-    </>
+    </Container>
   );
 }
 

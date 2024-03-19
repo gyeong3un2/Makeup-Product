@@ -26,17 +26,7 @@ function RootLayout({
         <Provider>
           <Header />
 
-          <GlobalNavigationBar />
-
-          <SideNavigationBar />
-
-          <FloatingUpButton />
-
-          <Container className="max-w-xl">
-            <FilterChipsBox />
-
-            {children}
-          </Container>
+          {children}
         </Provider>
       </body>
     </html>
