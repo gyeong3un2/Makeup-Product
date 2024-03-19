@@ -19,8 +19,8 @@ function ProductListDisplay() {
     productStore<IProductState>((state) => state);
 
   const handleClick = useCallback(
-    (value: GetProductListResponse) => {
-      router.push(`/product/${value.id}`);
+    (id: number) => {
+      router.push(`/product/${id}`);
     },
     [router],
   );
@@ -37,7 +37,7 @@ function ProductListDisplay() {
         ? productList.map((product: GetProductListResponse) => (
             <Grid item xs={12} sm={6} md={3} key={product?.id}>
               <Card
-                onClick={() => handleClick(product)}
+                onClick={() => handleClick(product.id)}
                 className="h-full shadow-none max-screen-w-64 hover:cursor-pointer hover:shadow-2xl transition ease-in-out hover:-translate-y-1 duration-300"
               >
                 <Image

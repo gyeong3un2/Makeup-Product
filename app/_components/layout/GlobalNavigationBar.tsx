@@ -28,7 +28,8 @@ function GlobalNavigationBar() {
           <Typography
             onClick={() => handleTypeClick(type)}
             className={clsx(
-              'my-auto mx-4 text-4 textHover',
+              'my-auto mx-4 text-4',
+              'textHover',
               selectProductType === type.name && 'selectFilter',
             )}
             key={type.name}

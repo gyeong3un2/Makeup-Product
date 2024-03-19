@@ -13,7 +13,7 @@ interface IProductContentsProps {
 function ProductContents({ productInfo }: IProductContentsProps) {
   return (
     <Box>
-      <div className={clsx(gruppo.className, 'm-2 w-')}>
+      <div className={clsx(gruppo.className, 'm-2')}>
         <span className="font-bold text-lg">Description:</span> <br />{' '}
         {productInfo?.description}
       </div>
