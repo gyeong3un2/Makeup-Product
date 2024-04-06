@@ -11,7 +11,7 @@
 
 ## 기술스택
 
-Frameworks: `Next.js 13` \
+Frameworks: `React 18`, `Next.js 13` \
 Languages: `TypeScript` \
 CSS Framework: `Tailwind CSS` \
 React UI Tool: `MUI` \
@@ -32,6 +32,9 @@ Package Manager: `Yarn`
 
 - **SNB (Side Navigation Bar)**
   - 상품 필터 ( 카테고리, 태그 )
+ 
+- **FilterChipBox**
+  - 사용자가 선택한 상품 필터 ( 리셋, 각각의 필터 삭제 )
 
 - **본문**
   - 상품 리스트 ( 상품 이미지, 이름, 브랜드, 카테고리, 가격 )
@@ -56,12 +59,11 @@ Package Manager: `Yarn`
 ### 3단계: 반응형 디자인 구현
 
 - 반응형 디자인 구현
-  - 헤더
   - GNB
   - SNB
   - 본문
 
-- px를 없애고, media query 적용
+- px -> rem 단위로 변경, media query 적용
 
 <br>
 
